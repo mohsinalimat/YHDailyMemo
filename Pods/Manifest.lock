@@ -1,0 +1,15 @@
+PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
+  - JTAppleCalendar (7.0.4)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 2.2.0)
+  - JTAppleCalendar (~> 7.0)
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
+  JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
+
+PODFILE CHECKSUM: 2319e67a4cf0d5af711c5b37411a7273a30e5735
+
+COCOAPODS: 1.2.0

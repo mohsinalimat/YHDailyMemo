@@ -1,0 +1,6 @@
+framework module Pods_SimpleCalendarTests {
+  umbrella header "Pods-SimpleCalendarTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
