@@ -9,9 +9,10 @@
 import UIKit
 import JTAppleCalendar
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
 
     @IBOutlet weak var calendarCollectionView: JTAppleCalendarView!
+    @IBOutlet weak var text: UITextView!
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
+extension MainViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSource {
     
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
  
@@ -49,6 +50,11 @@ extension ViewController: JTAppleCalendarViewDelegate, JTAppleCalendarViewDataSo
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCustomCell
         cell.dateLabel.text = cellState.text
         return cell
+    }
+    
+    
+    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        text.text = String(describing: date)
     }
 
 }
