@@ -30,8 +30,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupCalendarView()
         getToday()
-        calendarCollectionView.scrollToDate(today as Date)
-        calendarCollectionView.selectDates([NSDate() as Date])
+        goToToday((Any).self)
     }
     
     func setupCalendarView() {
@@ -84,6 +83,11 @@ class MainViewController: UIViewController {
         formatter.dateFormat = "MMMM YYYY"
         self.monthYear.text = formatter.string(from: date)
     }
+    
+    @IBAction func goToToday(_ sender: Any) {
+        calendarCollectionView.scrollToDate(today as Date)
+        calendarCollectionView.selectDates([NSDate() as Date])
+    }
 }
 
 extension MainViewController: JTAppleCalendarViewDelegate {
@@ -96,7 +100,7 @@ extension MainViewController: JTAppleCalendarViewDelegate {
         formatter.locale = Calendar.current.locale
 
         let startDate = formatter.date(from: "2017 01 01")!
-        let endDate = formatter.date(from: "2018 02 01")!
+        let endDate = formatter.date(from: "2200 12 31")!
         
         let parameters = ConfigurationParameters(startDate: startDate,endDate: endDate)
         return parameters
