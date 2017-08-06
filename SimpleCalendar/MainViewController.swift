@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     
     var todayString = String()
     var today = NSDate()
+    var keyboardOnScreen = false
     
     func getToday(){
         let now = NSDate()
@@ -87,8 +88,72 @@ class MainViewController: UIViewController {
         formatter.dateFormat = "MMMM YYYY"
         self.monthYear.text = formatter.string(from: date)
     }
-
-    
-    
 }
+
+// MARK: - MainViewController: UITextFieldDelegate
+
+extension MainViewController: UITextFieldDelegate {
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // MARK: Show/Hide Keyboard
+    
+    func keyboardWillShow(_ notification: Notification) {
+        if !keyboardOnScreen {
+            view.frame.origin.y -= keyboardHeight(notification)
+        }
+    }
+    
+    func keyboardWillHide(_ notification: Notification) {
+        if keyboardOnScreen {
+            view.frame.origin.y += keyboardHeight(notification)
+        }
+    }
+    
+    func keyboardDidShow(_ notification: Notification) {
+        keyboardOnScreen = true
+    }
+    
+    func keyboardDidHide(_ notification: Notification) {
+        keyboardOnScreen = false
+    }
+    
+    private func keyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = (notification as NSNotification).userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+    
+    private func resignIfFirstResponder(_ textField: UITextField) {
+        if textField.isFirstResponder {
+            textField.resignFirstResponder()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        text.resignFirstResponder()
+    }
+}
+
+
+
+// MARK: - MainViewController (Notifications)
+
+private extension MainViewController {
+    
+    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    }
+    
+    func unsubscribeFromAllNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+
 
