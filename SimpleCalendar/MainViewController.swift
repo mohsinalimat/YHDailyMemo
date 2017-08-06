@@ -15,6 +15,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var text: UITextView!
     @IBOutlet weak var monthYear: UILabel!
 
+    @IBOutlet weak var topStackView: UIStackView!
+    @IBOutlet weak var bodyStackView: UIStackView!
+    @IBOutlet weak var iconUp: UIStackView!
+    
+    @IBOutlet weak var weather: UILabel!
+    @IBOutlet weak var selectedDate: UILabel!
+    @IBOutlet weak var lunaDateHoliday: UILabel!
+    
     
     var todayString = String()
     var today = NSDate()
@@ -33,6 +41,12 @@ class MainViewController: UIViewController {
         setupCalendarView()
         getToday()
         goToToday((Any).self)
+        
+        
+        subscribeToNotification(.UIKeyboardWillShow, selector: #selector(keyboardWillShow))
+        subscribeToNotification(.UIKeyboardWillHide, selector: #selector(keyboardWillHide))
+        subscribeToNotification(.UIKeyboardDidShow, selector: #selector(keyboardDidShow))
+        subscribeToNotification(.UIKeyboardDidHide, selector: #selector(keyboardDidHide))
         
     }
     
@@ -88,71 +102,10 @@ class MainViewController: UIViewController {
         formatter.dateFormat = "MMMM YYYY"
         self.monthYear.text = formatter.string(from: date)
     }
-}
+    
+    
+    
 
-// MARK: - MainViewController: UITextFieldDelegate
-
-extension MainViewController: UITextFieldDelegate {
-    
-    // MARK: UITextFieldDelegate
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    // MARK: Show/Hide Keyboard
-    
-    func keyboardWillShow(_ notification: Notification) {
-        if !keyboardOnScreen {
-            view.frame.origin.y -= keyboardHeight(notification)
-        }
-    }
-    
-    func keyboardWillHide(_ notification: Notification) {
-        if keyboardOnScreen {
-            view.frame.origin.y += keyboardHeight(notification)
-        }
-    }
-    
-    func keyboardDidShow(_ notification: Notification) {
-        keyboardOnScreen = true
-    }
-    
-    func keyboardDidHide(_ notification: Notification) {
-        keyboardOnScreen = false
-    }
-    
-    private func keyboardHeight(_ notification: Notification) -> CGFloat {
-        let userInfo = (notification as NSNotification).userInfo
-        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-        return keyboardSize.cgRectValue.height
-    }
-    
-    private func resignIfFirstResponder(_ textField: UITextField) {
-        if textField.isFirstResponder {
-            textField.resignFirstResponder()
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        text.resignFirstResponder()
-    }
-}
-
-
-
-// MARK: - MainViewController (Notifications)
-
-private extension MainViewController {
-    
-    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
-        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
-    }
-    
-    func unsubscribeFromAllNotifications() {
-        NotificationCenter.default.removeObserver(self)
-    }
 }
 
 

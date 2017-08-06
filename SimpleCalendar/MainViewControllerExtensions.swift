@@ -10,6 +10,76 @@ import Foundation
 import UIKit
 import JTAppleCalendar
 
+
+
+// MARK: Regarding KEYBOARD
+extension MainViewController: UITextFieldDelegate {
+    
+    // MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // MARK: Show/Hide Keyboard
+    
+    func keyboardWillShow(_ notification: Notification) {
+        if !keyboardOnScreen {
+            topStackView.isHidden = true
+            self.view.frame.origin.y -= keyboardHeight(notification)
+            iconUp.isHidden = false
+        }
+    }
+    
+    func keyboardWillHide(_ notification: Notification) {
+        if keyboardOnScreen {
+            topStackView.isHidden = false
+            self.view.frame.origin.y += keyboardHeight(notification)
+            iconUp.isHidden = true
+        }
+    }
+    
+    func keyboardDidShow(_ notification: Notification) {
+        keyboardOnScreen = true
+    }
+    
+    func keyboardDidHide(_ notification: Notification) {
+        keyboardOnScreen = false
+    }
+    
+    private func keyboardHeight(_ notification: Notification) -> CGFloat {
+        let userInfo = (notification as NSNotification).userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.cgRectValue.height
+    }
+    
+    private func resignIfFirstResponder(_ textField: UITextField) {
+        if textField.isFirstResponder {
+            textField.resignFirstResponder()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        text.resignFirstResponder()
+    }
+    
+    //MARK: Dissmiss Keyboard
+    @IBAction func iconUp(_ sender: Any) {
+        text.resignFirstResponder()
+    }
+    
+    func subscribeToNotification(_ notification: NSNotification.Name, selector: Selector) {
+        NotificationCenter.default.addObserver(self, selector: selector, name: notification, object: nil)
+    }
+    
+    func unsubscribeFromAllNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+}
+
+
+
+
 //MARK: ToolBar Items
 extension MainViewController {
     
@@ -37,6 +107,10 @@ extension MainViewController {
     
 }
 
+
+
+//MARK: Calendar Cell & Data Source
+
 extension MainViewController: JTAppleCalendarViewDelegate {
     //MARK: Calendar Start & End
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
@@ -54,7 +128,6 @@ extension MainViewController: JTAppleCalendarViewDelegate {
     }
 }
 
-
 extension MainViewController: JTAppleCalendarViewDataSource {
     
     //MARK: Display Cell
@@ -70,7 +143,11 @@ extension MainViewController: JTAppleCalendarViewDataSource {
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
-        text.text = String(describing: date)
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM-dd-yy"
+        
+        selectedDate.text = formatter.string(from: date)
     }
     
     //MARK: Did DeSelected Cell
