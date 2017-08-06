@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var calendarCollectionView: JTAppleCalendarView!
     @IBOutlet weak var text: UITextView!
     @IBOutlet weak var monthYear: UILabel!
+
     
     var todayString = String()
     var today = NSDate()
@@ -31,6 +32,7 @@ class MainViewController: UIViewController {
         setupCalendarView()
         getToday()
         goToToday((Any).self)
+        
     }
     
     func setupCalendarView() {
@@ -63,13 +65,15 @@ class MainViewController: UIViewController {
             formatter.dateFormat = "yyyy MM dd"
             if formatter.string(from: cellState.date) == todayString {
                 validCell.selectedCell.isHidden = false
-                validCell.selectedCell.backgroundColor = UIColor(red: 0, green: 255, blue: 0, alpha: 0.4)
+                validCell.selectedCell.backgroundColor = UIColor(red: 79/255.0, green: 179/255.0, blue: 156/255.0, alpha: 0.3)
             }
         }
         
         if validCell.isSelected{
             validCell.selectedCell.isHidden = false
-            validCell.selectedCell.backgroundColor = UIColor(red: 0, green: 255, blue: 0, alpha: 1)
+            validCell.selectedCell.backgroundColor = UIColor(red: 79/255.0, green: 179/255.0, blue: 156/255.0, alpha: 0.7)
+            
+            
         } else {
             validCell.selectedCell.isHidden = true
             todayCheck()
@@ -83,61 +87,8 @@ class MainViewController: UIViewController {
         formatter.dateFormat = "MMMM YYYY"
         self.monthYear.text = formatter.string(from: date)
     }
+
     
-    @IBAction func goToToday(_ sender: Any) {
-        calendarCollectionView.scrollToDate(today as Date)
-        calendarCollectionView.selectDates([NSDate() as Date])
-    }
+    
 }
 
-extension MainViewController: JTAppleCalendarViewDelegate {
-    //MARK: Calendar Start & End
-    func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = "yyyy MM dd"
-        formatter.timeZone = Calendar.current.timeZone
-        formatter.locale = Calendar.current.locale
-
-        let startDate = formatter.date(from: "2017 01 01")!
-        let endDate = formatter.date(from: "2200 12 31")!
-        
-        let parameters = ConfigurationParameters(startDate: startDate,endDate: endDate)
-        return parameters
-    }
-}
-
-
-extension MainViewController: JTAppleCalendarViewDataSource {
-    
-    //MARK: Display Cell
-    func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "cell", for: indexPath) as! CalendarCustomCell
-        cell.dateLabel.text = cellState.text
-        handleCellSelected(view: cell, cellState: cellState)
-        handleCellTextColor(view: cell, cellState: cellState)
-        return cell
-    }
-    
-    //MARK: Did Selected Cell
-    func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        handleCellSelected(view: cell, cellState: cellState)
-        handleCellTextColor(view: cell, cellState: cellState)
-        text.text = String(describing: date)
-    }
-    
-    //MARK: Did DeSelected Cell
-    func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
-        handleCellSelected(view: cell, cellState: cellState)
-        handleCellTextColor(view: cell, cellState: cellState)
-    }
-
-    //MARK: Disolay current Month and Year
-    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
-        let date = visibleDates.monthDates.first!.date
-        let formatter = DateFormatter()
-    
-        formatter.dateFormat = "MMMM YYYY"
-        monthYear.text = formatter.string(from: date)
-    }
-}
