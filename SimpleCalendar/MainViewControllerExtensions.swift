@@ -145,9 +145,10 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         handleCellTextColor(view: cell, cellState: cellState)
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM-dd-yy"
+        formatter.dateFormat = "MM/dd/yy"
         
         selectedDate.text = formatter.string(from: date)
+        lunaDateHoliday.text = formatter.string(from: date)
     }
     
     //MARK: Did DeSelected Cell
