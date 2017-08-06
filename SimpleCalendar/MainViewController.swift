@@ -18,9 +18,6 @@ class MainViewController: UIViewController {
     var todayString = String()
     var today = NSDate()
     
-    
-    
-    
     func getToday(){
         let now = NSDate()
         let dateFormatter = DateFormatter()
@@ -90,17 +87,6 @@ class MainViewController: UIViewController {
     @IBAction func goToToday(_ sender: Any) {
         calendarCollectionView.scrollToDate(today as Date)
         calendarCollectionView.selectDates([NSDate() as Date])
-    }
-}
-
-public extension UIView {
-    public func pin(to view: UIView) {
-        NSLayoutConstraint.activate([
-            leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            topAnchor.constraint(equalTo: view.topAnchor),
-            bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
     }
 }
 
