@@ -107,10 +107,6 @@ class MainViewController: UIViewController {
         self.monthYear.text = formatter.string(from: date)
     }
     
-    @IBAction func swipeUP(_ sender: Any) {
-        topStackView.isHidden = true
-        iconUp.isHidden = false
-    }
 
 }
 

@@ -57,14 +57,14 @@ class KeyboardAccessoryToolbar: UIToolbar {
     func insertBar() {
         if let textView = currentView as? UITextView {
             textView.insertText("\n")
-            textView.insertText("------------------------")
+            textView.insertText("--------------------------------------------")
             textView.insertText("\n")
         }
     }
     
     func insertDot() {
         if let textView = currentView as? UITextView {
-            textView.insertText(" ∙ ")
+            textView.insertText("  ∙  ")
         }
     }
     
