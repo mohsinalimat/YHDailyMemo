@@ -21,11 +21,17 @@ extension MainViewController: UITextFieldDelegate {
         return true
     }
     
+
     // MARK: Show/Hide Keyboard
-    
     func keyboardWillShow(_ notification: Notification) {
         if !keyboardOnScreen {
+            
+            // MARK: KeyBoard Acc View
+            self.text.inputAccessoryView = accessoryToolbar
+            accessoryToolbar.currentView = self.text
+            
             topStackView.isHidden = true
+            toolBar.isHidden = true
             self.view.frame.origin.y -= keyboardHeight(notification)
             iconUp.isHidden = false
         }
@@ -34,8 +40,10 @@ extension MainViewController: UITextFieldDelegate {
     func keyboardWillHide(_ notification: Notification) {
         if keyboardOnScreen {
             topStackView.isHidden = false
+            toolBar.isHidden = false
             self.view.frame.origin.y += keyboardHeight(notification)
             iconUp.isHidden = true
+            calendarCollectionView.scrollToDate(self.selectedDateData as Date)
         }
     }
     
@@ -75,7 +83,9 @@ extension MainViewController: UITextFieldDelegate {
     func unsubscribeFromAllNotifications() {
         NotificationCenter.default.removeObserver(self)
     }
+    
 }
+
 
 
 
@@ -147,6 +157,7 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
         
+        self.selectedDateData = date as NSDate
         selectedDate.text = formatter.string(from: date)
         lunaDateHoliday.text = formatter.string(from: date)
     }

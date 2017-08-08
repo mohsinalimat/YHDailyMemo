@@ -18,15 +18,19 @@ class MainViewController: UIViewController {
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bodyStackView: UIStackView!
     @IBOutlet weak var iconUp: UIStackView!
+    @IBOutlet weak var toolBar: UIToolbar!
     
     @IBOutlet weak var weather: UILabel!
     @IBOutlet weak var selectedDate: UILabel!
     @IBOutlet weak var lunaDateHoliday: UILabel!
     
+    // Recycle toolbar for other text fields for less memory consumption
+    lazy var accessoryToolbar = KeyboardAccessoryToolbar()
     
     var todayString = String()
     var today = NSDate()
     var keyboardOnScreen = false
+    var selectedDateData = NSDate()
     
     func getToday(){
         let now = NSDate()
@@ -103,10 +107,16 @@ class MainViewController: UIViewController {
         self.monthYear.text = formatter.string(from: date)
     }
     
-    
-    
+    @IBAction func swipeUP(_ sender: Any) {
+        topStackView.isHidden = true
+        iconUp.isHidden = false
+    }
 
 }
+
+
+
+
 
 
 

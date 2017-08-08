@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		10ABC212A7526E4F3B7DDA08 /* Pods_SimpleCalendarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D88CA9E1E823F653DA9BBC /* Pods_SimpleCalendarTests.framework */; };
 		2704197B1F3733EE00180A42 /* MainViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2704197A1F3733EE00180A42 /* MainViewControllerExtensions.swift */; };
+		2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2704197C1F395ACC00180A42 /* keyboardAccView.swift */; };
 		27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */; };
 		27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347511F2ED8DE004CACDD /* MainViewController.swift */; };
 		27D347551F2ED8DE004CACDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D347531F2ED8DE004CACDD /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		14B5A3084EF33D92C4928CAD /* Pods-SimpleCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendar/Pods-SimpleCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		2704197A1F3733EE00180A42 /* MainViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerExtensions.swift; sourceTree = "<group>"; };
+		2704197C1F395ACC00180A42 /* keyboardAccView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyboardAccView.swift; sourceTree = "<group>"; };
 		27D3474C1F2ED8DE004CACDD /* SimpleCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D347511F2ED8DE004CACDD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				27D347511F2ED8DE004CACDD /* MainViewController.swift */,
 				2704197A1F3733EE00180A42 /* MainViewControllerExtensions.swift */,
 				27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */,
+				2704197C1F395ACC00180A42 /* keyboardAccView.swift */,
 				27D347531F2ED8DE004CACDD /* Main.storyboard */,
 				27D347591F2ED8DE004CACDD /* Assets.xcassets */,
 				27D3475B1F2ED8DE004CACDD /* LaunchScreen.storyboard */,
@@ -461,6 +464,7 @@
 				27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */,
 				27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */,
 				27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */,
+				2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */,
 				2704197B1F3733EE00180A42 /* MainViewControllerExtensions.swift in Sources */,
 				27D347581F2ED8DE004CACDD /* SimpleCalendar.xcdatamodeld in Sources */,
 			);
