@@ -19,6 +19,8 @@
 		27D347681F2ED8DE004CACDD /* SimpleCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347671F2ED8DE004CACDD /* SimpleCalendarTests.swift */; };
 		27D347731F2ED8DE004CACDD /* SimpleCalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347721F2ED8DE004CACDD /* SimpleCalendarUITests.swift */; };
 		27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */; };
+		27FC3A391F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */; };
+		27FC3A3B1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */; };
 		96547AE155A5BB1BC99BBBE1 /* Pods_SimpleCalendarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58328B59B1088EAAFAC7482D /* Pods_SimpleCalendarUITests.framework */; };
 		ABA110D896310F8FFEF6A9C7 /* Pods_SimpleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902DADE1C1AE9964CFCD9C29 /* Pods_SimpleCalendar.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,8 @@
 		27D347721F2ED8DE004CACDD /* SimpleCalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCalendarUITests.swift; sourceTree = "<group>"; };
 		27D347741F2ED8DE004CACDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCustomCell.swift; sourceTree = "<group>"; };
+		27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Toolbar.swift"; sourceTree = "<group>"; };
+		27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Calendar.swift"; sourceTree = "<group>"; };
 		34D88CA9E1E823F653DA9BBC /* Pods_SimpleCalendarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCalendarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DD06CB69D77A9D91547071 /* Pods-SimpleCalendarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendarTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendarTests/Pods-SimpleCalendarTests.release.xcconfig"; sourceTree = "<group>"; };
 		58328B59B1088EAAFAC7482D /* Pods_SimpleCalendarUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCalendarUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +142,8 @@
 				27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */,
 				27D347511F2ED8DE004CACDD /* MainViewController.swift */,
 				2704197A1F3733EE00180A42 /* MainViewControllerExtensions.swift */,
+				27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */,
+				27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */,
 				27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */,
 				2704197C1F395ACC00180A42 /* keyboardAccView.swift */,
 				27D347531F2ED8DE004CACDD /* Main.storyboard */,
@@ -461,7 +467,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27FC3A3B1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift in Sources */,
 				27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */,
+				27FC3A391F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift in Sources */,
 				27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */,
 				27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */,
 				2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */,
