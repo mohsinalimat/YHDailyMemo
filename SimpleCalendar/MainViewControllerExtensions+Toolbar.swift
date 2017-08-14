@@ -30,6 +30,7 @@ extension MainViewController {
     
     //MARK: Delete Memo
     @IBAction func deleteMemo(_ sender: Any) {
+        deleteQuery(date: selectedDateData)
     }
     
     //MARK: Next Memo

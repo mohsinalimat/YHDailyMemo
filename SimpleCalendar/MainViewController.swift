@@ -17,6 +17,9 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bodyStackView: UIStackView!
+    @IBOutlet weak var masterStackView: UIStackView!
+    @IBOutlet var masterView: UIView!
+    
     @IBOutlet weak var iconUp: UIStackView!
     @IBOutlet weak var toolBar: UIToolbar!
     
@@ -44,8 +47,10 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         setupCalendarView()
         getToday()
-        goToToday((Any).self)
         
+        //MARK:: Calendar View to Today
+        calendarCollectionView.scrollToDate(today as Date)
+        calendarCollectionView.selectDates([NSDate() as Date])
         
         subscribeToNotification(.UIKeyboardWillShow, selector: #selector(keyboardWillShow))
         subscribeToNotification(.UIKeyboardWillHide, selector: #selector(keyboardWillHide))

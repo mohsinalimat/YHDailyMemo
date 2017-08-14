@@ -13,12 +13,13 @@
 		27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */; };
 		27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347511F2ED8DE004CACDD /* MainViewController.swift */; };
 		27D347551F2ED8DE004CACDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D347531F2ED8DE004CACDD /* Main.storyboard */; };
-		27D347581F2ED8DE004CACDD /* SimpleCalendar.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 27D347561F2ED8DE004CACDD /* SimpleCalendar.xcdatamodeld */; };
 		27D3475A1F2ED8DE004CACDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27D347591F2ED8DE004CACDD /* Assets.xcassets */; };
 		27D3475D1F2ED8DE004CACDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D3475B1F2ED8DE004CACDD /* LaunchScreen.storyboard */; };
 		27D347681F2ED8DE004CACDD /* SimpleCalendarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347671F2ED8DE004CACDD /* SimpleCalendarTests.swift */; };
 		27D347731F2ED8DE004CACDD /* SimpleCalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347721F2ED8DE004CACDD /* SimpleCalendarUITests.swift */; };
 		27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */; };
+		27E87D6B1F3C3A3900D144C9 /* realmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E87D6A1F3C3A3900D144C9 /* realmObjects.swift */; };
+		27F978171F41009E007428D1 /* realmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F978161F41009D007428D1 /* realmModels.swift */; };
 		27FC3A391F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */; };
 		27FC3A3B1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */; };
 		96547AE155A5BB1BC99BBBE1 /* Pods_SimpleCalendarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58328B59B1088EAAFAC7482D /* Pods_SimpleCalendarUITests.framework */; };
@@ -50,7 +51,6 @@
 		27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D347511F2ED8DE004CACDD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		27D347541F2ED8DE004CACDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		27D347571F2ED8DE004CACDD /* SimpleCalendar.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SimpleCalendar.xcdatamodel; sourceTree = "<group>"; };
 		27D347591F2ED8DE004CACDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27D3475C1F2ED8DE004CACDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27D3475E1F2ED8DE004CACDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +61,8 @@
 		27D347721F2ED8DE004CACDD /* SimpleCalendarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCalendarUITests.swift; sourceTree = "<group>"; };
 		27D347741F2ED8DE004CACDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCustomCell.swift; sourceTree = "<group>"; };
+		27E87D6A1F3C3A3900D144C9 /* realmObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = realmObjects.swift; sourceTree = "<group>"; };
+		27F978161F41009D007428D1 /* realmModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = realmModels.swift; sourceTree = "<group>"; };
 		27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Toolbar.swift"; sourceTree = "<group>"; };
 		27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Calendar.swift"; sourceTree = "<group>"; };
 		34D88CA9E1E823F653DA9BBC /* Pods_SimpleCalendarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCalendarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,18 +141,11 @@
 		27D3474E1F2ED8DE004CACDD /* SimpleCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */,
-				27D347511F2ED8DE004CACDD /* MainViewController.swift */,
-				2704197A1F3733EE00180A42 /* MainViewControllerExtensions.swift */,
-				27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */,
-				27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */,
-				27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */,
-				2704197C1F395ACC00180A42 /* keyboardAccView.swift */,
-				27D347531F2ED8DE004CACDD /* Main.storyboard */,
+				27FC3A3C1F3C392000F1EF4A /* View */,
+				27FC3A3D1F3C392500F1EF4A /* ViewController */,
+				27FC3A3E1F3C392700F1EF4A /* Model */,
 				27D347591F2ED8DE004CACDD /* Assets.xcassets */,
-				27D3475B1F2ED8DE004CACDD /* LaunchScreen.storyboard */,
 				27D3475E1F2ED8DE004CACDD /* Info.plist */,
-				27D347561F2ED8DE004CACDD /* SimpleCalendar.xcdatamodeld */,
 			);
 			path = SimpleCalendar;
 			sourceTree = "<group>";
@@ -171,6 +166,46 @@
 				27D347741F2ED8DE004CACDD /* Info.plist */,
 			);
 			path = SimpleCalendarUITests;
+			sourceTree = "<group>";
+		};
+		27FC3A3C1F3C392000F1EF4A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				27D347531F2ED8DE004CACDD /* Main.storyboard */,
+				27D3475B1F2ED8DE004CACDD /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		27FC3A3D1F3C392500F1EF4A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27D347511F2ED8DE004CACDD /* MainViewController.swift */,
+				2704197A1F3733EE00180A42 /* MainViewControllerExtensions.swift */,
+				27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */,
+				27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		27FC3A3E1F3C392700F1EF4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */,
+				2704197C1F395ACC00180A42 /* keyboardAccView.swift */,
+				27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */,
+				27FC3A3F1F3C395E00F1EF4A /* Realm */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		27FC3A3F1F3C395E00F1EF4A /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				27E87D6A1F3C3A3900D144C9 /* realmObjects.swift */,
+				27F978161F41009D007428D1 /* realmModels.swift */,
+			);
+			name = Realm;
 			sourceTree = "<group>";
 		};
 		392927BAE6BAA8C0011CEDCC /* Frameworks */ = {
@@ -473,8 +508,9 @@
 				27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */,
 				27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */,
 				2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */,
+				27E87D6B1F3C3A3900D144C9 /* realmObjects.swift in Sources */,
+				27F978171F41009E007428D1 /* realmModels.swift in Sources */,
 				2704197B1F3733EE00180A42 /* MainViewControllerExtensions.swift in Sources */,
-				27D347581F2ED8DE004CACDD /* SimpleCalendar.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,19 +792,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		27D347561F2ED8DE004CACDD /* SimpleCalendar.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				27D347571F2ED8DE004CACDD /* SimpleCalendar.xcdatamodel */,
-			);
-			currentVersion = 27D347571F2ED8DE004CACDD /* SimpleCalendar.xcdatamodel */;
-			path = SimpleCalendar.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 27D347441F2ED8DE004CACDD /* Project object */;
 }

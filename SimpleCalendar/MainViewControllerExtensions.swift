@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import JTAppleCalendar
+import RealmSwift
 
 
 
@@ -20,24 +21,30 @@ extension MainViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
+
 
     // MARK: Show/Hide Keyboard
     func keyboardWillShow(_ notification: Notification) {
         if !keyboardOnScreen {
             
+            topStackView.isHidden = true
+            toolBar.isHidden = true
+
             // MARK: KeyBoard Acc View
             self.text.inputAccessoryView = accessoryToolbar
             accessoryToolbar.currentView = self.text
             
-            topStackView.isHidden = true
-            toolBar.isHidden = true
             self.view.frame.origin.y -= keyboardHeight(notification)
+
             iconUp.isHidden = false
         }
     }
     
+    
     func keyboardWillHide(_ notification: Notification) {
+        
+        realmUpdate(date: self.selectedDateData, text: self.text)
+        
         if keyboardOnScreen {
             topStackView.isHidden = false
             toolBar.isHidden = false

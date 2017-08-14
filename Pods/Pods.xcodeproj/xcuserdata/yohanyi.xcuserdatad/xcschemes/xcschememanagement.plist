@@ -29,6 +29,16 @@
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -42,7 +52,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>3360CB8368150CE49E66CAF214613409</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>65E66C486CE4E859D3FE46B556F5AB1E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>6C67BD9F1452CA09401B76AAF0268D7A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>903B7A8A63F7D201C07097C17E3E8790</key>
 		<dict>
 			<key>primary</key>
 			<true/>

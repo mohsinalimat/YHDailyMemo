@@ -51,7 +51,19 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         
         self.selectedDateData = date as NSDate
         selectedDate.text = formatter.string(from: date)
-        //lunaDateHoliday.text = formatter.string(from: date)
+        
+        //MARK: realm Query
+        if let data = realmQuery(date: selectedDateData){
+            self.text.text = data.text
+            //self.weather
+            //lunaDateHoliday.text = formatter.string(from: date)
+        } else {
+            //MARK: no data
+            self.text.text = ""
+            //self.weather = ""
+            //lunaDateHoliday.text
+        }
+    
     }
     
     //MARK: Did DeSelected Cell
