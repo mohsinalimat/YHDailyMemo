@@ -11,14 +11,8 @@ import RealmSwift
 
 
 func realmUpdate( date: NSDate, text: UITextView ) {
-    
-    
     let realm = try! Realm()
-    
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy MM dd"
-    let primaryKey = formatter.string(from: date as Date)
-
+    let primaryKey = getPrimaryKey(date: date)
     
     let result = realm.objects(dailyMemo.self).filter("createdDate = '\(primaryKey)'")
     
@@ -56,9 +50,7 @@ func realmUpdate( date: NSDate, text: UITextView ) {
 
 func realmQuery(date: NSDate) -> dailyMemo? {
     let realm = try! Realm()
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy MM dd"
-    let primaryKey = formatter.string(from: date as Date)
+    let primaryKey = getPrimaryKey(date: date)
     
     let result = realm.objects(dailyMemo.self).filter("createdDate = '\(primaryKey)'")
     
@@ -71,10 +63,7 @@ func realmQuery(date: NSDate) -> dailyMemo? {
 
 func deleteQuery(date: NSDate) {
     let realm = try! Realm()
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy MM dd"
-    
-    let primaryKey = formatter.string(from: date as Date)
+    let primaryKey = getPrimaryKey(date: date)
     
     let result = realm.objects(dailyMemo.self).filter("createdDate = '\(primaryKey)'")
     
@@ -83,9 +72,45 @@ func deleteQuery(date: NSDate) {
     }
 }
 
+func previewQuery(date: NSDate) -> String {
+    let realm = try! Realm()
+    let primaryKey = getPrimaryKey(date: date)
+
+    let result = realm.objects(dailyMemo.self).filter("createdDate = '\(primaryKey)'")
+    
+    if result.count == 0 {
+        return ""
+    } else {
+        return result[0].text.truncate(length: 5, trailing: "..")
+    }
+}
 
 
+func getPrimaryKey (date: NSDate) -> String {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy MM dd"
+    
+    return formatter.string(from: date as Date)
+}
 
+
+extension String {
+    /**
+     Truncates the string to the specified length number of characters and appends an optional trailing string if longer.
+     
+     - Parameter length: A `String`.
+     - Parameter trailing: A `String` that will be appended after the truncation.
+     
+     - Returns: A `String` object.
+     */
+    func truncate(length: Int, trailing: String = ".") -> String {
+        if self.characters.count > length {
+            return String(self.characters.prefix(length)) + trailing
+        } else {
+            return self
+        }
+    }
+}
 
 
 

@@ -43,7 +43,11 @@ extension MainViewController: UITextFieldDelegate {
     
     func keyboardWillHide(_ notification: Notification) {
         
-        realmUpdate(date: self.selectedDateData, text: self.text)
+        if self.text.text != "" {
+            realmUpdate(date: self.selectedDateData, text: self.text)
+        }
+        
+        calendarCollectionView.reloadData()
         
         if keyboardOnScreen {
             topStackView.isHidden = false
