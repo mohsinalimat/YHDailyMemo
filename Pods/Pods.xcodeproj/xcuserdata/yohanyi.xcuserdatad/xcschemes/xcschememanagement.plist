@@ -39,10 +39,25 @@
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
+		<key>SWXMLHash.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>0035CD9CC19053BABD7676F4A722EBAB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>0325BE721EFE1CD4749B0D1C3C492B0D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>08ECC1849DD4354DCAC31F9E572D355F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -73,6 +88,16 @@
 			<true/>
 		</dict>
 		<key>965699190112DDBD9B7864D091660DBC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2200E150D4EC6F11C2C81FEA85807CF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BFC3F9A7000200E8E9CBE8D631939C2A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -20,6 +20,8 @@
 		27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */; };
 		27E87D6B1F3C3A3900D144C9 /* realmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E87D6A1F3C3A3900D144C9 /* realmObjects.swift */; };
 		27F978171F41009E007428D1 /* realmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F978161F41009D007428D1 /* realmModels.swift */; };
+		27F978191F41A24A007428D1 /* setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F978181F41A24A007428D1 /* setting.swift */; };
+		27F9781B1F41A82C007428D1 /* lunaDateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F9781A1F41A82C007428D1 /* lunaDateModel.swift */; };
 		27FC3A391F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */; };
 		27FC3A3B1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */; };
 		96547AE155A5BB1BC99BBBE1 /* Pods_SimpleCalendarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58328B59B1088EAAFAC7482D /* Pods_SimpleCalendarUITests.framework */; };
@@ -63,6 +65,8 @@
 		27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCustomCell.swift; sourceTree = "<group>"; };
 		27E87D6A1F3C3A3900D144C9 /* realmObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = realmObjects.swift; sourceTree = "<group>"; };
 		27F978161F41009D007428D1 /* realmModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = realmModels.swift; sourceTree = "<group>"; };
+		27F978181F41A24A007428D1 /* setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
+		27F9781A1F41A82C007428D1 /* lunaDateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lunaDateModel.swift; sourceTree = "<group>"; };
 		27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Toolbar.swift"; sourceTree = "<group>"; };
 		27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Calendar.swift"; sourceTree = "<group>"; };
 		34D88CA9E1E823F653DA9BBC /* Pods_SimpleCalendarTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCalendarTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,8 +196,10 @@
 			isa = PBXGroup;
 			children = (
 				27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */,
+				27F978181F41A24A007428D1 /* setting.swift */,
 				2704197C1F395ACC00180A42 /* keyboardAccView.swift */,
 				27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */,
+				27F9781A1F41A82C007428D1 /* lunaDateModel.swift */,
 				27FC3A3F1F3C395E00F1EF4A /* Realm */,
 			);
 			name = Model;
@@ -507,7 +513,9 @@
 				27FC3A391F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift in Sources */,
 				27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */,
 				27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */,
+				27F9781B1F41A82C007428D1 /* lunaDateModel.swift in Sources */,
 				2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */,
+				27F978191F41A24A007428D1 /* setting.swift in Sources */,
 				27E87D6B1F3C3A3900D144C9 /* realmObjects.swift in Sources */,
 				27F978171F41009E007428D1 /* realmModels.swift in Sources */,
 				2704197B1F3733EE00180A42 /* MainViewControllerExtensions.swift in Sources */,

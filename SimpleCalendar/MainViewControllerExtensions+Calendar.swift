@@ -50,9 +50,21 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
+        let displaiedSelectedDate = formatter.string(from: date)
         
         self.selectedDateData = date as NSDate
-        selectedDate.text = formatter.string(from: date)
+        
+        //if appSetting.lunacalendar {
+            //Luna Calendar
+            self.holiday.text = lunaDate(Soldate: self.selectedDateData)
+            
+        //} else {
+        
+        
+        
+        //}
+        
+        selectedDate.text = displaiedSelectedDate
         
         //MARK: realm Query
         if let data = realmQuery(date: selectedDateData){

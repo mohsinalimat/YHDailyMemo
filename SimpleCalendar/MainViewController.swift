@@ -19,13 +19,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var bodyStackView: UIStackView!
     @IBOutlet weak var masterStackView: UIStackView!
     @IBOutlet var masterView: UIView!
+    @IBOutlet weak var holiday: UILabel!
     
     @IBOutlet weak var iconUp: UIStackView!
     @IBOutlet weak var toolBar: UIToolbar!
     
     @IBOutlet weak var weather: UILabel!
     @IBOutlet weak var selectedDate: UILabel!
-    @IBOutlet weak var lunaDateHoliday: UILabel!
     
     // Recycle toolbar for other text fields for less memory consumption
     lazy var accessoryToolbar = KeyboardAccessoryToolbar()

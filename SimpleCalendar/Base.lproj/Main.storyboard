@@ -461,6 +461,7 @@
                     <connections>
                         <outlet property="bodyStackView" destination="dga-yl-JFl" id="crz-YM-5Vj"/>
                         <outlet property="calendarCollectionView" destination="RUc-Pg-6xM" id="rxv-PZ-l4K"/>
+                        <outlet property="holiday" destination="Dig-Lv-Ek0" id="GQJ-i5-KXc"/>
                         <outlet property="iconUp" destination="1gj-Dx-ly9" id="6v8-ZX-Rss"/>
                         <outlet property="masterStackView" destination="Gu7-Ry-9Dx" id="m0y-U9-vjk"/>
                         <outlet property="masterView" destination="8bC-Xf-vdC" id="J0d-06-jih"/>

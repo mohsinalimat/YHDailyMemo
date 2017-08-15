@@ -6,12 +6,14 @@ PODS:
   - Realm/Headers (2.9.1)
   - RealmSwift (2.9.1):
     - Realm (= 2.9.1)
+  - SWXMLHash (4.0.0)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 2.2.0)
   - JTAppleCalendar (~> 7.0)
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
+  - SWXMLHash (~> 4.0.0)
 
 EXTERNAL SOURCES:
   Realm:
@@ -38,7 +40,8 @@ SPEC CHECKSUMS:
   JTAppleCalendar: 6def48ecd0daae1d5baaa45e813124c2a20b184d
   Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   RealmSwift: 9b93f053d46d4fc4145e691c14eb06b5410ffdc9
+  SWXMLHash: 6bbc0bf72975a18ceda469fb7d6a886a26d81694
 
-PODFILE CHECKSUM: a19742b1fe9ecf3e183e30e2fba51c77d65f8977
+PODFILE CHECKSUM: 1450f2bdc5d46fd5c495c380aea9bb3684a4f802
 
 COCOAPODS: 1.1.1

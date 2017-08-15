@@ -40,8 +40,11 @@ extension MainViewController {
     
     //MARK: Delete Memo
     @IBAction func deleteMemo(_ sender: Any) {
+        if self.text.text != "" {
+            deleteQuery(date: selectedDateData)
+        }
+        
         self.text.text = ""
-        deleteQuery(date: selectedDateData)
         calendarCollectionView.reloadData()
     }
     
@@ -61,7 +64,6 @@ extension MainViewController {
 }
 
 extension NSDate {
-    
     func addDays(days:Int) -> NSDate{
         let newDate = Calendar.current.date(
             byAdding: .day,
