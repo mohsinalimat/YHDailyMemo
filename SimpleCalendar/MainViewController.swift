@@ -34,6 +34,7 @@ class MainViewController: UIViewController {
     var today = NSDate()
     var keyboardOnScreen = false
     var selectedDateData = NSDate()
+    let appSetUp = appSetting()
     
     func getToday(){
         let now = NSDate()
@@ -77,6 +78,15 @@ class MainViewController: UIViewController {
             validCell.dateLabel.textColor = UIColor.darkGray
         } else {
             validCell.dateLabel.textColor = UIColor.lightGray
+        }
+        
+        if cellState.day == .sunday{
+            validCell.dateLabel.textColor = UIColor(red: 255/255.0, green: 32/255.0, blue: 0/255.0, alpha: 0.6)
+        }
+        
+        if let _ = getHoliday(date: cellState.date as NSDate) {
+            validCell.dateLabel.textColor = UIColor(red: 255/255.0, green: 32/255.0, blue: 0/255.0, alpha: 0.6)
+
         }
     }
     

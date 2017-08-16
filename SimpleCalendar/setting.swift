@@ -9,8 +9,8 @@
 import Foundation
 
 
-class appSetting {
+struct appSetting {
     
-    var lunaCalendar = false
+    var lunaCalendar = true
     
 }

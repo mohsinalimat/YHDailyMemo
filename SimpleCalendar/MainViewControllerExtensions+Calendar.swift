@@ -25,7 +25,10 @@ extension MainViewController: JTAppleCalendarViewDelegate {
         let startDate = formatter.date(from: "2017 01 01")!
         let endDate = formatter.date(from: "2047 12 31")!
         
-        let parameters = ConfigurationParameters(startDate: startDate,endDate: endDate)
+        let parameters = ConfigurationParameters(startDate: startDate,
+                                                 endDate: endDate,
+                                                 generateOutDates: .tillEndOfRow
+                                                 )
         return parameters
     }
 }
@@ -52,14 +55,23 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         formatter.dateFormat = "MM/dd/yy"
         let displaiedSelectedDate = formatter.string(from: date)
         var displayHolidayandLunadate = " "
+        var displayLunaday = " "
+        
+        
         
         self.selectedDateData = date as NSDate
         
-        
-        //if appSetting.lunacalendar {
+        //LUNA CALENDAR ON
+        if self.appSetUp.lunaCalendar {
         
             //Get Lunaday
-            let displayLunaday = lunaDate(Soldate: self.selectedDateData)
+            if let tempLunaday = lunaDate(Soldate: self.selectedDateData) {
+                if tempLunaday == "0000/" {
+                    displayLunaday = " "
+                } else {
+                    displayLunaday = tempLunaday
+                }
+            }
         
             //Get Holiday
             if let displayHoliday = getHoliday(date: self.selectedDateData) {
@@ -67,11 +79,14 @@ extension MainViewController: JTAppleCalendarViewDataSource {
             } else {
                 displayHolidayandLunadate = "\(displayLunaday)"
             }
-        
-        //} else {
-            //Holiday
-        
-        //}
+            
+        //LUNA CALENDAR OFF
+        } else {
+            //Get Holiday
+            if let displayHoliday = getHoliday(date: self.selectedDateData) {
+                displayHolidayandLunadate = "\(displayHoliday)"
+            }
+        }
         
         self.holiday.text = displayHolidayandLunadate
         
@@ -81,12 +96,10 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         if let data = realmQuery(date: selectedDateData){
             self.text.text = data.text
             //self.weather
-            //lunaDateHoliday.text = formatter.string(from: date)
         } else {
             //MARK: no data
             self.text.text = ""
             //self.weather = ""
-            //lunaDateHoliday.text
         }
     
     }
@@ -97,7 +110,7 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         handleCellTextColor(view: cell, cellState: cellState)
     }
     
-    //MARK: Disolay current Month and Year
+    //MARK: Display current Month and Year
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
         let formatter = DateFormatter()
