@@ -16,6 +16,13 @@ func lunaDate( Soldate: NSDate)-> String {
     var solDay = ""
     var solMonth = ""
     
+    //MARK: IF Date is stored, return date
+    
+    
+    
+    
+    
+    //MARK: Else - parshing from API
     if Calendar.current.component(.day, from: Soldate as Date) < 10{
         solDay = "0" + String(Calendar.current.component(.day, from: Soldate as Date))
     } else {

@@ -14,6 +14,7 @@ import JTAppleCalendar
 //MARK: ToolBar Items
 extension MainViewController {
     
+    
     //MARK: Previous Memo
     @IBAction func previousMemo(_ sender: Any) {
         for i in 1...365 {
@@ -28,18 +29,27 @@ extension MainViewController {
         }
     }
     
+    
     //MARK: Goto Today
     @IBAction func goToToday(_ sender: Any) {
         calendarCollectionView.scrollToDate(today as Date)
         calendarCollectionView.selectDates([NSDate() as Date])
     }
     
+    
     //MARK: Set up the Alarm
     @IBAction func setUpAlarm(_ sender: Any) {
     }
     
+    
     //MARK: Delete Memo
     @IBAction func deleteMemo(_ sender: Any) {
+        
+        //MARK: Alret to delete
+        
+        
+        
+        
         if self.text.text != "" {
             deleteQuery(date: selectedDateData)
         }
@@ -47,6 +57,7 @@ extension MainViewController {
         self.text.text = ""
         calendarCollectionView.reloadData()
     }
+    
     
     //MARK: Next Memo
     @IBAction func nextMemo(_ sender: Any) {

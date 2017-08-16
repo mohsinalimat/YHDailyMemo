@@ -23,7 +23,7 @@ extension MainViewController: JTAppleCalendarViewDelegate {
         formatter.locale = Calendar.current.locale
         
         let startDate = formatter.date(from: "2017 01 01")!
-        let endDate = formatter.date(from: "2200 12 31")!
+        let endDate = formatter.date(from: "2047 12 31")!
         
         let parameters = ConfigurationParameters(startDate: startDate,endDate: endDate)
         return parameters
@@ -51,18 +51,29 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
         let displaiedSelectedDate = formatter.string(from: date)
+        var displayHolidayandLunadate = " "
         
         self.selectedDateData = date as NSDate
         
+        
         //if appSetting.lunacalendar {
-            //Luna Calendar
-            self.holiday.text = lunaDate(Soldate: self.selectedDateData)
-            
+        
+            //Get Lunaday
+            let displayLunaday = lunaDate(Soldate: self.selectedDateData)
+        
+            //Get Holiday
+            if let displayHoliday = getHoliday(date: self.selectedDateData) {
+                displayHolidayandLunadate = "\(displayHoliday) | \(displayLunaday)"
+            } else {
+                displayHolidayandLunadate = "\(displayLunaday)"
+            }
+        
         //} else {
-        
-        
+            //Holiday
         
         //}
+        
+        self.holiday.text = displayHolidayandLunadate
         
         selectedDate.text = displaiedSelectedDate
         

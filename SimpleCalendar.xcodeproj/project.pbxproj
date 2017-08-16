@@ -10,6 +10,8 @@
 		10ABC212A7526E4F3B7DDA08 /* Pods_SimpleCalendarTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34D88CA9E1E823F653DA9BBC /* Pods_SimpleCalendarTests.framework */; };
 		2704197B1F3733EE00180A42 /* MainViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2704197A1F3733EE00180A42 /* MainViewControllerExtensions.swift */; };
 		2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2704197C1F395ACC00180A42 /* keyboardAccView.swift */; };
+		2789E05C1F43E27E00B420E4 /* HolidayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E05B1F43E27E00B420E4 /* HolidayModel.swift */; };
+		2789E05E1F43E2EA00B420E4 /* HolidayJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E05D1F43E2EA00B420E4 /* HolidayJSON.swift */; };
 		27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */; };
 		27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347511F2ED8DE004CACDD /* MainViewController.swift */; };
 		27D347551F2ED8DE004CACDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27D347531F2ED8DE004CACDD /* Main.storyboard */; };
@@ -49,6 +51,8 @@
 		14B5A3084EF33D92C4928CAD /* Pods-SimpleCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendar/Pods-SimpleCalendar.debug.xcconfig"; sourceTree = "<group>"; };
 		2704197A1F3733EE00180A42 /* MainViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerExtensions.swift; sourceTree = "<group>"; };
 		2704197C1F395ACC00180A42 /* keyboardAccView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = keyboardAccView.swift; sourceTree = "<group>"; };
+		2789E05B1F43E27E00B420E4 /* HolidayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HolidayModel.swift; path = ../HolidayModel.swift; sourceTree = "<group>"; };
+		2789E05D1F43E2EA00B420E4 /* HolidayJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HolidayJSON.swift; sourceTree = "<group>"; };
 		27D3474C1F2ED8DE004CACDD /* SimpleCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27D347511F2ED8DE004CACDD /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				2704197C1F395ACC00180A42 /* keyboardAccView.swift */,
 				27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */,
 				27F9781A1F41A82C007428D1 /* lunaDateModel.swift */,
+				2789E05B1F43E27E00B420E4 /* HolidayModel.swift */,
+				2789E05D1F43E2EA00B420E4 /* HolidayJSON.swift */,
 				27FC3A3F1F3C395E00F1EF4A /* Realm */,
 			);
 			name = Model;
@@ -516,7 +522,9 @@
 				27F9781B1F41A82C007428D1 /* lunaDateModel.swift in Sources */,
 				2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */,
 				27F978191F41A24A007428D1 /* setting.swift in Sources */,
+				2789E05C1F43E27E00B420E4 /* HolidayModel.swift in Sources */,
 				27E87D6B1F3C3A3900D144C9 /* realmObjects.swift in Sources */,
+				2789E05E1F43E2EA00B420E4 /* HolidayJSON.swift in Sources */,
 				27F978171F41009E007428D1 /* realmModels.swift in Sources */,
 				2704197B1F3733EE00180A42 /* MainViewControllerExtensions.swift in Sources */,
 			);
