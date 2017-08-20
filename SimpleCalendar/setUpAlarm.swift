@@ -50,7 +50,11 @@ class dailyMemoNotificationCenter {
         formatter.dateFormat = "MM dd YYYY"
         let notificationIdenifier = formatter.string(from: notificationDate)
         
+        let titleFormatter = DateFormatter()
+        titleFormatter.dateFormat = "MM/dd/YYYY HH:mm"
+        let title = formatter.string(from: notificationDate)
         
+        print(notificationIdenifier)
         
         var reminderDate = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: notificationDate)
         reminderDate.timeZone = TimeZone.current
@@ -58,8 +62,8 @@ class dailyMemoNotificationCenter {
         let calendarTrigger = UNCalendarNotificationTrigger(dateMatching: reminderDate, repeats: false)
         
         let content = UNMutableNotificationContent()
-        content.title = String.localizedStringWithFormat("Daily Memo Reminder")
-        content.body = text.truncate(length: 10, trailing: "..")
+        content.title = title
+        content.body = text
         content.sound = UNNotificationSound.default()
         
         let request = UNNotificationRequest(identifier: notificationIdenifier, content: content, trigger: calendarTrigger)

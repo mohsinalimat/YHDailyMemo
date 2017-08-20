@@ -66,13 +66,6 @@ extension MainViewController {
     
     //MARK: Next Memo
     @IBAction func nextMemo(_ sender: Any) {
-     
-        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
-            print("\(requests.count) requests -------")
-            for request in requests{
-                print(request.identifier)
-            }
-        })
         
         for i in 1...365 {
             let date = selectedDateData.addDays(days: i)
