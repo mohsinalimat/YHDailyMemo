@@ -30,6 +30,8 @@ class MainViewController: UIViewController {
     
     var dateFormatter = DateFormatter()
     var picker = GMDatePicker()
+    var sceduleNotofocation = dailyMemoNotificationCenter()
+
     
     // Recycle toolbar for other text fields for less memory consumption
     lazy var accessoryToolbar = KeyboardAccessoryToolbar()
@@ -53,8 +55,9 @@ class MainViewController: UIViewController {
         setupCalendarView()
         getToday()
         
-        dateFormatter.dateFormat = "HH mm"
         setupDatePicker()
+        
+        registerNotification()
         
         //MARK:: Calendar View to Today
         calendarCollectionView.scrollToDate(today as Date)

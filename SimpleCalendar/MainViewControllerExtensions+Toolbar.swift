@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import JTAppleCalendar
+import UserNotifications
 
 
 //MARK: ToolBar Items
@@ -36,19 +37,12 @@ extension MainViewController {
         calendarCollectionView.selectDates([NSDate() as Date])
     }
     
-    
 
     
     //MARK: Set up the Alarm
     @IBAction func setUpAlarm(_ sender: Any) {
-        
-
-        
-        
         picker.show(inVC: self)
-    
     }
-    
     
     
     
@@ -72,6 +66,14 @@ extension MainViewController {
     
     //MARK: Next Memo
     @IBAction func nextMemo(_ sender: Any) {
+     
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
+            print("\(requests.count) requests -------")
+            for request in requests{
+                print(request.identifier)
+            }
+        })
+        
         for i in 1...365 {
             let date = selectedDateData.addDays(days: i)
 
@@ -97,35 +99,5 @@ extension NSDate {
 }
 
 
-
-//Extension for Alarm
-extension MainViewController: GMDatePickerDelegate {
-    
-    func gmDatePicker(_ gmDatePicker: GMDatePicker, didSelect date: Date){
-        print(date)
-        self.text.insertText(dateFormatter.string(from: date))
-    }
-    func gmDatePickerDidCancelSelection(_ gmDatePicker: GMDatePicker) {
-        
-    }
-    
-    func setupDatePicker() {
-        
-        picker.delegate = self
-        
-        picker.config.startDate = Date()
-        
-        picker.config.animationDuration = 0.5
-        
-        picker.config.cancelButtonTitle = "Cancel"
-        picker.config.confirmButtonTitle = "Confirm"
-        
-        picker.config.contentBackgroundColor = UIColor(red: 253/255.0, green: 253/255.0, blue: 253/255.0, alpha: 1)
-        picker.config.headerBackgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1)
-        picker.config.confirmButtonColor = UIColor.black
-        picker.config.cancelButtonColor = UIColor.black
-        
-    }
-}
 
 

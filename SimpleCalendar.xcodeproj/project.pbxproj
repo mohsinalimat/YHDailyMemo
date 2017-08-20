@@ -22,6 +22,9 @@
 		27D347731F2ED8DE004CACDD /* SimpleCalendarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347721F2ED8DE004CACDD /* SimpleCalendarUITests.swift */; };
 		27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */; };
 		27E87D6B1F3C3A3900D144C9 /* realmObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E87D6A1F3C3A3900D144C9 /* realmObjects.swift */; };
+		27EFDB9A1F494E34006E1F83 /* setUpAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFDB991F494E34006E1F83 /* setUpAlarm.swift */; };
+		27EFDB9C1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFDB9B1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift */; };
+		27EFDB9F1F4997D8006E1F83 /* alarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFDB9E1F4997D8006E1F83 /* alarmViewController.swift */; };
 		27F6BE2B1F46CB5F00DAAA44 /* Timepicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6BE2A1F46CB5F00DAAA44 /* Timepicker.swift */; };
 		27F978171F41009E007428D1 /* realmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F978161F41009D007428D1 /* realmModels.swift */; };
 		27F978191F41A24A007428D1 /* setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F978181F41A24A007428D1 /* setting.swift */; };
@@ -71,6 +74,9 @@
 		27D347741F2ED8DE004CACDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCustomCell.swift; sourceTree = "<group>"; };
 		27E87D6A1F3C3A3900D144C9 /* realmObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = realmObjects.swift; sourceTree = "<group>"; };
+		27EFDB991F494E34006E1F83 /* setUpAlarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setUpAlarm.swift; sourceTree = "<group>"; };
+		27EFDB9B1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Alarm.swift"; sourceTree = "<group>"; };
+		27EFDB9E1F4997D8006E1F83 /* alarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alarmViewController.swift; sourceTree = "<group>"; };
 		27F6BE2A1F46CB5F00DAAA44 /* Timepicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timepicker.swift; sourceTree = "<group>"; };
 		27F978161F41009D007428D1 /* realmModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = realmModels.swift; sourceTree = "<group>"; };
 		27F978181F41A24A007428D1 /* setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
@@ -154,7 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				27FC3A3C1F3C392000F1EF4A /* View */,
-				27FC3A3D1F3C392500F1EF4A /* ViewController */,
+				27FC3A3D1F3C392500F1EF4A /* MainViewController */,
+				27EFDB9D1F4997C0006E1F83 /* AlarmViewController */,
 				27FC3A3E1F3C392700F1EF4A /* Model */,
 				27D347591F2ED8DE004CACDD /* Assets.xcassets */,
 				27D3475E1F2ED8DE004CACDD /* Info.plist */,
@@ -178,6 +185,14 @@
 				27D347741F2ED8DE004CACDD /* Info.plist */,
 			);
 			path = SimpleCalendarUITests;
+			sourceTree = "<group>";
+		};
+		27EFDB9D1F4997C0006E1F83 /* AlarmViewController */ = {
+			isa = PBXGroup;
+			children = (
+				27EFDB9E1F4997D8006E1F83 /* alarmViewController.swift */,
+			);
+			name = AlarmViewController;
 			sourceTree = "<group>";
 		};
 		27F6BE281F46CB3200DAAA44 /* Luna Calendar */ = {
@@ -207,15 +222,16 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		27FC3A3D1F3C392500F1EF4A /* ViewController */ = {
+		27FC3A3D1F3C392500F1EF4A /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
 				27D347511F2ED8DE004CACDD /* MainViewController.swift */,
 				2704197A1F3733EE00180A42 /* MainViewControllerExtensions.swift */,
 				27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */,
+				27EFDB9B1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift */,
 				27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */,
 			);
-			name = ViewController;
+			name = MainViewController;
 			sourceTree = "<group>";
 		};
 		27FC3A3E1F3C392700F1EF4A /* Model */ = {
@@ -224,6 +240,7 @@
 				27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */,
 				27F978181F41A24A007428D1 /* setting.swift */,
 				27F6BE2A1F46CB5F00DAAA44 /* Timepicker.swift */,
+				27EFDB991F494E34006E1F83 /* setUpAlarm.swift */,
 				2704197C1F395ACC00180A42 /* keyboardAccView.swift */,
 				27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */,
 				27F6BE281F46CB3200DAAA44 /* Luna Calendar */,
@@ -540,13 +557,16 @@
 				27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */,
 				27F6BE2B1F46CB5F00DAAA44 /* Timepicker.swift in Sources */,
 				27FC3A391F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift in Sources */,
+				27EFDB9F1F4997D8006E1F83 /* alarmViewController.swift in Sources */,
 				27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */,
 				2789E0601F4407F800B420E4 /* lunadayData.swift in Sources */,
 				27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */,
 				27F9781B1F41A82C007428D1 /* lunaDateModel.swift in Sources */,
 				2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */,
+				27EFDB9A1F494E34006E1F83 /* setUpAlarm.swift in Sources */,
 				27F978191F41A24A007428D1 /* setting.swift in Sources */,
 				2789E05C1F43E27E00B420E4 /* HolidayModel.swift in Sources */,
+				27EFDB9C1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift in Sources */,
 				27E87D6B1F3C3A3900D144C9 /* realmObjects.swift in Sources */,
 				2789E05E1F43E2EA00B420E4 /* HolidayData.swift in Sources */,
 				27F978171F41009E007428D1 /* realmModels.swift in Sources */,
