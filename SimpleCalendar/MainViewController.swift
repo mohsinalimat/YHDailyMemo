@@ -26,6 +26,10 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var weather: UILabel!
     @IBOutlet weak var selectedDate: UILabel!
+    @IBOutlet weak var calendarHeight: NSLayoutConstraint!
+    
+    var dateFormatter = DateFormatter()
+    var picker = GMDatePicker()
     
     // Recycle toolbar for other text fields for less memory consumption
     lazy var accessoryToolbar = KeyboardAccessoryToolbar()
@@ -49,9 +53,15 @@ class MainViewController: UIViewController {
         setupCalendarView()
         getToday()
         
+        dateFormatter.dateFormat = "HH mm"
+        setupDatePicker()
+        
         //MARK:: Calendar View to Today
         calendarCollectionView.scrollToDate(today as Date)
         calendarCollectionView.selectDates([NSDate() as Date])
+        
+        calendarCollectionView.minimumLineSpacing = -1
+        calendarCollectionView.minimumInteritemSpacing = -1
         
         subscribeToNotification(.UIKeyboardWillShow, selector: #selector(keyboardWillShow))
         subscribeToNotification(.UIKeyboardWillHide, selector: #selector(keyboardWillHide))
@@ -121,8 +131,6 @@ class MainViewController: UIViewController {
         formatter.dateFormat = "MMMM YYYY"
         self.monthYear.text = formatter.string(from: date)
     }
-    
-
 }
 
 

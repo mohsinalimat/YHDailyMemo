@@ -37,27 +37,38 @@ extension MainViewController {
     }
     
     
+
+    
     //MARK: Set up the Alarm
     @IBAction func setUpAlarm(_ sender: Any) {
+        
+
+        
+        
+        picker.show(inVC: self)
+    
     }
+    
+    
     
     
     //MARK: Delete Memo
     @IBAction func deleteMemo(_ sender: Any) {
         
         //MARK: Alret to delete
-        
-        
-        
-        
         if self.text.text != "" {
-            deleteQuery(date: selectedDateData)
-        }
+                let alertController = UIAlertController(title: "ARE YOU SURE?", message: "Your history will be gone...", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "DELETE", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            
+                deleteQuery(date: self.selectedDateData)
+                self.text.text = ""
+                self.calendarCollectionView.reloadData()
+            }))
         
-        self.text.text = ""
-        calendarCollectionView.reloadData()
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
-    
     
     //MARK: Next Memo
     @IBAction func nextMemo(_ sender: Any) {
@@ -84,4 +95,37 @@ extension NSDate {
         return newDate! as NSDate
     }
 }
+
+
+
+//Extension for Alarm
+extension MainViewController: GMDatePickerDelegate {
+    
+    func gmDatePicker(_ gmDatePicker: GMDatePicker, didSelect date: Date){
+        print(date)
+        self.text.insertText(dateFormatter.string(from: date))
+    }
+    func gmDatePickerDidCancelSelection(_ gmDatePicker: GMDatePicker) {
+        
+    }
+    
+    func setupDatePicker() {
+        
+        picker.delegate = self
+        
+        picker.config.startDate = Date()
+        
+        picker.config.animationDuration = 0.5
+        
+        picker.config.cancelButtonTitle = "Cancel"
+        picker.config.confirmButtonTitle = "Confirm"
+        
+        picker.config.contentBackgroundColor = UIColor(red: 253/255.0, green: 253/255.0, blue: 253/255.0, alpha: 1)
+        picker.config.headerBackgroundColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 1)
+        picker.config.confirmButtonColor = UIColor.black
+        picker.config.cancelButtonColor = UIColor.black
+        
+    }
+}
+
 
