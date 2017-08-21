@@ -8,8 +8,9 @@
 
 import UIKit
 import JTAppleCalendar
+import UserNotifications
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController{
 
     @IBOutlet weak var calendarCollectionView: JTAppleCalendarView!
     @IBOutlet weak var text: UITextView!
@@ -23,12 +24,14 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var iconUp: UIStackView!
     @IBOutlet weak var toolBar: UIToolbar!
-    
-    @IBOutlet weak var weather: UILabel!
+
     @IBOutlet weak var selectedDate: UILabel!
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
+    @IBOutlet weak var deleteAlarmButton: UIButton!
     
+
     var dateFormatter = DateFormatter()
+    var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
     var picker = GMDatePicker()
     var sceduleNotofocation = dailyMemoNotificationCenter()
 
@@ -41,6 +44,7 @@ class MainViewController: UIViewController {
     var keyboardOnScreen = false
     var selectedDateData = NSDate()
     let appSetUp = appSetting()
+    var dateNeedsToUpdat: Date?
     
     func getToday(){
         let now = NSDate()
@@ -57,7 +61,11 @@ class MainViewController: UIViewController {
         
         setupDatePicker()
         
+        getAlarmsList()
+        
         registerNotification()
+        
+        self.deleteAlarmButton.contentHorizontalAlignment = .left
         
         //MARK:: Calendar View to Today
         calendarCollectionView.scrollToDate(today as Date)
@@ -71,6 +79,33 @@ class MainViewController: UIViewController {
         subscribeToNotification(.UIKeyboardDidShow, selector: #selector(keyboardDidShow))
         subscribeToNotification(.UIKeyboardDidHide, selector: #selector(keyboardDidHide))
         
+    }
+    
+    func getAlarmsList() {
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
+            for request in requests{
+                var alarm = alarmList()
+                alarm.identifier = request.identifier
+                alarm.title = request.content.title
+                alarm.text = request.content.body
+                
+                self.aplicationDelegate.alarmList.append(alarm)
+            }
+        })
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //get date from Dissmissed View Controller
+        if let date = self.aplicationDelegate.dismissCheck {
+            
+            calendarCollectionView.scrollToDate(date as Date)
+            calendarCollectionView.selectDates([date as Date])
+            
+            self.aplicationDelegate.dismissCheck = nil
+        }
     }
     
     func setupCalendarView() {

@@ -25,6 +25,7 @@
 		27EFDB9A1F494E34006E1F83 /* setUpAlarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFDB991F494E34006E1F83 /* setUpAlarm.swift */; };
 		27EFDB9C1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFDB9B1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift */; };
 		27EFDB9F1F4997D8006E1F83 /* alarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFDB9E1F4997D8006E1F83 /* alarmViewController.swift */; };
+		27EFDBA11F49BF5E006E1F83 /* alarmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFDBA01F49BF5E006E1F83 /* alarmList.swift */; };
 		27F6BE2B1F46CB5F00DAAA44 /* Timepicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F6BE2A1F46CB5F00DAAA44 /* Timepicker.swift */; };
 		27F978171F41009E007428D1 /* realmModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F978161F41009D007428D1 /* realmModels.swift */; };
 		27F978191F41A24A007428D1 /* setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F978181F41A24A007428D1 /* setting.swift */; };
@@ -77,6 +78,7 @@
 		27EFDB991F494E34006E1F83 /* setUpAlarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setUpAlarm.swift; sourceTree = "<group>"; };
 		27EFDB9B1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Alarm.swift"; sourceTree = "<group>"; };
 		27EFDB9E1F4997D8006E1F83 /* alarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alarmViewController.swift; sourceTree = "<group>"; };
+		27EFDBA01F49BF5E006E1F83 /* alarmList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alarmList.swift; sourceTree = "<group>"; };
 		27F6BE2A1F46CB5F00DAAA44 /* Timepicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timepicker.swift; sourceTree = "<group>"; };
 		27F978161F41009D007428D1 /* realmModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = realmModels.swift; sourceTree = "<group>"; };
 		27F978181F41A24A007428D1 /* setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setting.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				27EFDB9E1F4997D8006E1F83 /* alarmViewController.swift */,
+				27EFDBA01F49BF5E006E1F83 /* alarmList.swift */,
 			);
 			name = AlarmViewController;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 				2789E05C1F43E27E00B420E4 /* HolidayModel.swift in Sources */,
 				27EFDB9C1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift in Sources */,
 				27E87D6B1F3C3A3900D144C9 /* realmObjects.swift in Sources */,
+				27EFDBA11F49BF5E006E1F83 /* alarmList.swift in Sources */,
 				2789E05E1F43E2EA00B420E4 /* HolidayData.swift in Sources */,
 				27F978171F41009E007428D1 /* realmModels.swift in Sources */,
 				2704197B1F3733EE00180A42 /* MainViewControllerExtensions.swift in Sources */,

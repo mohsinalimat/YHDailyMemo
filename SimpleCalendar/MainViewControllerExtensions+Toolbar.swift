@@ -15,9 +15,10 @@ import UserNotifications
 //MARK: ToolBar Items
 extension MainViewController {
     
-    
     //MARK: Previous Memo
     @IBAction func previousMemo(_ sender: Any) {
+        var lastCheck = true
+        
         for i in 1...365 {
             let date = selectedDateData.addDays(days: -i)
             
@@ -25,8 +26,15 @@ extension MainViewController {
                 calendarCollectionView.scrollToDate(date as Date)
                 calendarCollectionView.selectDates([date as Date as Date])
                 print(date)
+                lastCheck = false
                 break
             }
+        }
+        
+        if lastCheck {
+            let alertController = UIAlertController(title: "First Memo", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
@@ -37,28 +45,48 @@ extension MainViewController {
         calendarCollectionView.selectDates([NSDate() as Date])
     }
     
-
-    
     //MARK: Set up the Alarm
     @IBAction func setUpAlarm(_ sender: Any) {
-        picker.show(inVC: self)
+        
+        let controlNotification = dailyMemoNotificationCenter()
+        var alreadyHaveAlarm = false
+        
+        for temp in self.aplicationDelegate.alarmList{
+            if temp.identifier == self.selectedDate.text {
+                
+                let alertController = UIAlertController(title: "Change Alarm", message: "You already set up alram. Do you want to change?", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "YES", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                   
+                    controlNotification.cancelNotification(identifier: temp.identifier)
+                    self.picker.show(inVC: self)
+                    
+                }))
+                
+                alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alertController, animated: true, completion: nil)
+                
+                alreadyHaveAlarm = true
+            }
+        }
+
+        if !alreadyHaveAlarm {
+            picker.show(inVC: self)
+        }
     }
-    
-    
     
     //MARK: Delete Memo
     @IBAction func deleteMemo(_ sender: Any) {
         
         //MARK: Alret to delete
         if self.text.text != "" {
-                let alertController = UIAlertController(title: "ARE YOU SURE?", message: "Your history will be gone...", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "DELETE", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
-            
+            let alertController = UIAlertController(title: "ARE YOU SURE?", message: "Your history will be gone...", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "DELETE", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                
                 deleteQuery(date: self.selectedDateData)
                 self.text.text = ""
                 self.calendarCollectionView.reloadData()
             }))
-        
+            
             alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }
@@ -66,6 +94,7 @@ extension MainViewController {
     
     //MARK: Next Memo
     @IBAction func nextMemo(_ sender: Any) {
+        var lastCheck = true
         
         for i in 1...365 {
             let date = selectedDateData.addDays(days: i)
@@ -74,8 +103,15 @@ extension MainViewController {
                 calendarCollectionView.scrollToDate(date as Date)
                 calendarCollectionView.selectDates([date as Date as Date])
                 print(date)
+                lastCheck = false
                 break
             }
+        }
+    
+        if lastCheck {
+            let alertController = UIAlertController(title: "Last Memo", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
         }
     }
 }

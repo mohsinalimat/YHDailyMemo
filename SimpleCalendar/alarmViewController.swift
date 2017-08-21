@@ -12,35 +12,28 @@ import UserNotifications
 
 class AlarmViewController: UITableViewController {
     
+    var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
+    
     let notificationCenter: UNUserNotificationCenter = {
         return UNUserNotificationCenter.current()
     }()
     
     var numberOfRow = 0
-    var alarms:[String] = []
-    var detail:[String] = []
+    var alarms:[alarmList] = []
+    var controlNotification = dailyMemoNotificationCenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getAlarmsList()
+        getAlarmListFromAppDelegate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //getAlarmsList()
-        //tableView.reloadData()
     }
     
-    func getAlarmsList() {
-        notificationCenter.getPendingNotificationRequests(completionHandler: {requests -> () in
-            self.numberOfRow = requests.count
-            for request in requests{
-                self.alarms.append(request.content.title)
-                self.detail.append(request.content.body)
-                print(request.content.title)
-            }
-            self.tableView.reloadData()
-        })
+    func getAlarmListFromAppDelegate() {
+        alarms = self.aplicationDelegate.alarmList
+        numberOfRow = alarms.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -49,9 +42,11 @@ class AlarmViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell")!
-        cell.textLabel?.text = self.alarms[indexPath.row]
-        cell.detailTextLabel?.text = self.detail[indexPath.row]
 
+        cell.textLabel?.text = self.alarms[indexPath.row].title
+        cell.detailTextLabel?.text = self.alarms[indexPath.row].text
+        cell.imageView?.image = UIImage(named: "weatehr_cloud.png")
+        
         return cell
     }
     
@@ -59,7 +54,39 @@ class AlarmViewController: UITableViewController {
 
     }
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, index) in
+            let alertController = UIAlertController(title: "ARE YOU SURE?", message: "Your history will be gone...", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "DELETE", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                
+                self.controlNotification.cancelNotification(identifier: self.alarms[indexPath.row].identifier)
+                self.alarms.remove(at: indexPath.row)
+                
+                if self.numberOfRow == 1 {
+                    self.numberOfRow = 0
+                }else {
+                    self.numberOfRow = self.numberOfRow - 1
+                }
+                
+                self.tableView.deleteRows(at: [indexPath], with: .left)
+
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+        let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action, index) in
+            self.aplicationDelegate.dismissCheck = self.alarms[indexPath.row].date
+            self.dismiss(animated: true, completion: {})
+        }
+        
+        editAction.backgroundColor = UIColor.lightGray
+        
+        return [deleteAction, editAction]
+    }
+    
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: {})
     }
+
 }

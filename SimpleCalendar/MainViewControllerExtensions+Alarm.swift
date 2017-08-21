@@ -15,6 +15,14 @@ import UserNotifications
 extension MainViewController: GMDatePickerDelegate {
     
     func gmDatePicker(_ gmDatePicker: GMDatePicker, didSelect date: Date){
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        
+        self.deleteAlarmButton.setTitle("\(formatter.string(from: date)) ✕", for: .normal)
+        
+        self.deleteAlarmButton.isEnabled = true
+        
         sceduleNotofocation.setUpNotification(selectedTime: date, selectedDate: self.selectedDateData as Date, text: self.text.text)
     }
     func gmDatePickerDidCancelSelection(_ gmDatePicker: GMDatePicker) {
@@ -37,6 +45,19 @@ extension MainViewController: GMDatePickerDelegate {
         picker.config.confirmButtonColor = UIColor.black
         picker.config.cancelButtonColor = UIColor.black
         
+    }
+    
+    @IBAction func deleteAlarm(_ sender: Any) {
+        let controlNotification = dailyMemoNotificationCenter()
+        
+        let alertController = UIAlertController(title: "ARE YOU SURE?", message: "Your history will be gone...", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "DELETE", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            controlNotification.cancelNotification(identifier: self.selectedDate.text!)
+            self.deleteAlarmButton.setTitle(" ", for: .normal)
+            self.deleteAlarmButton.isEnabled = false
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
 }
 

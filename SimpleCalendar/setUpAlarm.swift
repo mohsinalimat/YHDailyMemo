@@ -12,6 +12,8 @@ import UserNotifications
 
 class dailyMemoNotificationCenter {
 
+    var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
+    
     let notificationCenter: UNUserNotificationCenter = {
         return UNUserNotificationCenter.current()
     }()
@@ -31,6 +33,7 @@ class dailyMemoNotificationCenter {
         componentsFinal.day = componentsDate.day
         componentsFinal.month = componentsDate.month
         componentsFinal.year = componentsDate.year
+        componentsFinal.timeZone = TimeZone.current
         
         finalSetUpDateAndTime = gregorianCalendar.date(from: componentsFinal)!
         
@@ -47,14 +50,12 @@ class dailyMemoNotificationCenter {
     func setNotification(notificationDate: Date, text: String) {
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM dd YYYY"
+        formatter.dateFormat = "MM/dd/YY"
         let notificationIdenifier = formatter.string(from: notificationDate)
         
         let titleFormatter = DateFormatter()
         titleFormatter.dateFormat = "MM/dd/YYYY HH:mm"
-        let title = formatter.string(from: notificationDate)
-        
-        print(notificationIdenifier)
+        let title = titleFormatter.string(from: notificationDate)
         
         var reminderDate = Calendar.current.dateComponents([.day, .month, .year, .hour, .minute], from: notificationDate)
         reminderDate.timeZone = TimeZone.current
@@ -65,6 +66,14 @@ class dailyMemoNotificationCenter {
         content.title = title
         content.body = text
         content.sound = UNNotificationSound.default()
+        
+        var alarm = alarmList()
+        alarm.identifier = notificationIdenifier
+        alarm.title = title
+        alarm.text = text
+        alarm.date = notificationDate
+        
+        aplicationDelegate.alarmList.append(alarm)
         
         let request = UNNotificationRequest(identifier: notificationIdenifier, content: content, trigger: calendarTrigger)
         notificationCenter.add(request, withCompletionHandler: { (error) in
@@ -78,6 +87,10 @@ class dailyMemoNotificationCenter {
     
     func cancelNotification( identifier: String ) {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier])
+        
+        if let index:Int = aplicationDelegate.alarmList.index(where: {$0.identifier == identifier}) {
+            aplicationDelegate.alarmList.remove(at: index)
+        }
     }
 
 }

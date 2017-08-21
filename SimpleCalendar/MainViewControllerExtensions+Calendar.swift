@@ -57,9 +57,23 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         var displayHolidayandLunadate = " "
         var displayLunaday = " "
         
-        
-        
         self.selectedDateData = date as NSDate
+        
+        
+        //Check Having Alram
+        
+        self.deleteAlarmButton.setTitle(" ",for: .normal)
+        self.deleteAlarmButton.isEnabled = false
+        
+        for temp in self.aplicationDelegate.alarmList{
+            if temp.identifier == displaiedSelectedDate {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "HH:mm"
+                self.deleteAlarmButton.setTitle("\(formatter.string(from: temp.date)) ✕",for: .normal)
+                self.deleteAlarmButton.isEnabled = true
+                break
+            }
+        }
         
         //LUNA CALENDAR ON
         if self.appSetUp.lunaCalendar {
@@ -89,7 +103,6 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         }
         
         self.holiday.text = displayHolidayandLunadate
-        
         selectedDate.text = displaiedSelectedDate
         
         //MARK: realm Query
