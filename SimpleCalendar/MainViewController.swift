@@ -134,8 +134,8 @@ class MainViewController: UIViewController{
         
         if let _ = getHoliday(date: cellState.date as NSDate) {
             validCell.dateLabel.textColor = UIColor(red: 255/255.0, green: 32/255.0, blue: 0/255.0, alpha: 0.6)
-
         }
+        
     }
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState){
