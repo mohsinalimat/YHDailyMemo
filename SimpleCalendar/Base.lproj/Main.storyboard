@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -25,11 +25,21 @@
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="X8z-Mp-via">
                                 <rect key="frame" x="0.0" y="28" width="414" height="708"/>
                                 <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9Gm-DK-9qZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="qGV-Xk-acu"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="oSD-gF-45s"/>
+                                        </connections>
+                                    </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gu7-Ry-9Dx" userLabel="Master Stack View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="650"/>
+                                        <rect key="frame" x="0.0" y="54" width="414" height="596"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MFQ-ZD-jr7" userLabel="Top Stack View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="256"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yhF-K1-foS" userLabel="Header Stack View">
                                                         <rect key="frame" x="10" y="0.0" width="394" height="61"/>
@@ -45,7 +55,7 @@
                                                                         </constraints>
                                                                         <state key="normal" title="Button" image="icon_search"/>
                                                                         <connections>
-                                                                            <segue destination="sgY-Fd-K8f" kind="show" id="Dtp-7Z-AMh"/>
+                                                                            <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dau-Iy-Dd2"/>
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="MONTH YEAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD8-Kn-1J4">
@@ -90,7 +100,7 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8AU-pH-n7m" userLabel="Calendar Stack View">
-                                                        <rect key="frame" x="5" y="66" width="404" height="190"/>
+                                                        <rect key="frame" x="5" y="66" width="404" height="230"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Jge-da-coI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="404" height="18"/>
@@ -173,7 +183,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RUc-Pg-6xM" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                                                <rect key="frame" x="0.0" y="28" width="404" height="162"/>
+                                                                <rect key="frame" x="0.0" y="28" width="404" height="202"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="ses-VJ-hsY">
                                                                     <size key="itemSize" width="45" height="45"/>
@@ -260,7 +270,7 @@
                                                             <constraint firstItem="Jge-da-coI" firstAttribute="top" secondItem="8AU-pH-n7m" secondAttribute="top" id="D2m-Jh-DWn"/>
                                                             <constraint firstItem="RUc-Pg-6xM" firstAttribute="top" secondItem="Jge-da-coI" secondAttribute="bottom" constant="10" id="GYR-ZV-3M7"/>
                                                             <constraint firstAttribute="trailing" secondItem="Jge-da-coI" secondAttribute="trailing" id="RuS-gq-PAl"/>
-                                                            <constraint firstAttribute="height" constant="190" id="TtA-mv-8Tw"/>
+                                                            <constraint firstAttribute="height" constant="230" id="TtA-mv-8Tw"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -274,16 +284,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dga-yl-JFl" userLabel="Body Stack View">
-                                                <rect key="frame" x="0.0" y="266" width="414" height="384"/>
+                                                <rect key="frame" x="0.0" y="306" width="414" height="290"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PHj-7E-caq" userLabel="Memo Stack View">
-                                                        <rect key="frame" x="10" y="0.0" width="394" height="384"/>
+                                                        <rect key="frame" x="10" y="0.0" width="394" height="290"/>
                                                         <subviews>
                                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1gj-Dx-ly9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="251"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="157"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STm-8Y-ytz">
-                                                                        <rect key="frame" x="182" y="0.0" width="30" height="251"/>
+                                                                        <rect key="frame" x="182" y="0.0" width="30" height="157"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="75a-S5-pK0"/>
                                                                         </constraints>
@@ -296,7 +306,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" distribution="fillProportionally" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="oy0-aC-Pup">
-                                                                <rect key="frame" x="0.0" y="251" width="394" height="26"/>
+                                                                <rect key="frame" x="0.0" y="157" width="394" height="26"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-94-bWx">
                                                                         <rect key="frame" x="0.0" y="0.0" width="10" height="26"/>
@@ -369,7 +379,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HhZ-8k-7EW">
-                                                                <rect key="frame" x="0.0" y="277" width="394" height="107"/>
+                                                                <rect key="frame" x="0.0" y="183" width="394" height="107"/>
                                                                 <color key="backgroundColor" red="0.9070448968" green="0.91602553929999997" blue="0.91602553929999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -412,6 +422,7 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="setUpAlarm:" destination="BYZ-38-t0r" id="izU-mL-9Wv"/>
+                                                    <segue destination="dCT-C9-CaU" kind="show" id="Sae-Cj-RWw"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="NzF-uV-I1U"/>
@@ -437,8 +448,10 @@
                                     <constraint firstAttribute="trailing" secondItem="RFL-Yy-66h" secondAttribute="trailing" id="FcK-G0-tFC"/>
                                     <constraint firstItem="RFL-Yy-66h" firstAttribute="leading" secondItem="X8z-Mp-via" secondAttribute="leading" id="TwJ-Mb-txu"/>
                                     <constraint firstItem="Gu7-Ry-9Dx" firstAttribute="leading" secondItem="X8z-Mp-via" secondAttribute="leading" id="W8b-iZ-ipR"/>
-                                    <constraint firstItem="Gu7-Ry-9Dx" firstAttribute="top" secondItem="X8z-Mp-via" secondAttribute="top" id="XlB-4P-XdJ"/>
                                     <constraint firstAttribute="trailing" secondItem="Gu7-Ry-9Dx" secondAttribute="trailing" id="b56-A6-TFg"/>
+                                    <constraint firstItem="9Gm-DK-9qZ" firstAttribute="top" secondItem="X8z-Mp-via" secondAttribute="top" id="j4C-xJ-220"/>
+                                    <constraint firstItem="9Gm-DK-9qZ" firstAttribute="leading" secondItem="X8z-Mp-via" secondAttribute="leading" id="upR-eV-fqC"/>
+                                    <constraint firstAttribute="trailing" secondItem="9Gm-DK-9qZ" secondAttribute="trailing" id="x2W-eZ-Imu"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -464,6 +477,8 @@
                         <outlet property="masterStackView" destination="Gu7-Ry-9Dx" id="m0y-U9-vjk"/>
                         <outlet property="masterView" destination="8bC-Xf-vdC" id="J0d-06-jih"/>
                         <outlet property="monthYear" destination="OD8-Kn-1J4" id="3Rm-4F-DPo"/>
+                        <outlet property="searchBar" destination="9Gm-DK-9qZ" id="gtM-Oh-k8G"/>
+                        <outlet property="searchDisplayController" destination="E1w-Hs-Lnv" id="WLb-cX-HzN"/>
                         <outlet property="selectedDate" destination="VWj-32-0hK" id="wUB-73-Rql"/>
                         <outlet property="text" destination="HhZ-8k-7EW" id="BQF-9s-WQj"/>
                         <outlet property="toolBar" destination="RFL-Yy-66h" id="qAI-AX-0o9"/>
@@ -471,45 +486,17 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="E1w-Hs-Lnv">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="BTD-ad-ONv"/>
+                        <outlet property="searchBar" destination="9Gm-DK-9qZ" id="sFz-yH-2Zt"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="sdN-Mk-0GU"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="Saq-sL-Bk8"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="ZhV-Zd-2ut"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-259.4202898550725" y="125.54347826086958"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="nx3-US-3tM">
-            <objects>
-                <viewController id="ra9-fy-VPO" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Stv-22-XSz"/>
-                        <viewControllerLayoutGuide type="bottom" id="L6t-gM-e2X"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1EA-G5-9dp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="31Q-7I-dkq"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mb1-nc-KC0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1561" y="-201"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="hVc-gJ-gSx">
-            <objects>
-                <tabBarController storyboardIdentifier="TabbarController" id="sgY-Fd-K8f" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="39l-Jg-UMu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="ra9-fy-VPO" kind="relationship" relationship="viewControllers" id="Vdx-23-SiY"/>
-                        <segue destination="dCT-C9-CaU" kind="relationship" relationship="viewControllers" id="7Ax-BH-goY"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zPQ-Fv-fbO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="639" y="126"/>
         </scene>
         <!--Alarm-->
         <scene sceneID="FGc-5L-uHB">
@@ -528,7 +515,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kXu-qQ-TCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1566.6666666666667" y="532.33695652173913"/>
+            <point key="canvasLocation" x="683" y="-113"/>
         </scene>
         <!--Alarm View Controller-->
         <scene sceneID="BRR-MC-unv">
@@ -579,7 +566,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcf-wJ-xSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2423" y="532"/>
+            <point key="canvasLocation" x="1538" y="-115"/>
         </scene>
     </scenes>
     <resources>

@@ -29,6 +29,7 @@ class MainViewController: UIViewController{
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var deleteAlarmButton: UIButton!
     
+    @IBOutlet weak var searchBar: UISearchBar!
 
     var dateFormatter = DateFormatter()
     var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
@@ -66,6 +67,7 @@ class MainViewController: UIViewController{
         registerNotification()
         
         self.deleteAlarmButton.contentHorizontalAlignment = .left
+        searchBar.isHidden = true
         
         //MARK:: Calendar View to Today
         calendarCollectionView.scrollToDate(today as Date)
@@ -169,6 +171,13 @@ class MainViewController: UIViewController{
         formatter.dateFormat = "MMMM YYYY"
         self.monthYear.text = formatter.string(from: date)
     }
+    
+    
+    @IBAction func search(_ sender: Any) {
+        searchBar.isHidden = false
+    }
+    
+    
 }
 
 

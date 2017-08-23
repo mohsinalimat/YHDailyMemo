@@ -45,34 +45,6 @@ extension MainViewController {
         calendarCollectionView.selectDates([NSDate() as Date])
     }
     
-    //MARK: Set up the Alarm
-    @IBAction func setUpAlarm(_ sender: Any) {
-        
-        let controlNotification = dailyMemoNotificationCenter()
-        var alreadyHaveAlarm = false
-        
-        for temp in self.aplicationDelegate.alarmList{
-            if temp.identifier == self.selectedDate.text {
-                
-                let alertController = UIAlertController(title: "Change Alarm", message: "You already set up alram. Do you want to change?", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "YES", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
-                   
-                    controlNotification.cancelNotification(identifier: temp.identifier)
-                    self.picker.show(inVC: self)
-                    
-                }))
-                
-                alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-                
-                alreadyHaveAlarm = true
-            }
-        }
-
-        if !alreadyHaveAlarm {
-            picker.show(inVC: self)
-        }
-    }
     
     //MARK: Delete Memo
     @IBAction func deleteMemo(_ sender: Any) {

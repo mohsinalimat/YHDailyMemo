@@ -62,15 +62,13 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         
         //Check Having Alram
         
-        self.deleteAlarmButton.setTitle(" ",for: .normal)
-        self.deleteAlarmButton.isEnabled = false
+        self.deleteAlarmButton.setTitle("SET ALARM",for: .normal)
         
         for temp in self.aplicationDelegate.alarmList{
             if temp.identifier == displaiedSelectedDate {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "HH:mm"
                 self.deleteAlarmButton.setTitle("\(formatter.string(from: temp.date)) ✕",for: .normal)
-                self.deleteAlarmButton.isEnabled = true
                 break
             }
         }

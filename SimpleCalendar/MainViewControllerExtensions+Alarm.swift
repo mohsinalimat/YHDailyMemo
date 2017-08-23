@@ -21,10 +21,9 @@ extension MainViewController: GMDatePickerDelegate {
         
         self.deleteAlarmButton.setTitle("\(formatter.string(from: date)) ✕", for: .normal)
         
-        self.deleteAlarmButton.isEnabled = true
-        
         sceduleNotofocation.setUpNotification(selectedTime: date, selectedDate: self.selectedDateData as Date, text: self.text.text)
     }
+    
     func gmDatePickerDidCancelSelection(_ gmDatePicker: GMDatePicker) {
         
     }
@@ -50,14 +49,39 @@ extension MainViewController: GMDatePickerDelegate {
     @IBAction func deleteAlarm(_ sender: Any) {
         let controlNotification = dailyMemoNotificationCenter()
         
-        let alertController = UIAlertController(title: "ARE YOU SURE?", message: "Your history will be gone...", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "DELETE", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
-            controlNotification.cancelNotification(identifier: self.selectedDate.text!)
-            self.deleteAlarmButton.setTitle(" ", for: .normal)
-            self.deleteAlarmButton.isEnabled = false
-        }))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+        if self.deleteAlarmButton.titleLabel?.text == "SET ALARM" {
+            
+            picker.show(inVC: self)
+            
+        } else {
+            let alertController = UIAlertController(title: "ARE YOU SURE?", message: "Your history will be gone...", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alertController.addAction(UIAlertAction(title: "CHANGE", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                
+                controlNotification.cancelNotification(identifier: self.selectedDate.text!)
+                self.picker.show(inVC: self)
+                
+            }))
+            
+            alertController.addAction(UIAlertAction(title: "DELETE", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
+                
+                let deleteController = UIAlertController(title: "ARE YOU SURE?", message: "Your history will be gone...", preferredStyle: UIAlertControllerStyle.alert)
+                deleteController.addAction(UIAlertAction(title: "DELETE", style: UIAlertActionStyle.destructive, handler: { (action: UIAlertAction!) in
+                    controlNotification.cancelNotification(identifier: self.selectedDate.text!)
+                    self.deleteAlarmButton.setTitle("SET ALARM", for: .normal)
+                }))
+                deleteController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+                self.present(deleteController, animated: true, completion: nil)
+                
+            }))
+            
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+
+        }
+        
+
+
     }
 }
 
