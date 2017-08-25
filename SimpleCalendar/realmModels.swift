@@ -113,7 +113,17 @@ extension String {
 }
 
 
+func realmToArray () -> [String] {
+    var returnArray = [String]()
+    let realm = try! Realm()
+    let datas = realm.objects(dailyMemo.self)
 
+    for data in datas {
+        returnArray.append("\(data.createdDate) : \(data.text)")
+    }
+
+    return returnArray
+}
 
 
 

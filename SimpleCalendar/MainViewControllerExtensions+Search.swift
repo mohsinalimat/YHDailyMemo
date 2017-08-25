@@ -22,7 +22,19 @@ extension MainViewController: ModernSearchBarDelegate {
     
     ///Called if you use String suggestion list
     func onClickItemSuggestionsView(item: String) {
-        print("User touched this item: "+item)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM DD YYYY"
+        dateFormatter.locale = Calendar.current.locale
+        
+        let dateArray = item.components(separatedBy: " ")
+        let dateData = "\(dateArray[1]) \(dateArray[2]) \(dateArray[0])"
+        let dateNSdate = dateFormatter.date(from: dateData)
+        
+        searchBar.resignFirstResponder()
+        searchBar.isHidden = true
+        self.calendarCollectionView.scrollToDate(dateNSdate!)
+        self.calendarCollectionView.selectDates([dateNSdate!])
+
     }
     
     ///Called when user touched shadowView
@@ -34,37 +46,18 @@ extension MainViewController: ModernSearchBarDelegate {
         //print("Text did change, what i'm suppose to do ?")
     }
     
-    //----------------------------------------
-    // CONFIGURE SEARCH BAR (TWO WAYS)
-    //----------------------------------------
-    
-    // 1 - Configure search bar with a simple list of string
-    
     func configureSearchBar(){
-        
         ///Create array of string
-        var suggestionList = Array<String>()
-        suggestionList.append("Onions")
-        suggestionList.append("Celery")
-        suggestionList.append("Very long vegetable to show you that cell is updated and fit all the row")
-        suggestionList.append("Potatoes")
-        suggestionList.append("Carrots")
-        suggestionList.append("Broccoli")
-        suggestionList.append("Asparagus")
-        suggestionList.append("Apples")
-        suggestionList.append("Berries")
-        suggestionList.append("Kiwis")
-        suggestionList.append("Raymond")
+        let dbList = realmToArray()
         
         ///Adding delegate
         self.searchBar.delegateModernSearchBar = self
         
         ///Set datas to search bar
-        self.searchBar.setDatas(datas: suggestionList)
+        self.searchBar.setDatas(datas: dbList)
         
         ///Custom design with all paramaters if you want to
         self.customDesign()
-        
     }
     
     
@@ -86,12 +79,13 @@ extension MainViewController: ModernSearchBarDelegate {
         self.searchBar.searchLabel_textColor = UIColor.darkGray
         
         ///Modify properties of the suggestionsView
-        self.searchBar.suggestionsView_backgroundColor = UIColor.brown
+        self.searchBar.suggestionsView_backgroundColor = UIColor.lightGray
         self.searchBar.suggestionsView_contentViewColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 0.3)
         self.searchBar.suggestionsView_separatorStyle = .singleLine
         self.searchBar.suggestionsView_selectionStyle = UITableViewCellSelectionStyle.default
         self.searchBar.suggestionsView_verticalSpaceWithSearchBar = 3
         self.searchBar.suggestionsView_spaceWithKeyboard = 20
+        self.searchBar.suggestionsView_maxHeight = 300
     }
     
     func makingSearchBarAwesome(){
