@@ -9,6 +9,7 @@
 import UIKit
 import JTAppleCalendar
 import UserNotifications
+import ModernSearchBar
 
 class MainViewController: UIViewController{
 
@@ -29,7 +30,8 @@ class MainViewController: UIViewController{
     @IBOutlet weak var calendarHeight: NSLayoutConstraint!
     @IBOutlet weak var deleteAlarmButton: UIButton!
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var searchBar : ModernSearchBar!
+
 
     var dateFormatter = DateFormatter()
     var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
@@ -67,7 +69,17 @@ class MainViewController: UIViewController{
         registerNotification()
         
         self.deleteAlarmButton.contentHorizontalAlignment = .left
+        
+
+        
+        //Font setup
+        self.searchBar.searchLabel_font = UIFont(name: "Avenir-Light", size: 13)
+        
+        
+        //Search Bar
         searchBar.isHidden = true
+        self.makingSearchBarAwesome()
+        self.configureSearchBar()
         
         //MARK:: Calendar View to Today
         calendarCollectionView.scrollToDate(today as Date)
@@ -170,11 +182,6 @@ class MainViewController: UIViewController{
         
         formatter.dateFormat = "MMMM YYYY"
         self.monthYear.text = formatter.string(from: date)
-    }
-    
-    
-    @IBAction func search(_ sender: Any) {
-        searchBar.isHidden = false
     }
     
     

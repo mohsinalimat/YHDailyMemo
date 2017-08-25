@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="avenir-light.ttf">
+            <string>AvenirLTStd-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Ib Calendar Data Source-->
         <scene sceneID="tne-QT-ifu">
@@ -25,15 +30,19 @@
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="top" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="X8z-Mp-via">
                                 <rect key="frame" x="0.0" y="28" width="414" height="708"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="9Gm-DK-9qZ">
+                                    <searchBar contentMode="redraw" placeholder="Search your day" translatesAutoresizingMaskIntoConstraints="NO" id="2Je-YP-PyC" customClass="ModernSearchBar" customModule="ModernSearchBar">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="qGV-Xk-acu"/>
+                                            <constraint firstAttribute="height" constant="40" id="NcG-Lb-V5u"/>
                                         </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="barTintColor" red="0.41211491823196411" green="0.69939273595809937" blue="0.64304667711257935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="oSD-gF-45s"/>
-                                        </connections>
+                                        <scopeButtonTitles>
+                                            <string>Title</string>
+                                            <string>Title</string>
+                                        </scopeButtonTitles>
                                     </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gu7-Ry-9Dx" userLabel="Master Stack View">
                                         <rect key="frame" x="0.0" y="54" width="414" height="596"/>
@@ -47,8 +56,22 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="JXo-c1-AAT" userLabel="Header Stack View">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="31"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j03-J7-Jeh" userLabel="search">
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hF8-jr-JVH">
                                                                         <rect key="frame" x="0.0" y="1" width="30" height="30"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="30" id="FT5-Au-xq4"/>
+                                                                            <constraint firstAttribute="height" constant="30" id="bOr-oR-iSV"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="setting" image="icon_setup"/>
+                                                                    </button>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="MONTH YEAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD8-Kn-1J4">
+                                                                        <rect key="frame" x="30" y="0.0" width="334" height="31"/>
+                                                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="23"/>
+                                                                        <color key="textColor" red="0.30980392156862746" green="0.70196078431372544" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j03-J7-Jeh" userLabel="search">
+                                                                        <rect key="frame" x="364" y="1" width="30" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="30" id="KH9-a9-TRU"/>
                                                                             <constraint firstAttribute="width" constant="30" id="WNe-GP-ckB"/>
@@ -58,20 +81,6 @@
                                                                             <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dau-Iy-Dd2"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="MONTH YEAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD8-Kn-1J4">
-                                                                        <rect key="frame" x="30" y="0.0" width="334" height="31"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
-                                                                        <color key="textColor" red="0.30980392156862746" green="0.70196078431372544" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hF8-jr-JVH">
-                                                                        <rect key="frame" x="364" y="1" width="30" height="30"/>
-                                                                        <constraints>
-                                                                            <constraint firstAttribute="width" constant="30" id="FT5-Au-xq4"/>
-                                                                            <constraint firstAttribute="height" constant="30" id="bOr-oR-iSV"/>
-                                                                        </constraints>
-                                                                        <state key="normal" title="setting" image="icon_setup"/>
-                                                                    </button>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" distribution="fillProportionally" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="o6L-22-YTn" userLabel="Monthly Memo Stack View">
@@ -79,6 +88,7 @@
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnS-Cf-Asm">
                                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
+                                                                        <fontDescription key="fontDescription" name="AvenirLTStd-Light" family="Avenir LT Std" pointSize="17"/>
                                                                         <state key="normal" title="Monthly Memo">
                                                                             <color key="titleColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </state>
@@ -114,7 +124,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="D7N-AO-XQf"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -124,7 +134,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="LU0-Uc-G2a"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -134,7 +144,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="0LX-5j-FEK"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -144,7 +154,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="dd6-zH-aor"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -154,7 +164,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="sby-2e-hGD"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -164,7 +174,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="6tj-nn-Kph"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -174,7 +184,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="dR7-x9-1ah"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -213,17 +223,17 @@
                                                                                     <subviews>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fG9-Vt-bcd">
                                                                                             <rect key="frame" x="8" y="0.0" width="27" height="21.666666666666668"/>
-                                                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="13"/>
                                                                                             <color key="textColor" red="0.3332984447479248" green="0.3333585262298584" blue="0.3332856297492981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                             <nil key="highlightedColor"/>
                                                                                         </label>
                                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jZT-4c-Jcy">
-                                                                                            <rect key="frame" x="3.6666666666666679" y="21.666666666666671" width="35.666666666666671" height="21.333333333333329"/>
+                                                                                            <rect key="frame" x="5.3333333333333321" y="21.666666666666671" width="32.666666666666671" height="21.333333333333329"/>
                                                                                             <attributedString key="attributedText">
                                                                                                 <fragment content="Label...">
                                                                                                     <attributes>
                                                                                                         <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                                                                        <font key="NSFont" size="10" name=".AppleSystemUIFont"/>
+                                                                                                        <font key="NSFont" size="10" name="Avenir-Book"/>
                                                                                                         <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                                                         <integer key="NSUnderline" value="1"/>
                                                                                                     </attributes>
@@ -326,7 +336,7 @@
                                                                             <constraint firstAttribute="width" constant="100" id="9QP-oy-D6q"/>
                                                                             <constraint firstAttribute="height" constant="26" id="gkx-hC-mHC"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="10"/>
+                                                                        <fontDescription key="fontDescription" name="AvenirLTStd-Light" family="Avenir LT Std" pointSize="10"/>
                                                                         <state key="normal" title=" ">
                                                                             <color key="titleColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </state>
@@ -340,7 +350,7 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="26" id="Tnv-vG-TR0"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                                        <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="16"/>
                                                                         <color key="textColor" red="0.5725490196078431" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -351,7 +361,7 @@
                                                                             <constraint firstAttribute="width" constant="100" id="2kE-tF-lso"/>
                                                                             <constraint firstAttribute="height" constant="26" id="QGA-8u-n6B"/>
                                                                         </constraints>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                                        <fontDescription key="fontDescription" name="AvenirLTStd-Light" family="Avenir LT Std" pointSize="10"/>
                                                                         <color key="textColor" red="0.5725490196078431" green="0.56862745098039214" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
@@ -381,7 +391,7 @@
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HhZ-8k-7EW">
                                                                 <rect key="frame" x="0.0" y="183" width="394" height="107"/>
                                                                 <color key="backgroundColor" red="0.9070448968" green="0.91602553929999997" blue="0.91602553929999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <fontDescription key="fontDescription" name="AvenirLTStd-Light" family="Avenir LT Std" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                                                             </textView>
                                                         </subviews>
@@ -448,10 +458,10 @@
                                     <constraint firstAttribute="trailing" secondItem="RFL-Yy-66h" secondAttribute="trailing" id="FcK-G0-tFC"/>
                                     <constraint firstItem="RFL-Yy-66h" firstAttribute="leading" secondItem="X8z-Mp-via" secondAttribute="leading" id="TwJ-Mb-txu"/>
                                     <constraint firstItem="Gu7-Ry-9Dx" firstAttribute="leading" secondItem="X8z-Mp-via" secondAttribute="leading" id="W8b-iZ-ipR"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Je-YP-PyC" secondAttribute="trailing" id="Xa4-lo-Mad"/>
+                                    <constraint firstItem="2Je-YP-PyC" firstAttribute="top" secondItem="X8z-Mp-via" secondAttribute="top" id="a4e-gV-7cF"/>
                                     <constraint firstAttribute="trailing" secondItem="Gu7-Ry-9Dx" secondAttribute="trailing" id="b56-A6-TFg"/>
-                                    <constraint firstItem="9Gm-DK-9qZ" firstAttribute="top" secondItem="X8z-Mp-via" secondAttribute="top" id="j4C-xJ-220"/>
-                                    <constraint firstItem="9Gm-DK-9qZ" firstAttribute="leading" secondItem="X8z-Mp-via" secondAttribute="leading" id="upR-eV-fqC"/>
-                                    <constraint firstAttribute="trailing" secondItem="9Gm-DK-9qZ" secondAttribute="trailing" id="x2W-eZ-Imu"/>
+                                    <constraint firstItem="2Je-YP-PyC" firstAttribute="leading" secondItem="X8z-Mp-via" secondAttribute="leading" id="ro0-Uj-XHf"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -477,7 +487,7 @@
                         <outlet property="masterStackView" destination="Gu7-Ry-9Dx" id="m0y-U9-vjk"/>
                         <outlet property="masterView" destination="8bC-Xf-vdC" id="J0d-06-jih"/>
                         <outlet property="monthYear" destination="OD8-Kn-1J4" id="3Rm-4F-DPo"/>
-                        <outlet property="searchBar" destination="9Gm-DK-9qZ" id="gtM-Oh-k8G"/>
+                        <outlet property="searchBar" destination="2Je-YP-PyC" id="3CG-Uj-bKy"/>
                         <outlet property="searchDisplayController" destination="E1w-Hs-Lnv" id="WLb-cX-HzN"/>
                         <outlet property="selectedDate" destination="VWj-32-0hK" id="wUB-73-Rql"/>
                         <outlet property="text" destination="HhZ-8k-7EW" id="BQF-9s-WQj"/>
@@ -489,7 +499,6 @@
                 <searchDisplayController id="E1w-Hs-Lnv">
                     <connections>
                         <outlet property="delegate" destination="BYZ-38-t0r" id="BTD-ad-ONv"/>
-                        <outlet property="searchBar" destination="9Gm-DK-9qZ" id="sFz-yH-2Zt"/>
                         <outlet property="searchContentsController" destination="BYZ-38-t0r" id="sdN-Mk-0GU"/>
                         <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="Saq-sL-Bk8"/>
                         <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="ZhV-Zd-2ut"/>
@@ -504,7 +513,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dCT-C9-CaU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Alarm" id="4dU-cF-6Xs"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZFg-vm-vYt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZFg-vm-vYt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

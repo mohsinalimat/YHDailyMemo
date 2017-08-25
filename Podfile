@@ -9,6 +9,7 @@ target 'SimpleCalendar' do
   use_frameworks!
   pod 'JTAppleCalendar', '~> 7.0'
   pod 'ActionSheetPicker-3.0', '~> 2.2.0'
+  pod 'ModernSearchBar'
 
 pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', :submodules => true
 pod 'RealmSwift', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', :submodules => true

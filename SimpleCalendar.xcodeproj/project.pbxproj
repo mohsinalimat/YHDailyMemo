@@ -34,7 +34,10 @@
 		27FC3A3B1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */; };
 		96547AE155A5BB1BC99BBBE1 /* Pods_SimpleCalendarUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58328B59B1088EAAFAC7482D /* Pods_SimpleCalendarUITests.framework */; };
 		ABA110D896310F8FFEF6A9C7 /* Pods_SimpleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902DADE1C1AE9964CFCD9C29 /* Pods_SimpleCalendar.framework */; };
-		B1C5F0631F4BF1B000B94D67 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0621F4BF1B000B94D67 /* searchViewController.swift */; };
+		B1C5F0631F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */; };
+		B1C5F0651F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
+		B1C5F0661F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
+		B1C5F0671F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +95,8 @@
 		6A1F6AC04BAD3F8BBC023C25 /* Pods-SimpleCalendarUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendarUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendarUITests/Pods-SimpleCalendarUITests.release.xcconfig"; sourceTree = "<group>"; };
 		902DADE1C1AE9964CFCD9C29 /* Pods_SimpleCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SimpleCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B115DD742B8F15D308D91FF2 /* Pods-SimpleCalendarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendarTests/Pods-SimpleCalendarTests.debug.xcconfig"; sourceTree = "<group>"; };
-		B1C5F0621F4BF1B000B94D67 /* searchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
+		B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Search.swift"; sourceTree = "<group>"; };
+		B1C5F0641F501B5500B94D67 /* avenir-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avenir-light.ttf"; sourceTree = "<group>"; };
 		DE3708C871DA9F5329EB132A /* Pods-SimpleCalendarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendarUITests/Pods-SimpleCalendarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD132C39B69746818F3EAB40 /* Pods-SimpleCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendar/Pods-SimpleCalendar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,10 +169,10 @@
 			children = (
 				27FC3A3C1F3C392000F1EF4A /* View */,
 				27FC3A3D1F3C392500F1EF4A /* MainViewController */,
-				B1C5F0611F4BF19500B94D67 /* SearchViewController */,
 				27EFDB9D1F4997C0006E1F83 /* AlarmViewController */,
 				27FC3A3E1F3C392700F1EF4A /* Model */,
 				27D347591F2ED8DE004CACDD /* Assets.xcassets */,
+				B1C5F0641F501B5500B94D67 /* avenir-light.ttf */,
 				27D3475E1F2ED8DE004CACDD /* Info.plist */,
 			);
 			path = SimpleCalendar;
@@ -236,6 +240,7 @@
 				27FC3A381F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift */,
 				27EFDB9B1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift */,
 				27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */,
+				B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -273,14 +278,6 @@
 				58328B59B1088EAAFAC7482D /* Pods_SimpleCalendarUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B1C5F0611F4BF19500B94D67 /* SearchViewController */ = {
-			isa = PBXGroup;
-			children = (
-				B1C5F0621F4BF1B000B94D67 /* searchViewController.swift */,
-			);
-			name = SearchViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,6 +401,7 @@
 			files = (
 				27D3475D1F2ED8DE004CACDD /* LaunchScreen.storyboard in Resources */,
 				27D3475A1F2ED8DE004CACDD /* Assets.xcassets in Resources */,
+				B1C5F0651F501B5500B94D67 /* avenir-light.ttf in Resources */,
 				27D347551F2ED8DE004CACDD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -412,6 +410,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C5F0661F501B5500B94D67 /* avenir-light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +418,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C5F0671F501B5500B94D67 /* avenir-light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +573,7 @@
 				27FC3A391F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift in Sources */,
 				27EFDB9F1F4997D8006E1F83 /* alarmViewController.swift in Sources */,
 				27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */,
-				B1C5F0631F4BF1B000B94D67 /* searchViewController.swift in Sources */,
+				B1C5F0631F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift in Sources */,
 				2789E0601F4407F800B420E4 /* lunadayData.swift in Sources */,
 				27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */,
 				27F9781B1F41A82C007428D1 /* lunaDateModel.swift in Sources */,

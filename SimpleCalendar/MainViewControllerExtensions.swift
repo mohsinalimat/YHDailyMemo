@@ -19,13 +19,14 @@ extension MainViewController: UITextFieldDelegate {
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        //searchBar.resignFirstResponder()
         return true
     }
 
 
     // MARK: Show/Hide Keyboard
     func keyboardWillShow(_ notification: Notification) {
-        if !keyboardOnScreen {
+        if !keyboardOnScreen && text.isFirstResponder {
             
             topStackView.isHidden = true
             toolBar.isHidden = true
@@ -44,12 +45,12 @@ extension MainViewController: UITextFieldDelegate {
     func keyboardWillHide(_ notification: Notification) {
         
         //MARK: Save textview to Realm
-        if self.text.text != "" {
+        if self.text.text != "" && text.isFirstResponder {
             realmUpdate(date: self.selectedDateData, text: self.text)
             calendarCollectionView.reloadData()
         }
         
-        if keyboardOnScreen {
+        if keyboardOnScreen && text.isFirstResponder {
             topStackView.isHidden = false
             toolBar.isHidden = false
             self.view.frame.origin.y += keyboardHeight(notification)

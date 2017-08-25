@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F3C0971B2E65DFB2AD2DB362BB52E46D'
-               BlueprintName = 'Realm'
+               BlueprintIdentifier = '3947CFF5C2B3AE8B6E09B96A5789E59E'
+               BlueprintName = 'ModernSearchBar'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Realm.framework'>
+               BuildableName = 'ModernSearchBar.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

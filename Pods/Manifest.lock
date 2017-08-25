@@ -1,6 +1,7 @@
 PODS:
   - ActionSheetPicker-3.0 (2.2.0)
   - JTAppleCalendar (7.0.6)
+  - ModernSearchBar (1.4)
   - Realm (2.9.1):
     - Realm/Headers (= 2.9.1)
   - Realm/Headers (2.9.1)
@@ -10,6 +11,7 @@ PODS:
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 2.2.0)
   - JTAppleCalendar (~> 7.0)
+  - ModernSearchBar
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
 
@@ -36,9 +38,10 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   JTAppleCalendar: 6a942475e33b9ad4dee0a0e14aa4c63adcf4f543
+  ModernSearchBar: d888b62f960c4d91f8662f0720e1544d19847e7f
   Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   RealmSwift: 9b93f053d46d4fc4145e691c14eb06b5410ffdc9
 
-PODFILE CHECKSUM: a19742b1fe9ecf3e183e30e2fba51c77d65f8977
+PODFILE CHECKSUM: ca0df3f5f0bf495996715e4dee687fbf3fdb6131
 
 COCOAPODS: 1.2.0
