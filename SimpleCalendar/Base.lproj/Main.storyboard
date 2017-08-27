@@ -38,7 +38,7 @@
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="barTintColor" red="0.41211491823196411" green="0.69939273595809937" blue="0.64304667711257935" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <scopeButtonTitles>
                                             <string>Title</string>
                                             <string>Title</string>
@@ -124,7 +124,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="D7N-AO-XQf"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -134,7 +134,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="LU0-Uc-G2a"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -144,7 +144,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="0LX-5j-FEK"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -154,7 +154,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="dd6-zH-aor"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -164,7 +164,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="sby-2e-hGD"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -174,7 +174,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="6tj-nn-Kph"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -184,7 +184,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="dR7-x9-1ah"/>
                                                                                 </constraints>
-                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -487,12 +487,13 @@
                         <outlet property="masterStackView" destination="Gu7-Ry-9Dx" id="m0y-U9-vjk"/>
                         <outlet property="masterView" destination="8bC-Xf-vdC" id="J0d-06-jih"/>
                         <outlet property="monthYear" destination="OD8-Kn-1J4" id="3Rm-4F-DPo"/>
-                        <outlet property="searchBar" destination="2Je-YP-PyC" id="3CG-Uj-bKy"/>
+                        <outlet property="searchBar" destination="2Je-YP-PyC" id="dlw-q4-ybR"/>
                         <outlet property="searchDisplayController" destination="E1w-Hs-Lnv" id="WLb-cX-HzN"/>
                         <outlet property="selectedDate" destination="VWj-32-0hK" id="wUB-73-Rql"/>
                         <outlet property="text" destination="HhZ-8k-7EW" id="BQF-9s-WQj"/>
                         <outlet property="toolBar" destination="RFL-Yy-66h" id="qAI-AX-0o9"/>
                         <outlet property="topStackView" destination="MFQ-ZD-jr7" id="PLF-sN-u50"/>
+                        <outletCollection property="searchBarAction" destination="2Je-YP-PyC" collectionClass="NSMutableArray" id="BBU-TE-eDX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

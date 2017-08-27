@@ -48,6 +48,9 @@ extension MainViewController: JTAppleCalendarViewDataSource {
     
     //MARK: Did Selected Cell
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
+        
+        self.searchBar.isHidden = true
+        
         handleCellSelected(view: cell, cellState: cellState)
         handleCellTextColor(view: cell, cellState: cellState)
         

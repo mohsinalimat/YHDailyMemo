@@ -23,12 +23,15 @@ extension MainViewController: ModernSearchBarDelegate {
     ///Called if you use String suggestion list
     func onClickItemSuggestionsView(item: String) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM DD YYYY"
+        dateFormatter.dateFormat = "MM dd yyyy"
+        dateFormatter.timeZone = Calendar.current.timeZone
         dateFormatter.locale = Calendar.current.locale
         
         let dateArray = item.components(separatedBy: " ")
         let dateData = "\(dateArray[1]) \(dateArray[2]) \(dateArray[0])"
         let dateNSdate = dateFormatter.date(from: dateData)
+        
+        print(dateFormatter.string(from: dateNSdate!))
         
         searchBar.resignFirstResponder()
         searchBar.isHidden = true
@@ -40,10 +43,12 @@ extension MainViewController: ModernSearchBarDelegate {
     ///Called when user touched shadowView
     func onClickShadowView(shadowView: UIView) {
         searchBar.resignFirstResponder()
+        self.searchBar.isHidden = true
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //print("Text did change, what i'm suppose to do ?")
+        self.searchBar.endEditing(true)
     }
     
     func configureSearchBar(){
@@ -93,10 +98,13 @@ extension MainViewController: ModernSearchBarDelegate {
         self.searchBar.layer.borderColor = UIColor.white.cgColor
     }
     
+    
+    
 
     @IBAction func search(_ sender: Any) {
         if searchBar.isHidden {
             searchBar.isHidden = false
+            self.searchBar.setDatas(datas: realmToArray())
         } else {
             searchBar.isHidden = true
         }

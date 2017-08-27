@@ -19,15 +19,17 @@ extension MainViewController: UITextFieldDelegate {
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        //searchBar.resignFirstResponder()
+        
         return true
     }
 
-
+    
+    
     // MARK: Show/Hide Keyboard
     func keyboardWillShow(_ notification: Notification) {
         if !keyboardOnScreen && text.isFirstResponder {
             
+            self.searchBar.isHidden = true
             topStackView.isHidden = true
             toolBar.isHidden = true
 
@@ -77,10 +79,16 @@ extension MainViewController: UITextFieldDelegate {
         if textField.isFirstResponder {
             textField.resignFirstResponder()
         }
+        
+        if searchBar.isFirstResponder {
+            searchBar.resignFirstResponder()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         text.resignFirstResponder()
+        searchBar.resignFirstResponder()
+        
     }
     
     //MARK: Dissmiss Keyboard
