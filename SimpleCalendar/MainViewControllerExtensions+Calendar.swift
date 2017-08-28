@@ -56,6 +56,9 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM/dd/yy"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        
         let displaiedSelectedDate = formatter.string(from: date)
         var displayHolidayandLunadate = " "
         var displayLunaday = " "
@@ -71,7 +74,10 @@ extension MainViewController: JTAppleCalendarViewDataSource {
             if temp.identifier == displaiedSelectedDate {
                 let formatter = DateFormatter()
                 formatter.dateFormat = "HH:mm"
-                self.deleteAlarmButton.setTitle("\(formatter.string(from: temp.date)) ✕",for: .normal)
+                formatter.timeZone = Calendar.current.timeZone
+                formatter.locale = Calendar.current.locale
+                
+                self.deleteAlarmButton.setTitle("\(temp.date) ✕",for: .normal)
                 break
             }
         }
@@ -127,9 +133,12 @@ extension MainViewController: JTAppleCalendarViewDataSource {
     //MARK: Display current Month and Year
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
-        let formatter = DateFormatter()
         
+        let formatter = DateFormatter()
         formatter.dateFormat = "MM / YYYY"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        
         monthYear.text = formatter.string(from: date)
     }
 }

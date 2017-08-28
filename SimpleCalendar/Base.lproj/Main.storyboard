@@ -63,6 +63,9 @@
                                                                             <constraint firstAttribute="height" constant="30" id="bOr-oR-iSV"/>
                                                                         </constraints>
                                                                         <state key="normal" title="setting" image="icon_setup"/>
+                                                                        <connections>
+                                                                            <segue destination="Wvd-4X-cB2" kind="show" id="kYk-QJ-AXy"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="MONTH YEAR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD8-Kn-1J4">
                                                                         <rect key="frame" x="30" y="0.0" width="334" height="31"/>
@@ -393,6 +396,9 @@
                                                                 <color key="backgroundColor" red="0.9070448968" green="0.91602553929999997" blue="0.91602553929999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="AvenirLTStd-Light" family="Avenir LT Std" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="NDl-Wh-erL"/>
+                                                                </connections>
                                                             </textView>
                                                         </subviews>
                                                         <gestureRecognizers/>
@@ -487,13 +493,12 @@
                         <outlet property="masterStackView" destination="Gu7-Ry-9Dx" id="m0y-U9-vjk"/>
                         <outlet property="masterView" destination="8bC-Xf-vdC" id="J0d-06-jih"/>
                         <outlet property="monthYear" destination="OD8-Kn-1J4" id="3Rm-4F-DPo"/>
-                        <outlet property="searchBar" destination="2Je-YP-PyC" id="dlw-q4-ybR"/>
+                        <outlet property="searchBar" destination="2Je-YP-PyC" id="3CG-Uj-bKy"/>
                         <outlet property="searchDisplayController" destination="E1w-Hs-Lnv" id="WLb-cX-HzN"/>
                         <outlet property="selectedDate" destination="VWj-32-0hK" id="wUB-73-Rql"/>
                         <outlet property="text" destination="HhZ-8k-7EW" id="BQF-9s-WQj"/>
                         <outlet property="toolBar" destination="RFL-Yy-66h" id="qAI-AX-0o9"/>
                         <outlet property="topStackView" destination="MFQ-ZD-jr7" id="PLF-sN-u50"/>
-                        <outletCollection property="searchBarAction" destination="2Je-YP-PyC" collectionClass="NSMutableArray" id="BBU-TE-eDX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -577,6 +582,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jcf-wJ-xSZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1538" y="-115"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="sat-oI-Tl2">
+            <objects>
+                <tableViewController id="m4T-lB-CUS" customClass="setUpViewController" customModule="SimpleCalendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="D0B-NH-0R9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="setViewCell" id="f96-sK-l5X">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f96-sK-l5X" id="ew8-MX-sqO">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="m4T-lB-CUS" id="kCO-cJ-L0z"/>
+                            <outlet property="delegate" destination="m4T-lB-CUS" id="CB0-1m-KU2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="13I-CB-JfJ">
+                        <barButtonItem key="leftBarButtonItem" title="back" id="vV2-4D-YcE">
+                            <connections>
+                                <action selector="back:" destination="m4T-lB-CUS" id="zel-M4-A4v"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V01-yQ-9ld" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1601" y="630"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nuM-n2-xQl">
+            <objects>
+                <navigationController id="Wvd-4X-cB2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f77-ch-GUK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="m4T-lB-CUS" kind="relationship" relationship="rootViewController" id="fF8-yz-xAY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q1V-xP-9vf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="683" y="630"/>
         </scene>
     </scenes>
     <resources>

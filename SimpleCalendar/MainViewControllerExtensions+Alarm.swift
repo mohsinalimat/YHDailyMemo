@@ -18,6 +18,8 @@ extension MainViewController: GMDatePickerDelegate {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
         
         self.deleteAlarmButton.setTitle("\(formatter.string(from: date)) ✕", for: .normal)
         
@@ -92,9 +94,9 @@ extension MainViewController {
     func registerNotification() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) { (success, error) in
             if success {
-                print("success")
+                print("Register success")
             } else {
-                print("error")
+                print("Register error")
             }
         }
     }

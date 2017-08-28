@@ -76,12 +76,21 @@ class AlarmViewController: UITableViewController {
         }
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action, index) in
-            self.aplicationDelegate.dismissCheck = self.alarms[indexPath.row].date
+            
+            let pickedDate = "\(self.alarms[indexPath.row].identifier) 12:00:00+0000"
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yy HH:mm:ss+0000"
+            let date = dateFormatter.date(from:pickedDate)!
+            let calendar = Calendar.current
+            let components = calendar.dateComponents([.year, .month, .day, .hour], from: date)
+            let finalDate = calendar.date(from:components)
+            
+            self.aplicationDelegate.dismissCheck = finalDate
             self.dismiss(animated: true, completion: {})
         }
         
         editAction.backgroundColor = UIColor.lightGray
-        
         return [deleteAction, editAction]
     }
     

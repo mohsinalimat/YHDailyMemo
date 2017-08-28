@@ -11,7 +11,7 @@ import JTAppleCalendar
 import UserNotifications
 import ModernSearchBar
 
-class MainViewController: UIViewController{
+class MainViewController: UIViewController {
 
     @IBOutlet weak var calendarCollectionView: JTAppleCalendarView!
     @IBOutlet weak var text: UITextView!
@@ -54,6 +54,7 @@ class MainViewController: UIViewController{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy MM dd"
         dateFormatter.locale = Calendar.current.locale
+        dateFormatter.timeZone = Calendar.current.timeZone
         todayString = dateFormatter.string(from: now as Date)
     }
    
@@ -66,11 +67,13 @@ class MainViewController: UIViewController{
         
         getAlarmsList()
         
+        //print(aplicationDelegate.alarmList[0].date)
+        //print(aplicationDelegate.alarmList[1].date)
+        
         registerNotification()
         
         self.deleteAlarmButton.contentHorizontalAlignment = .left
-        
-
+        self.text.delegate = self
         
         //Font setup
         self.searchBar.searchLabel_font = UIFont(name: "Avenir-Light", size: 13)
@@ -98,12 +101,9 @@ class MainViewController: UIViewController{
     func getAlarmsList() {
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
             for request in requests{
-                var alarm = alarmList()
-                alarm.identifier = request.identifier
-                alarm.title = request.content.title
-                alarm.text = request.content.body
-                
+                let alarm = alarmList(identifier: request.identifier, title: request.content.title, text: request.content.body)
                 self.aplicationDelegate.alarmList.append(alarm)
+                print(alarm.date)
             }
         })
     }
@@ -159,6 +159,9 @@ class MainViewController: UIViewController{
             //MARK: Today Check
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy MM dd"
+            formatter.locale = Calendar.current.locale
+            formatter.timeZone = Calendar.current.timeZone
+            
             if formatter.string(from: cellState.date) == todayString {
                 validCell.selectedCell.isHidden = false
                 validCell.selectedCell.backgroundColor = UIColor(red: 79/255.0, green: 179/255.0, blue: 156/255.0, alpha: 0.3)
@@ -181,6 +184,9 @@ class MainViewController: UIViewController{
         let formatter = DateFormatter()
         
         formatter.dateFormat = "MMMM YYYY"
+        formatter.locale = Calendar.current.locale
+        formatter.timeZone = Calendar.current.timeZone
+        
         self.monthYear.text = formatter.string(from: date)
     }
     

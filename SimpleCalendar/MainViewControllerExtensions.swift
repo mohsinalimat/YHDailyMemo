@@ -14,17 +14,15 @@ import RealmSwift
 
 
 // MARK: Regarding KEYBOARD
-extension MainViewController: UITextFieldDelegate {
+extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
     
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         return true
     }
 
-    
-    
+
     // MARK: Show/Hide Keyboard
     func keyboardWillShow(_ notification: Notification) {
         if !keyboardOnScreen && text.isFirstResponder {
@@ -43,6 +41,14 @@ extension MainViewController: UITextFieldDelegate {
         }
     }
     
+    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        if textView == self.text && searchBar.isFirstResponder {
+            searchBar.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+        
     
     func keyboardWillHide(_ notification: Notification) {
         
@@ -79,16 +85,11 @@ extension MainViewController: UITextFieldDelegate {
         if textField.isFirstResponder {
             textField.resignFirstResponder()
         }
-        
-        if searchBar.isFirstResponder {
-            searchBar.resignFirstResponder()
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         text.resignFirstResponder()
         searchBar.resignFirstResponder()
-        
     }
     
     //MARK: Dissmiss Keyboard

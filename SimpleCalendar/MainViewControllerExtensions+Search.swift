@@ -48,7 +48,7 @@ extension MainViewController: ModernSearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //print("Text did change, what i'm suppose to do ?")
-        self.searchBar.endEditing(true)
+        //self.searchBar.endEditing(true)
     }
     
     func configureSearchBar(){
@@ -97,8 +97,6 @@ extension MainViewController: ModernSearchBarDelegate {
         self.searchBar.layer.borderWidth = 0
         self.searchBar.layer.borderColor = UIColor.white.cgColor
     }
-    
-    
     
 
     @IBAction func search(_ sender: Any) {

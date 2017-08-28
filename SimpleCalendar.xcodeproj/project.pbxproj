@@ -38,6 +38,9 @@
 		B1C5F0651F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
 		B1C5F0661F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
 		B1C5F0671F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
+		B1C5F06A1F52C9F800B94D67 /* setUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */; };
+		B1C5F06B1F52C9F800B94D67 /* setUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */; };
+		B1C5F06C1F52C9F800B94D67 /* setUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,7 @@
 		B115DD742B8F15D308D91FF2 /* Pods-SimpleCalendarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendarTests/Pods-SimpleCalendarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Search.swift"; sourceTree = "<group>"; };
 		B1C5F0641F501B5500B94D67 /* avenir-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avenir-light.ttf"; sourceTree = "<group>"; };
+		B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setUpViewController.swift; sourceTree = "<group>"; };
 		DE3708C871DA9F5329EB132A /* Pods-SimpleCalendarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendarUITests/Pods-SimpleCalendarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD132C39B69746818F3EAB40 /* Pods-SimpleCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendar/Pods-SimpleCalendar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,7 +173,8 @@
 			children = (
 				27FC3A3C1F3C392000F1EF4A /* View */,
 				27FC3A3D1F3C392500F1EF4A /* MainViewController */,
-				27EFDB9D1F4997C0006E1F83 /* AlarmViewController */,
+				27EFDB9D1F4997C0006E1F83 /* AlarmListViewController */,
+				B1C5F0681F52C9D900B94D67 /* SetUpViewController */,
 				27FC3A3E1F3C392700F1EF4A /* Model */,
 				27D347591F2ED8DE004CACDD /* Assets.xcassets */,
 				B1C5F0641F501B5500B94D67 /* avenir-light.ttf */,
@@ -196,13 +201,13 @@
 			path = SimpleCalendarUITests;
 			sourceTree = "<group>";
 		};
-		27EFDB9D1F4997C0006E1F83 /* AlarmViewController */ = {
+		27EFDB9D1F4997C0006E1F83 /* AlarmListViewController */ = {
 			isa = PBXGroup;
 			children = (
 				27EFDB9E1F4997D8006E1F83 /* alarmViewController.swift */,
 				27EFDBA01F49BF5E006E1F83 /* alarmList.swift */,
 			);
-			name = AlarmViewController;
+			name = AlarmListViewController;
 			sourceTree = "<group>";
 		};
 		27F6BE281F46CB3200DAAA44 /* Luna Calendar */ = {
@@ -278,6 +283,14 @@
 				58328B59B1088EAAFAC7482D /* Pods_SimpleCalendarUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1C5F0681F52C9D900B94D67 /* SetUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */,
+			);
+			name = SetUpViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,6 +582,7 @@
 			files = (
 				27FC3A3B1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift in Sources */,
 				27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */,
+				B1C5F06A1F52C9F800B94D67 /* setUpViewController.swift in Sources */,
 				27F6BE2B1F46CB5F00DAAA44 /* Timepicker.swift in Sources */,
 				27FC3A391F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift in Sources */,
 				27EFDB9F1F4997D8006E1F83 /* alarmViewController.swift in Sources */,
@@ -594,6 +608,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C5F06B1F52C9F800B94D67 /* setUpViewController.swift in Sources */,
 				27D347681F2ED8DE004CACDD /* SimpleCalendarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +617,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1C5F06C1F52C9F800B94D67 /* setUpViewController.swift in Sources */,
 				27D347731F2ED8DE004CACDD /* SimpleCalendarUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
