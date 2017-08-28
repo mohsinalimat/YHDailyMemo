@@ -7,6 +7,7 @@ PODS:
   - Realm/Headers (2.9.1)
   - RealmSwift (2.9.1):
     - Realm (= 2.9.1)
+  - SmileLock (2.0.2)
 
 DEPENDENCIES:
   - ActionSheetPicker-3.0 (~> 2.2.0)
@@ -14,6 +15,7 @@ DEPENDENCIES:
   - ModernSearchBar
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
+  - SmileLock
 
 EXTERNAL SOURCES:
   Realm:
@@ -41,7 +43,8 @@ SPEC CHECKSUMS:
   ModernSearchBar: d888b62f960c4d91f8662f0720e1544d19847e7f
   Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   RealmSwift: 9b93f053d46d4fc4145e691c14eb06b5410ffdc9
+  SmileLock: 7ae1e174b4697c0a33882dab838fc0bea94432f4
 
-PODFILE CHECKSUM: ca0df3f5f0bf495996715e4dee687fbf3fdb6131
+PODFILE CHECKSUM: a2bf281c628724d851af58e9bc7709e4cfd69d5b
 
 COCOAPODS: 1.2.0

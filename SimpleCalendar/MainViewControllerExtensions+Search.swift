@@ -90,7 +90,7 @@ extension MainViewController: ModernSearchBarDelegate {
         self.searchBar.suggestionsView_selectionStyle = UITableViewCellSelectionStyle.default
         self.searchBar.suggestionsView_verticalSpaceWithSearchBar = 3
         self.searchBar.suggestionsView_spaceWithKeyboard = 20
-        self.searchBar.suggestionsView_maxHeight = 300
+        self.searchBar.suggestionsView_maxHeight = 500
     }
     
     func makingSearchBarAwesome(){

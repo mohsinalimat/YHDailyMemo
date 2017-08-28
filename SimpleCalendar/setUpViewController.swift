@@ -9,8 +9,11 @@
 import Foundation
 import UIKit
 
-class setUpViewController: UITableViewController {
+class setUpViewController: UIViewController {
 
+    
+    
+    
     
     
     

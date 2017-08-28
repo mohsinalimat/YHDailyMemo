@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '06AA3D3205A77ECE6205508CDC1F9AC8'
-               BlueprintName = 'Realm'
+               BlueprintIdentifier = 'A144E5D3B155F297C12F3BE4A7F39E0B'
+               BlueprintName = 'SmileLock'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Realm.framework'>
+               BuildableName = 'SmileLock.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

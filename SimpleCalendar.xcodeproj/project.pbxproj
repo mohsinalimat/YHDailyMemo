@@ -41,6 +41,9 @@
 		B1C5F06A1F52C9F800B94D67 /* setUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */; };
 		B1C5F06B1F52C9F800B94D67 /* setUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */; };
 		B1C5F06C1F52C9F800B94D67 /* setUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */; };
+		B1C5F06F1F53AD9A00B94D67 /* lockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F06E1F53AD9A00B94D67 /* lockViewController.swift */; };
+		B1C5F0721F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0711F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift */; };
+		B1C5F0741F53F5AF00B94D67 /* MyPasswordUIValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0731F53F5AF00B94D67 /* MyPasswordUIValidation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +104,9 @@
 		B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Search.swift"; sourceTree = "<group>"; };
 		B1C5F0641F501B5500B94D67 /* avenir-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avenir-light.ttf"; sourceTree = "<group>"; };
 		B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setUpViewController.swift; sourceTree = "<group>"; };
+		B1C5F06E1F53AD9A00B94D67 /* lockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lockViewController.swift; sourceTree = "<group>"; };
+		B1C5F0711F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtentions+LockScreen.swift"; sourceTree = "<group>"; };
+		B1C5F0731F53F5AF00B94D67 /* MyPasswordUIValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPasswordUIValidation.swift; sourceTree = "<group>"; };
 		DE3708C871DA9F5329EB132A /* Pods-SimpleCalendarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendarUITests/Pods-SimpleCalendarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD132C39B69746818F3EAB40 /* Pods-SimpleCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendar/Pods-SimpleCalendar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +180,7 @@
 				27FC3A3C1F3C392000F1EF4A /* View */,
 				27FC3A3D1F3C392500F1EF4A /* MainViewController */,
 				27EFDB9D1F4997C0006E1F83 /* AlarmListViewController */,
+				B1C5F06D1F53AD7500B94D67 /* LockViewController */,
 				B1C5F0681F52C9D900B94D67 /* SetUpViewController */,
 				27FC3A3E1F3C392700F1EF4A /* Model */,
 				27D347591F2ED8DE004CACDD /* Assets.xcassets */,
@@ -246,6 +253,7 @@
 				27EFDB9B1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift */,
 				27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */,
 				B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */,
+				B1C5F0711F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -291,6 +299,15 @@
 				B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */,
 			);
 			name = SetUpViewController;
+			sourceTree = "<group>";
+		};
+		B1C5F06D1F53AD7500B94D67 /* LockViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B1C5F06E1F53AD9A00B94D67 /* lockViewController.swift */,
+				B1C5F0731F53F5AF00B94D67 /* MyPasswordUIValidation.swift */,
+			);
+			name = LockViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -581,6 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27FC3A3B1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift in Sources */,
+				B1C5F0721F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift in Sources */,
 				27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */,
 				B1C5F06A1F52C9F800B94D67 /* setUpViewController.swift in Sources */,
 				27F6BE2B1F46CB5F00DAAA44 /* Timepicker.swift in Sources */,
@@ -588,11 +606,13 @@
 				27EFDB9F1F4997D8006E1F83 /* alarmViewController.swift in Sources */,
 				27D347521F2ED8DE004CACDD /* MainViewController.swift in Sources */,
 				B1C5F0631F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift in Sources */,
+				B1C5F0741F53F5AF00B94D67 /* MyPasswordUIValidation.swift in Sources */,
 				2789E0601F4407F800B420E4 /* lunadayData.swift in Sources */,
 				27D347501F2ED8DE004CACDD /* AppDelegate.swift in Sources */,
 				27F9781B1F41A82C007428D1 /* lunaDateModel.swift in Sources */,
 				2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */,
 				27EFDB9A1F494E34006E1F83 /* setUpAlarm.swift in Sources */,
+				B1C5F06F1F53AD9A00B94D67 /* lockViewController.swift in Sources */,
 				27F978191F41A24A007428D1 /* setting.swift in Sources */,
 				2789E05C1F43E27E00B420E4 /* HolidayModel.swift in Sources */,
 				27EFDB9C1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift in Sources */,

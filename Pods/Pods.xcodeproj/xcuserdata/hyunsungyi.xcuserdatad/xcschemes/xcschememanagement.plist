@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ABPadLockScreen.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 		<key>ActionSheetPicker-3.0.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -59,6 +64,11 @@
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
+		<key>SmileLock.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 		<key>YNSearch.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -67,6 +77,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>06AA3D3205A77ECE6205508CDC1F9AC8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>07F630231E53F7873E837D2E8DDF3E02</key>
 		<dict>
 			<key>primary</key>
@@ -82,7 +97,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1C76245FD11E8E823C49DB47BE86A978</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>22995FAC1B0846D5A829C45C6CA7169E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B7AFE0DD02B8D82713311514D15A71D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -93,6 +118,11 @@
 			<true/>
 		</dict>
 		<key>3947CFF5C2B3AE8B6E09B96A5789E59E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>483835BC1BBA4518350A731711602587</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,6 +162,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>837E701257AD2504F77A62157460DF26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8E41A3BEA18CAD77C8E4256D3E4649D2</key>
 		<dict>
 			<key>primary</key>
@@ -148,6 +183,16 @@
 			<true/>
 		</dict>
 		<key>965699190112DDBD9B7864D091660DBC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A144E5D3B155F297C12F3BE4A7F39E0B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2F2461B8A094F4A4A6BA6B0C92BB403</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -178,6 +223,11 @@
 			<true/>
 		</dict>
 		<key>E2A71A2B2A4A4C21C8A05807F42AFE50</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E44E8EA9BA79421D7296CAC882D9F4DA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

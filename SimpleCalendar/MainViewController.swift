@@ -11,6 +11,7 @@ import JTAppleCalendar
 import UserNotifications
 import ModernSearchBar
 
+
 class MainViewController: UIViewController {
 
     @IBOutlet weak var calendarCollectionView: JTAppleCalendarView!
@@ -31,7 +32,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var deleteAlarmButton: UIButton!
     
     @IBOutlet weak var searchBar : ModernSearchBar!
-
+    
+    fileprivate(set) var thePin: String? = "0000"
 
     var dateFormatter = DateFormatter()
     var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
@@ -48,6 +50,7 @@ class MainViewController: UIViewController {
     var selectedDateData = NSDate()
     let appSetUp = appSetting()
     var dateNeedsToUpdat: Date?
+
     
     func getToday(){
         let now = NSDate()
