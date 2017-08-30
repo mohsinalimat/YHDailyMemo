@@ -122,9 +122,6 @@ extension MainViewController: JTAppleCalendarViewDataSource {
             //self.weather = ""
         }
         
-        //MARK: Set Monthly Memo
-        self.monthlyMemoButton.setTitle(setMonthlyButtonTitle(date: selectedDateData as Date),for: .normal)
-        
     }
     
     //MARK: Did DeSelected Cell
@@ -136,6 +133,7 @@ extension MainViewController: JTAppleCalendarViewDataSource {
     //MARK: Display current Month and Year
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         let date = visibleDates.monthDates.first!.date
+        self.displayMonth = date as NSDate
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MM / YYYY"
@@ -143,5 +141,8 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         formatter.locale = Calendar.current.locale
         
         monthYear.text = formatter.string(from: date)
+        
+        //MARK: Set Monthly Memo
+        self.monthlyMemoButton.setTitle(setMonthlyButtonTitle(date: date),for: .normal)
     }
 }

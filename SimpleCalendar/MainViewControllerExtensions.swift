@@ -92,6 +92,14 @@ extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
         searchBar.resignFirstResponder()
     }
     
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (self.alertText.text?.characters.count)! >= 21 && range.length == 0 {
+            return false
+        }
+        return true
+    }
+    
     //MARK: Dissmiss Keyboard
     @IBAction func iconUp(_ sender: Any) {
         text.resignFirstResponder()

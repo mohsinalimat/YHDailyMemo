@@ -41,7 +41,6 @@ class MainViewController: UIViewController {
     var picker = GMDatePicker()
     var sceduleNotofocation = dailyMemoNotificationCenter()
     
-
     
     // Recycle toolbar for other text fields for less memory consumption
     lazy var accessoryToolbar = KeyboardAccessoryToolbar()
@@ -51,7 +50,10 @@ class MainViewController: UIViewController {
     var keyboardOnScreen = false
     var selectedDateData = NSDate()
     let appSetUp = appSetting()
-    var dateNeedsToUpdat: Date?
+    var dateNeedsToUpdat : Date?
+    var displayMonth = NSDate()
+    
+    var alertText : UITextField!
 
     
     func getToday(){

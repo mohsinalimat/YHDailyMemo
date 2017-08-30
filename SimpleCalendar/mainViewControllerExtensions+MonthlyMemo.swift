@@ -16,32 +16,35 @@ extension MainViewController {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM"
-        let month = formatter.string(from: self.selectedDateData as Date)
+        let month = formatter.string(from: self.displayMonth as Date)
         
         let alert = UIAlertController(title: "\(month)", message: "Set Monthly Memo", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
-            if let defaultText = realmQueryMonthlyMemo(date: self.selectedDateData){
-                textField.text = defaultText
+           
+            self.alertText = textField
+            self.alertText.delegate = self
+            
+            if let defaultText = realmQueryMonthlyMemo(date: self.displayMonth){
+                if defaultText == "set monthly memo" {
+                     self.alertText.text = ""
+                } else {
+                     self.alertText.text = defaultText
+                }
             }
-            
-            if ((textField.text!.characters.count) > 20) {
-                textField.deleteBackward()
-            }
-            
-            textField.font = UIFont(name: "Avenir-Light", size: 13)
-            
         }
         
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [alert] (_) in
-            let textField = alert.textFields![0]
-            realmUpdateMonthlyMemo(date: self.selectedDateData, text: (textField.text)!)
-            self.monthlyMemoButton.setTitle((textField.text)!, for: .normal)
+        alert.addAction(UIAlertAction(title: "DELETE", style: .destructive, handler: { [] (_) in
+            deleteQueryMonthlyMemo(date: self.displayMonth)
+            self.monthlyMemoButton.setTitle("set monthly memo", for: .normal)
         }))
         
-        alert.addAction(UIAlertAction(title: "DELETE", style: .destructive, handler: { [] (_) in
-            deleteQueryMonthlyMemo(date: self.selectedDateData)
-            self.monthlyMemoButton.setTitle("set monthly memo", for: .normal)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [alert] (_) in
+            
+            let textField = alert.textFields![0]
+            
+            realmUpdateMonthlyMemo(date: self.displayMonth, text: (textField.text)!)
+            self.monthlyMemoButton.setTitle((textField.text)!, for: .normal)
         }))
 
         self.present(alert, animated: true, completion: nil)
