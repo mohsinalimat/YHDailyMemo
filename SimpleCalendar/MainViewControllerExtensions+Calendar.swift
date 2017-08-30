@@ -121,7 +121,10 @@ extension MainViewController: JTAppleCalendarViewDataSource {
             self.text.text = ""
             //self.weather = ""
         }
-    
+        
+        //MARK: Set Monthly Memo
+        self.monthlyMemoButton.setTitle(setMonthlyButtonTitle(date: selectedDateData as Date),for: .normal)
+        
     }
     
     //MARK: Did DeSelected Cell

@@ -11,14 +11,14 @@ import SmileLock
 
 class MyPasswordModel {
     class func match(_ password: String) -> MyPasswordModel? {
-        guard password == "123456" else { return nil }
+        guard password == "1234" else { return nil }
         return MyPasswordModel()
     }
 }
 
 class MyPasswordUIValidation: PasswordUIValidation<MyPasswordModel> {
     init(in stackView: UIStackView) {
-        super.init(in: stackView, digit: 6)
+        super.init(in: stackView, digit: 4)
         validation = { password in
             MyPasswordModel.match(password)
         }
@@ -37,8 +37,8 @@ class MyPasswordUIValidation: PasswordUIValidation<MyPasswordModel> {
 
 
 enum ColorType: String {
-    case blue = "20aee5"
-    case textColor = "555555"
+    case blue = "69B1A4"
+    case textColor = "B3B3B3"
 }
 
 extension UIColor {

@@ -42,8 +42,9 @@
 		B1C5F06B1F52C9F800B94D67 /* setUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */; };
 		B1C5F06C1F52C9F800B94D67 /* setUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */; };
 		B1C5F06F1F53AD9A00B94D67 /* lockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F06E1F53AD9A00B94D67 /* lockViewController.swift */; };
-		B1C5F0721F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0711F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift */; };
 		B1C5F0741F53F5AF00B94D67 /* MyPasswordUIValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0731F53F5AF00B94D67 /* MyPasswordUIValidation.swift */; };
+		B1C5F0761F556CA600B94D67 /* monthlyMemoRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0751F556CA600B94D67 /* monthlyMemoRealmModel.swift */; };
+		B1C5F0781F5666DE00B94D67 /* mainViewControllerExtensions+MonthlyMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0771F5666DE00B94D67 /* mainViewControllerExtensions+MonthlyMemo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,8 +106,9 @@
 		B1C5F0641F501B5500B94D67 /* avenir-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avenir-light.ttf"; sourceTree = "<group>"; };
 		B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setUpViewController.swift; sourceTree = "<group>"; };
 		B1C5F06E1F53AD9A00B94D67 /* lockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lockViewController.swift; sourceTree = "<group>"; };
-		B1C5F0711F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtentions+LockScreen.swift"; sourceTree = "<group>"; };
 		B1C5F0731F53F5AF00B94D67 /* MyPasswordUIValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPasswordUIValidation.swift; sourceTree = "<group>"; };
+		B1C5F0751F556CA600B94D67 /* monthlyMemoRealmModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = monthlyMemoRealmModel.swift; sourceTree = "<group>"; };
+		B1C5F0771F5666DE00B94D67 /* mainViewControllerExtensions+MonthlyMemo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "mainViewControllerExtensions+MonthlyMemo.swift"; sourceTree = "<group>"; };
 		DE3708C871DA9F5329EB132A /* Pods-SimpleCalendarUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendarUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendarUITests/Pods-SimpleCalendarUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FD132C39B69746818F3EAB40 /* Pods-SimpleCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendar.release.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendar/Pods-SimpleCalendar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -253,7 +255,7 @@
 				27EFDB9B1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift */,
 				27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */,
 				B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */,
-				B1C5F0711F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift */,
+				B1C5F0771F5666DE00B94D67 /* mainViewControllerExtensions+MonthlyMemo.swift */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -279,6 +281,7 @@
 			children = (
 				27E87D6A1F3C3A3900D144C9 /* realmObjects.swift */,
 				27F978161F41009D007428D1 /* realmModels.swift */,
+				B1C5F0751F556CA600B94D67 /* monthlyMemoRealmModel.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -598,7 +601,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				27FC3A3B1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift in Sources */,
-				B1C5F0721F53B5A900B94D67 /* MainViewControllerExtentions+LockScreen.swift in Sources */,
 				27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */,
 				B1C5F06A1F52C9F800B94D67 /* setUpViewController.swift in Sources */,
 				27F6BE2B1F46CB5F00DAAA44 /* Timepicker.swift in Sources */,
@@ -612,9 +614,11 @@
 				27F9781B1F41A82C007428D1 /* lunaDateModel.swift in Sources */,
 				2704197D1F395ACC00180A42 /* keyboardAccView.swift in Sources */,
 				27EFDB9A1F494E34006E1F83 /* setUpAlarm.swift in Sources */,
+				B1C5F0781F5666DE00B94D67 /* mainViewControllerExtensions+MonthlyMemo.swift in Sources */,
 				B1C5F06F1F53AD9A00B94D67 /* lockViewController.swift in Sources */,
 				27F978191F41A24A007428D1 /* setting.swift in Sources */,
 				2789E05C1F43E27E00B420E4 /* HolidayModel.swift in Sources */,
+				B1C5F0761F556CA600B94D67 /* monthlyMemoRealmModel.swift in Sources */,
 				27EFDB9C1F4964A0006E1F83 /* MainViewControllerExtensions+Alarm.swift in Sources */,
 				27E87D6B1F3C3A3900D144C9 /* realmObjects.swift in Sources */,
 				27EFDBA11F49BF5E006E1F83 /* alarmList.swift in Sources */,

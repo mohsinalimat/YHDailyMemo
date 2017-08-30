@@ -21,6 +21,14 @@ class dailyMemo: Object {
     }
 }
 
+class monthlyMemo: Object {
+    dynamic var month = ""
+    dynamic var text = ""
+    
+    override static func primaryKey() -> String? {
+        return "month"
+    }
+}
 
 
 

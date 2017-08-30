@@ -32,13 +32,15 @@ class MainViewController: UIViewController {
     @IBOutlet weak var deleteAlarmButton: UIButton!
     
     @IBOutlet weak var searchBar : ModernSearchBar!
-    
+    @IBOutlet weak var monthlyMemoButton: UIButton!
+
     fileprivate(set) var thePin: String? = "0000"
 
     var dateFormatter = DateFormatter()
     var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
     var picker = GMDatePicker()
     var sceduleNotofocation = dailyMemoNotificationCenter()
+    
 
     
     // Recycle toolbar for other text fields for less memory consumption
@@ -70,9 +72,6 @@ class MainViewController: UIViewController {
         
         getAlarmsList()
         
-        //print(aplicationDelegate.alarmList[0].date)
-        //print(aplicationDelegate.alarmList[1].date)
-        
         registerNotification()
         
         self.deleteAlarmButton.contentHorizontalAlignment = .left
@@ -80,7 +79,6 @@ class MainViewController: UIViewController {
         
         //Font setup
         self.searchBar.searchLabel_font = UIFont(name: "Avenir-Light", size: 13)
-        
         
         //Search Bar
         searchBar.isHidden = true
@@ -99,6 +97,8 @@ class MainViewController: UIViewController {
         subscribeToNotification(.UIKeyboardDidShow, selector: #selector(keyboardDidShow))
         subscribeToNotification(.UIKeyboardDidHide, selector: #selector(keyboardDidHide))
         
+        
+        
     }
     
     func getAlarmsList() {
@@ -111,10 +111,9 @@ class MainViewController: UIViewController {
         })
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+    
         //get date from Dissmissed View Controller
         if let date = self.aplicationDelegate.dismissCheck {
             

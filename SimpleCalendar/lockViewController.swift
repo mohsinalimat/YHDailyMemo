@@ -15,7 +15,7 @@ class PasswordLoginViewController: UIViewController {
     
     //MARK: Property
     var passwordContainerView: PasswordContainerView!
-    let kPasswordDigit = 6
+    let kPasswordDigit = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +51,7 @@ extension PasswordLoginViewController: PasswordInputCompleteProtocol {
 
 private extension PasswordLoginViewController {
     func validation(_ input: String) -> Bool {
-        return input == "123456"
+        return input == "1234"
     }
     
     func validationSuccess() {
