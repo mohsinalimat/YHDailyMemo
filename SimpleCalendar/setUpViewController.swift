@@ -8,12 +8,13 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
 protocol SwitchChangedDelegate {
     func changeStateTo(isOn: Bool, index: [Int:Int])
 }
 
-class setUpTableViewController: UITableViewController, SwitchChangedDelegate {
+class setUpTableViewController: UITableViewController, SwitchChangedDelegate, MFMailComposeViewControllerDelegate {
 
     
     @IBOutlet var setUpTableView: UITableView!
@@ -23,7 +24,7 @@ class setUpTableViewController: UITableViewController, SwitchChangedDelegate {
     let s1Data: [String] = ["App Lock", "Set Password"]
     let s2Data: [String] = ["Holiday", "Lunar Calendar"]
     let s3Data: [String] = ["Back Up", "Delete All"]
-    let s4Data: [String] = ["App Store", "Info & Error Report"]
+    let s4Data: [String] = ["Contact To Yohan Hyunsung Yi", "Info"]
     
     var sectionData: [Int: [String]] = [:]
     
@@ -217,11 +218,26 @@ class setUpTableViewController: UITableViewController, SwitchChangedDelegate {
         } else if indexPath == [2,0] {
             //Back up
             
+            sendEmail()
+            
         } else if indexPath == [2,1] {
             //Delete All
             
+            let alertController = UIAlertController(title: "DELETE ALL MEMO", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                
+                dailyMemoNotificationCenter().cancelNotificationAll()
+                dropRealmMemo ()
+                
+            }))
+            
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+            
         } else if indexPath == [3,0] {
-            //App Store
+            //send Email to Me
+            sendEmailToDeveloper()
             
         } else if indexPath == [3,1] {
             //Info
@@ -232,4 +248,31 @@ class setUpTableViewController: UITableViewController, SwitchChangedDelegate {
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: {})
     }
+    
+    func sendEmail() {
+        let mailVC = MFMailComposeViewController()
+        mailVC.mailComposeDelegate = self
+        mailVC.setToRecipients([])
+        mailVC.setSubject("Daily Memo Back Up")
+        mailVC.setMessageBody(realmToString(), isHTML: false)
+        
+        present(mailVC, animated: true, completion: nil)
+    }
+    
+    func sendEmailToDeveloper() {
+        let mailVC = MFMailComposeViewController()
+        mailVC.mailComposeDelegate = self
+        mailVC.setToRecipients(["hyunsungyi@gmail.com"])
+        mailVC.setSubject("Daily Memo")
+        mailVC.setMessageBody("", isHTML: false)
+        
+        present(mailVC, animated: true, completion: nil)
+    }
+    
+    // MARK: - Email Delegate
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
 }

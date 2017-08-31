@@ -121,6 +121,16 @@ func realmToArray () -> [String] {
     return returnArray
 }
 
+func dropRealmMemo () {
+    
+    let realm = try! Realm()
+    let result = realm.objects(dailyMemo.self)
+    
+    try! realm.write {
+        realm.delete(result)
+    }
+}
+
 
 
 

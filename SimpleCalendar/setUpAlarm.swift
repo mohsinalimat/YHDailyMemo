@@ -80,6 +80,14 @@ class dailyMemoNotificationCenter {
             aplicationDelegate.alarmList.remove(at: index)
         }
     }
+    
+    func cancelNotificationAll(){
+        for identifier in aplicationDelegate.alarmList {
+            notificationCenter.removePendingNotificationRequests(withIdentifiers: [identifier.identifier])
+        }
+        
+        aplicationDelegate.alarmList.removeAll()
+    }
 
 }
 

@@ -115,11 +115,9 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         //MARK: realm Query
         if let data = realmQuery(date: selectedDateData){
             self.text.text = data.text
-            //self.weather
         } else {
             //MARK: no data
             self.text.text = ""
-            //self.weather = ""
         }
         
     }

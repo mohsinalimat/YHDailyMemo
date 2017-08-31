@@ -98,7 +98,6 @@ class MainViewController: UIViewController {
         subscribeToNotification(.UIKeyboardDidHide, selector: #selector(keyboardDidHide))
         
         
-        
     }
     
     func getAlarmsList() {
@@ -122,6 +121,8 @@ class MainViewController: UIViewController {
             
             self.aplicationDelegate.dismissCheck = nil
         }
+        
+        calendarCollectionView.reloadData()
     }
     
     func setupCalendarView() {
@@ -152,6 +153,17 @@ class MainViewController: UIViewController {
             validCell.dateLabel.textColor = UIColor(red: 255/255.0, green: 32/255.0, blue: 0/255.0, alpha: 0.6)
         }
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        
+        for cell in aplicationDelegate.alarmList {
+            if cell.identifier == formatter.string(from: cellState.date) {
+                validCell.dateLabel.textColor = UIColor.hexStr("2873D2")
+                break
+            }
+        }
     }
     
     func handleCellSelected(view: JTAppleCell?, cellState: CellState){

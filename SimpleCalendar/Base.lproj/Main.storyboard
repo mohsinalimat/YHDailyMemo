@@ -825,7 +825,7 @@
                             <pickerView contentMode="center" verticalHuggingPriority="248" translatesAutoresizingMaskIntoConstraints="NO" id="i1T-Oz-5wS">
                                 <rect key="frame" x="93" y="173" width="189" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.458271324634552" green="0.77648228406906128" blue="0.71689671277999878" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.0" green="0.38431372549019605" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="189" id="BgK-PY-4JR"/>
                                     <constraint firstAttribute="height" constant="216" id="wDD-0r-fDM"/>
