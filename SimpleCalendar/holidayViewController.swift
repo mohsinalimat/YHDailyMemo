@@ -11,7 +11,7 @@ import UIKit
 
 class HolidayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var pickerDataSource = ["-Select-", "America", "Korea", "Not Select"]
+    var pickerDataSource = ["-select-", "America", "Korea", "Not Select"]
     var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
 
     
@@ -34,6 +34,20 @@ class HolidayViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return pickerDataSource[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var label = view as! UILabel!
+        if label == nil {
+            label = UILabel()
+        }
+        
+        label?.font = UIFont(name: "Avenir-Light", size: 19)
+        label?.text =  pickerDataSource[row]
+        label?.textColor = UIColor.hexStr("69B1A4")
+        label?.textAlignment = .center
+        
+        return label!
     }
     
 
