@@ -33,8 +33,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var searchBar : ModernSearchBar!
     @IBOutlet weak var monthlyMemoButton: UIButton!
-
-    fileprivate(set) var thePin: String? = "0000"
+    
 
     var dateFormatter = DateFormatter()
     var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
@@ -49,7 +48,6 @@ class MainViewController: UIViewController {
     var today = NSDate()
     var keyboardOnScreen = false
     var selectedDateData = NSDate()
-    let appSetUp = appSetting()
     var dateNeedsToUpdat : Date?
     var displayMonth = NSDate()
     

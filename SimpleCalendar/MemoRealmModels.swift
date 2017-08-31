@@ -20,10 +20,8 @@ func realmUpdate( date: NSDate, text: UITextView ) {
         let tempMemo = dailyMemo()
         
         tempMemo.createdDate = primaryKey
-        tempMemo.createdLocation = "LA"
         tempMemo.lunaDate = primaryKey
         tempMemo.text = text.text
-        tempMemo.weather = "Rain"
         
         // Add to the Realm inside a transaction
         try! realm.write {
@@ -35,10 +33,8 @@ func realmUpdate( date: NSDate, text: UITextView ) {
         let tempMemo = dailyMemo()
         
         tempMemo.createdDate = primaryKey
-        tempMemo.createdLocation = "LA"
         tempMemo.lunaDate = primaryKey
         tempMemo.text = text.text
-        tempMemo.weather = "Rain"
         
         try! realm.write {
             realm.add(tempMemo, update: true)

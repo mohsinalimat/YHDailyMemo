@@ -12,8 +12,6 @@ import RealmSwift
 class dailyMemo: Object {
     dynamic var createdDate = ""
     dynamic var lunaDate = ""
-    dynamic var weather = ""
-    dynamic var createdLocation = ""
     dynamic var text = ""
     
     override static func primaryKey() -> String? {
@@ -27,6 +25,19 @@ class monthlyMemo: Object {
     
     override static func primaryKey() -> String? {
         return "month"
+    }
+}
+
+class setting: Object {
+    dynamic var setting = "setting"
+    
+    dynamic var lock = false
+    dynamic var password = ""
+    dynamic var holiday = ""
+    dynamic var lunarCalendar = false
+    
+    override static func primaryKey() -> String? {
+        return "setting"
     }
 }
 

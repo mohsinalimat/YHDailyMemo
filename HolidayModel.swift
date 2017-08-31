@@ -7,18 +7,29 @@
 //
 
 import Foundation
+import UIKit
 
 func getHoliday ( date: NSDate) -> String? {
-
-    let koreanHoliday = koreaHoliday()
+    
+    let aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
+    
     let formatter = DateFormatter()
     formatter.dateFormat = "MM/dd/yyyy"
     let selectedDate = formatter.string(from: date as Date)
-
-    //MARK: If set up as Korean Holiday
-    if let result = koreanHoliday.dates[selectedDate] {
-        return result
-    }
     
+    
+    if aplicationDelegate.holiday == "KOREA" {
+        //MARK: If set up as Korean Holiday
+        let koreanHoliday = koreaHoliday()
+        if let result = koreanHoliday.dates[selectedDate] {
+            return result
+        }
+    } else if aplicationDelegate.holiday == "AMERICA" {
+        //MARK: If set up as AMERICA Holiday
+        let americanHoliday = USAHoliday()
+        if let result = americanHoliday.dates[selectedDate] {
+            return result
+        }
+    }
     return nil
 }

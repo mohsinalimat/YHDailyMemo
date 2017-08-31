@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,23 +17,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var alarmList: [alarmList] = []
     var dismissCheck: Date? = nil
-
+    
+    var lock:Bool? = lockRealmQuery()
+    var password:String? = passwordRealmQuery()
+    var holiday:String? = holidayRealmQuery()
+    var lunarCalendar:Bool? = lunarRealmQuery()
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        ////
+        if lockRealmQuery() == nil {
+            self.lock = false
+            self.password = ""
+            self.holiday = "AMERICA"
+            self.lunarCalendar = false
+            
+            settingRealmUpdate (lock: self.lock, password: self.password, holiday: self.holiday, luna: self.lunarCalendar)
+            
+        } else {
+            self.lock = lockRealmQuery()
+            self.password = passwordRealmQuery()
+            self.holiday = holidayRealmQuery()
+            self.lunarCalendar = lunarRealmQuery()
+        }
+        
+        //////
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         
-        //if set up lock
-        /*
-        let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        self.window?.rootViewController = viewController
-        */
+        if self.lock == true {
+            let lockViewController = storyboard.instantiateViewController(withIdentifier: "PasswordLoginViewController") as! PasswordLoginViewController
+            self.window?.rootViewController = lockViewController
+        } else {
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            self.window?.rootViewController = viewController
+        }
         
-        let lockViewController = storyboard.instantiateViewController(withIdentifier: "PasswordLoginViewController") as! PasswordLoginViewController
-        self.window?.rootViewController = lockViewController
-
         self.window?.makeKeyAndVisible()
+        
+        /////
+        var config = Realm.Configuration()
+        config.deleteRealmIfMigrationNeeded = true
+        Realm.Configuration.defaultConfiguration = config
+        
         return true
     }
 
@@ -42,10 +70,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: "PasswordLoginViewController") as! PasswordLoginViewController
         
-        self.window?.rootViewController = loginVC
+        if self.lock == true {
+            let lockViewController = storyboard.instantiateViewController(withIdentifier: "PasswordLoginViewController") as! PasswordLoginViewController
+            self.window?.rootViewController = lockViewController
+        } else {
+            let viewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            self.window?.rootViewController = viewController
+        }
+        
         self.window?.makeKeyAndVisible()
+    
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {

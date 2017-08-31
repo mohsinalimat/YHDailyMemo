@@ -43,6 +43,7 @@ extension MainViewController {
     @IBAction func goToToday(_ sender: Any) {
         calendarCollectionView.scrollToDate(today as Date)
         calendarCollectionView.selectDates([NSDate() as Date])
+        
     }
     
     

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct koreaHoliday {
     let dates = [
         "01/01/2017" : "양력설",
@@ -43,3 +42,29 @@ struct koreaHoliday {
         "12/25/2018" : "크리스마스"
     ]
 }
+
+struct USAHoliday {
+    let dates = [
+        "01/01/2017" : "New Year's Day",
+        "01/16/2017" : "Martin Luther King Jr. Day",
+        "02/20/2017" : "Presidents' Day",
+        "05/29/2017" : "Memorial Day",
+        "07/04/2017" : "Independence Day",
+        "09/04/2017" : "Labor Day",
+        "10/09/2017" : "Columbus Day",
+        "11/11/2017" : "Veterans Day",
+        "11/23/2017" : "Thanksgiving Day",
+        "12/25/2017" : "Christmas Day",
+        "01/01/2018" : "New Year's Day",
+        "01/15/2018" : "Martin Luther King Jr. Day",
+        "02/19/2018" : "Presidents' Day",
+        "05/28/2018" : "Memorial Day",
+        "07/04/2018" : "Independence Day",
+        "09/03/2018" : "Labor Day",
+        "10/08/2018" : "Columbus Day",
+        "11/11/2018" : "Veterans Day",
+        "11/22/2018" : "Thanksgiving Day",
+        "12/25/2018" : "Christmas Day"
+    ]
+}
+

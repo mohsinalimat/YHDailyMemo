@@ -51,7 +51,7 @@ extension PasswordLoginViewController: PasswordInputCompleteProtocol {
 
 private extension PasswordLoginViewController {
     func validation(_ input: String) -> Bool {
-        return input == "1234"
+        return input == passwordRealmQuery()
     }
     
     func validationSuccess() {

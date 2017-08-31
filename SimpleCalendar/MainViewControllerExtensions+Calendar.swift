@@ -83,7 +83,7 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         }
         
         //LUNA CALENDAR ON
-        if self.appSetUp.lunaCalendar {
+        if self.aplicationDelegate.lunarCalendar! {
         
             //Get Lunaday
             if let tempLunaday = lunaDate(Soldate: self.selectedDateData) {

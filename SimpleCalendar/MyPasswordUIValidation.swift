@@ -11,7 +11,7 @@ import SmileLock
 
 class MyPasswordModel {
     class func match(_ password: String) -> MyPasswordModel? {
-        guard password == "1234" else { return nil }
+        guard password == passwordRealmQuery() else { return nil }
         return MyPasswordModel()
     }
 }

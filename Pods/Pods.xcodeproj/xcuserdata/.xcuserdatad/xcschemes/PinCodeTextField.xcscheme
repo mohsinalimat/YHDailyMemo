@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C966E72CBE812639190DC82EE2EC0595'
-               BlueprintName = 'Pods-SimpleCalendar'
+               BlueprintIdentifier = '874E480F85CBAA6C9526C6C5FBDD8AB4'
+               BlueprintName = 'PinCodeTextField'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-SimpleCalendar.framework'>
+               BuildableName = 'PinCodeTextField.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
