@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
     
     
     // Recycle toolbar for other text fields for less memory consumption
-    lazy var accessoryToolbar = KeyboardAccessoryToolbar()
+    var accessoryToolbar = KeyboardAccessoryToolbar()
     
     var todayString = String()
     var today = NSDate()
@@ -97,15 +97,18 @@ class MainViewController: UIViewController {
         subscribeToNotification(.UIKeyboardDidShow, selector: #selector(keyboardDidShow))
         subscribeToNotification(.UIKeyboardDidHide, selector: #selector(keyboardDidHide))
         
-        
+        // MARK: KeyBoard Acc View
+        self.text.inputAccessoryView = accessoryToolbar
+        accessoryToolbar.currentView = self.text
     }
     
     func getAlarmsList() {
+        self.aplicationDelegate.alarmList.removeAll()
+        
         UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: {requests -> () in
             for request in requests{
                 let alarm = alarmList(identifier: request.identifier, title: request.content.title, text: request.content.body)
                 self.aplicationDelegate.alarmList.append(alarm)
-                print(alarm.date)
             }
         })
     }

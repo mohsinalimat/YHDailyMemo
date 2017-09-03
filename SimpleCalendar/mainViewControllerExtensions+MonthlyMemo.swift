@@ -35,16 +35,21 @@ extension MainViewController {
         }
         
         alert.addAction(UIAlertAction(title: "DELETE", style: .destructive, handler: { [] (_) in
-            deleteQueryMonthlyMemo(date: self.displayMonth)
+            if self.monthlyMemoButton.titleLabel?.text != "set monthly memo" {
+                deleteQueryMonthlyMemo(date: self.displayMonth)
+            }
             self.monthlyMemoButton.setTitle("set monthly memo", for: .normal)
         }))
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [alert] (_) in
             
             let textField = alert.textFields![0]
-            
-            realmUpdateMonthlyMemo(date: self.displayMonth, text: (textField.text)!)
-            self.monthlyMemoButton.setTitle((textField.text)!, for: .normal)
+            if textField.text == "" {
+                self.monthlyMemoButton.setTitle("set monthly memo", for: .normal)
+            } else {
+                realmUpdateMonthlyMemo(date: self.displayMonth, text: (textField.text)!)
+                self.monthlyMemoButton.setTitle((textField.text)!, for: .normal)
+            }
         }))
 
         self.present(alert, animated: true, completion: nil)

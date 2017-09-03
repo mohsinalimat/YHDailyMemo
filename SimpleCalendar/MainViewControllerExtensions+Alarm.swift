@@ -16,14 +16,25 @@ extension MainViewController: GMDatePickerDelegate {
     
     func gmDatePicker(_ gmDatePicker: GMDatePicker, didSelect date: Date){
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        formatter.timeZone = Calendar.current.timeZone
-        formatter.locale = Calendar.current.locale
+        if Calendar(identifier: .gregorian).isDate(Date(), inSameDayAs: self.selectedDateData as Date) && (date.description < Date().description) {
+            
+            let pastAlarm = UIAlertController(title: "Selected past time", message: "Please Select Future Time", preferredStyle: UIAlertControllerStyle.alert)
+            pastAlarm.addAction(UIAlertAction(title: "OKAY", style: UIAlertActionStyle.default, handler: nil))
+            self.present(pastAlarm, animated: true, completion: nil)
+        } else {
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+            formatter.timeZone = Calendar.current.timeZone
+            formatter.locale = Calendar.current.locale
+            self.deleteAlarmButton.setTitle("\(formatter.string(from: date)) ✕", for: .normal)
+            sceduleNotofocation.setUpNotification(selectedTime: date, selectedDate: self.selectedDateData as Date, text: self.text.text)
+            
+            let pastAlarm = UIAlertController(title: "Alarm Set Up", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            pastAlarm.addAction(UIAlertAction(title: "OKAY", style: UIAlertActionStyle.default, handler: nil))
+            self.present(pastAlarm, animated: true, completion: nil)
+        }
         
-        self.deleteAlarmButton.setTitle("\(formatter.string(from: date)) ✕", for: .normal)
-        
-        sceduleNotofocation.setUpNotification(selectedTime: date, selectedDate: self.selectedDateData as Date, text: self.text.text)
     }
     
     func gmDatePickerDidCancelSelection(_ gmDatePicker: GMDatePicker) {

@@ -30,10 +30,6 @@ extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
             self.searchBar.isHidden = true
             topStackView.isHidden = true
             toolBar.isHidden = true
-
-            // MARK: KeyBoard Acc View
-            self.text.inputAccessoryView = accessoryToolbar
-            accessoryToolbar.currentView = self.text
             
             self.view.frame.origin.y -= keyboardHeight(notification)
 

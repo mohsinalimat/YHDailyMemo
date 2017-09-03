@@ -24,7 +24,7 @@ class setUpTableViewController: UITableViewController, SwitchChangedDelegate, MF
     let s1Data: [String] = ["App Lock", "Set Password"]
     let s2Data: [String] = ["Holiday", "Lunar Calendar"]
     let s3Data: [String] = ["Back Up", "Delete All"]
-    let s4Data: [String] = ["Contact To Yohan Hyunsung Yi", "Info"]
+    let s4Data: [String] = ["Contact To Developer", "Info"]
     
     var sectionData: [Int: [String]] = [:]
     
@@ -250,12 +250,12 @@ class setUpTableViewController: UITableViewController, SwitchChangedDelegate, MF
     }
     
     func sendEmail() {
+
         let mailVC = MFMailComposeViewController()
         mailVC.mailComposeDelegate = self
         mailVC.setToRecipients([])
         mailVC.setSubject("Daily Memo Back Up")
         mailVC.setMessageBody(realmToString(), isHTML: false)
-        
         present(mailVC, animated: true, completion: nil)
     }
     

@@ -56,16 +56,14 @@ class GMDatePicker: UIView {
     
     var bottomConstraint: NSLayoutConstraint!
     var overlayButton: UIButton!
-    
+    var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
     
     
     // MARK: - ButtonTouched
     func confirmButtonDidTapped(_ sender: AnyObject) {
-        
         config.startDate = datePicker.date
         dismiss()
         delegate?.gmDatePicker(self, didSelect: datePicker.date)
-        
     }
     func cancelButtonDidTapped(_ sender: AnyObject) {
         dismiss()

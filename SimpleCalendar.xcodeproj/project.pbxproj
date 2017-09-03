@@ -35,6 +35,7 @@
 		ABA110D896310F8FFEF6A9C7 /* Pods_SimpleCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902DADE1C1AE9964CFCD9C29 /* Pods_SimpleCalendar.framework */; };
 		B1521B461F57DABD008676F3 /* holidayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1521B451F57DABD008676F3 /* holidayViewController.swift */; };
 		B1521B481F57EEA2008676F3 /* backUpEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1521B471F57EEA2008676F3 /* backUpEmail.swift */; };
+		B178BCE51F5BBE0E00A767E5 /* compareDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178BCE41F5BBE0E00A767E5 /* compareDate.swift */; };
 		B1C5F0631F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */; };
 		B1C5F0651F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
 		B1C5F0661F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
@@ -107,6 +108,7 @@
 		B115DD742B8F15D308D91FF2 /* Pods-SimpleCalendarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleCalendarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SimpleCalendarTests/Pods-SimpleCalendarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1521B451F57DABD008676F3 /* holidayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = holidayViewController.swift; sourceTree = "<group>"; };
 		B1521B471F57EEA2008676F3 /* backUpEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backUpEmail.swift; sourceTree = "<group>"; };
+		B178BCE41F5BBE0E00A767E5 /* compareDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = compareDate.swift; sourceTree = "<group>"; };
 		B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Search.swift"; sourceTree = "<group>"; };
 		B1C5F0641F501B5500B94D67 /* avenir-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avenir-light.ttf"; sourceTree = "<group>"; };
 		B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setUpViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */,
 				27F6BE2A1F46CB5F00DAAA44 /* Timepicker.swift */,
+				B178BCE41F5BBE0E00A767E5 /* compareDate.swift */,
 				27EFDB991F494E34006E1F83 /* setUpAlarm.swift */,
 				B1521B471F57EEA2008676F3 /* backUpEmail.swift */,
 				2704197C1F395ACC00180A42 /* keyboardAccView.swift */,
@@ -613,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27FC3A3B1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift in Sources */,
+				B178BCE51F5BBE0E00A767E5 /* compareDate.swift in Sources */,
 				B1C5F07C1F56A8A400B94D67 /* lockRealmModel.swift in Sources */,
 				27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */,
 				B1C5F06A1F52C9F800B94D67 /* setUpViewController.swift in Sources */,

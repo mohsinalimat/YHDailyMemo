@@ -67,20 +67,26 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         
         
         //Check Having Alram
-        
-        self.deleteAlarmButton.setTitle("SET ALARM",for: .normal)
-        
-        for temp in self.aplicationDelegate.alarmList{
-            if temp.identifier == displaiedSelectedDate {
-                let formatter = DateFormatter()
-                formatter.dateFormat = "HH:mm"
-                formatter.timeZone = Calendar.current.timeZone
-                formatter.locale = Calendar.current.locale
-                
-                self.deleteAlarmButton.setTitle("\(temp.date) ✕",for: .normal)
-                break
+        if checkSelectedDateIsBeforeThanToday(self.selectedDateData as Date) {
+            self.deleteAlarmButton.isEnabled = true
+            self.deleteAlarmButton.setTitle("SET ALARM",for: .normal)
+            for temp in self.aplicationDelegate.alarmList{
+                if temp.identifier == displaiedSelectedDate {
+                    let formatter = DateFormatter()
+                    formatter.dateFormat = "HH:mm"
+                    formatter.timeZone = Calendar.current.timeZone
+                    formatter.locale = Calendar.current.locale
+                    
+                    self.deleteAlarmButton.setTitle("\(temp.date) ✕",for: .normal)
+                    break
+                }
             }
+
+        } else {
+            self.deleteAlarmButton.setTitle("",for: .normal)
+            self.deleteAlarmButton.isEnabled = false
         }
+        
         
         //LUNA CALENDAR ON
         if self.aplicationDelegate.lunarCalendar! {
