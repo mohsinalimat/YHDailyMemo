@@ -18,8 +18,8 @@ extension MainViewController: GMDatePickerDelegate {
         
         if Calendar(identifier: .gregorian).isDate(Date(), inSameDayAs: self.selectedDateData as Date) && (date.description < Date().description) {
             
-            let pastAlarm = UIAlertController(title: "Selected past time", message: "Please Select Future Time", preferredStyle: UIAlertControllerStyle.alert)
-            pastAlarm.addAction(UIAlertAction(title: "OKAY", style: UIAlertActionStyle.default, handler: nil))
+            let pastAlarm = UIAlertController(title: "Selected Past Time", message: "Please Select Future Time", preferredStyle: UIAlertControllerStyle.alert)
+            pastAlarm.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
             self.present(pastAlarm, animated: true, completion: nil)
         } else {
             

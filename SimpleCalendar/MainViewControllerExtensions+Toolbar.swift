@@ -53,7 +53,7 @@ extension MainViewController {
         //MARK: Alret to delete
         if self.text.text != "" {
             let alertController = UIAlertController(title: "Delete Memo", message: "Are You Sure?", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            alertController.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action: UIAlertAction!) in
                 
                 deleteQuery(date: self.selectedDateData)
                 self.text.text = ""
