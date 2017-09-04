@@ -22,7 +22,6 @@ extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
         return true
     }
 
-
     // MARK: Show/Hide Keyboard
     func keyboardWillShow(_ notification: Notification) {
         if !keyboardOnScreen && text.isFirstResponder {
@@ -34,10 +33,13 @@ extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
             self.view.frame.origin.y -= keyboardHeight(notification)
 
             iconUp.isHidden = false
+            deleteAlarmButton.isEnabled = false
+            
         }
     }
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+        //Block searchbar to textview
         if textView == self.text && searchBar.isFirstResponder {
             searchBar.resignFirstResponder()
             return false
@@ -54,11 +56,13 @@ extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
             calendarCollectionView.reloadData()
         }
         
+        //MARK: textview editing mode
         if keyboardOnScreen && text.isFirstResponder {
             topStackView.isHidden = false
             toolBar.isHidden = false
             self.view.frame.origin.y += keyboardHeight(notification)
             iconUp.isHidden = true
+            deleteAlarmButton.isEnabled = true
             calendarCollectionView.scrollToDate(self.selectedDateData as Date)
         }
     }
@@ -88,7 +92,7 @@ extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
         searchBar.resignFirstResponder()
     }
     
-    
+    //MARK: Search Bar Text length limit
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (self.alertText.text?.characters.count)! >= 21 && range.length == 0 {
             return false

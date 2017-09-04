@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import UserNotifications
 
+//Alarm List View
 class AlarmViewController: UITableViewController {
     
     var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
@@ -24,7 +25,6 @@ class AlarmViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         getAlarmListFromAppDelegate()
     }
     
@@ -56,6 +56,8 @@ class AlarmViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        //Delete Action
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, index) in
             let alertController = UIAlertController(title: "Delete Alarm", message: "Are You Sure?", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
@@ -76,6 +78,7 @@ class AlarmViewController: UITableViewController {
             self.present(alertController, animated: true, completion: nil)
         }
         
+        //Edit Action
         let editAction = UITableViewRowAction(style: .default, title: "Edit") { (action, index) in
             
             let pickedDate = "\(self.alarms[indexPath.row].identifier) 12:00:00+0000"

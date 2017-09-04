@@ -36,6 +36,7 @@
 		B1521B461F57DABD008676F3 /* holidayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1521B451F57DABD008676F3 /* holidayViewController.swift */; };
 		B1521B481F57EEA2008676F3 /* backUpEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1521B471F57EEA2008676F3 /* backUpEmail.swift */; };
 		B178BCE51F5BBE0E00A767E5 /* compareDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178BCE41F5BBE0E00A767E5 /* compareDate.swift */; };
+		B17B90B11F5D331B00B49549 /* randomFamousQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B90B01F5D331B00B49549 /* randomFamousQuote.swift */; };
 		B1C5F0631F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */; };
 		B1C5F0651F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
 		B1C5F0661F501B5500B94D67 /* avenir-light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1C5F0641F501B5500B94D67 /* avenir-light.ttf */; };
@@ -109,6 +110,7 @@
 		B1521B451F57DABD008676F3 /* holidayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = holidayViewController.swift; sourceTree = "<group>"; };
 		B1521B471F57EEA2008676F3 /* backUpEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = backUpEmail.swift; sourceTree = "<group>"; };
 		B178BCE41F5BBE0E00A767E5 /* compareDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = compareDate.swift; sourceTree = "<group>"; };
+		B17B90B01F5D331B00B49549 /* randomFamousQuote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = randomFamousQuote.swift; sourceTree = "<group>"; };
 		B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MainViewControllerExtensions+Search.swift"; sourceTree = "<group>"; };
 		B1C5F0641F501B5500B94D67 /* avenir-light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "avenir-light.ttf"; sourceTree = "<group>"; };
 		B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = setUpViewController.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				27EFDB9D1F4997C0006E1F83 /* AlarmListViewController */,
 				B1C5F06D1F53AD7500B94D67 /* LockViewController */,
 				B1C5F0681F52C9D900B94D67 /* SetUpViewController */,
+				B17B90AF1F5D2EA200B49549 /* Cells */,
 				27FC3A3E1F3C392700F1EF4A /* Model */,
 				27D347591F2ED8DE004CACDD /* Assets.xcassets */,
 				B1C5F0641F501B5500B94D67 /* avenir-light.ttf */,
@@ -224,7 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				27EFDB9E1F4997D8006E1F83 /* alarmViewController.swift */,
-				27EFDBA01F49BF5E006E1F83 /* alarmList.swift */,
 			);
 			name = AlarmListViewController;
 			sourceTree = "<group>";
@@ -266,7 +268,6 @@
 				27FC3A3A1F3C22BF00F1EF4A /* MainViewControllerExtensions+Calendar.swift */,
 				B1C5F0621F4BF1B000B94D67 /* MainViewControllerExtensions+Search.swift */,
 				B1C5F0771F5666DE00B94D67 /* mainViewControllerExtensions+MonthlyMemo.swift */,
-				27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */,
 			);
 			name = MainViewController;
 			sourceTree = "<group>";
@@ -275,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				27D3474F1F2ED8DE004CACDD /* AppDelegate.swift */,
+				B17B90B01F5D331B00B49549 /* randomFamousQuote.swift */,
 				27F6BE2A1F46CB5F00DAAA44 /* Timepicker.swift */,
 				B178BCE41F5BBE0E00A767E5 /* compareDate.swift */,
 				27EFDB991F494E34006E1F83 /* setUpAlarm.swift */,
@@ -308,11 +310,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B17B90AF1F5D2EA200B49549 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				27D347801F2EE22B004CACDD /* CalendarCustomCell.swift */,
+				B1C5F0791F569CF700B94D67 /* setUpCell.swift */,
+				27EFDBA01F49BF5E006E1F83 /* alarmList.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		B1C5F0681F52C9D900B94D67 /* SetUpViewController */ = {
 			isa = PBXGroup;
 			children = (
 				B1C5F0691F52C9F800B94D67 /* setUpViewController.swift */,
-				B1C5F0791F569CF700B94D67 /* setUpCell.swift */,
 				B1C5F07D1F57C7F200B94D67 /* PasswordViewController.swift */,
 				B1521B451F57DABD008676F3 /* holidayViewController.swift */,
 			);
@@ -620,6 +631,7 @@
 				B1C5F07C1F56A8A400B94D67 /* lockRealmModel.swift in Sources */,
 				27D347811F2EE22B004CACDD /* CalendarCustomCell.swift in Sources */,
 				B1C5F06A1F52C9F800B94D67 /* setUpViewController.swift in Sources */,
+				B17B90B11F5D331B00B49549 /* randomFamousQuote.swift in Sources */,
 				27F6BE2B1F46CB5F00DAAA44 /* Timepicker.swift in Sources */,
 				27FC3A391F3C225C00F1EF4A /* MainViewControllerExtensions+Toolbar.swift in Sources */,
 				27EFDB9F1F4997D8006E1F83 /* alarmViewController.swift in Sources */,

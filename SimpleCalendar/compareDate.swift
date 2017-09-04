@@ -10,7 +10,6 @@ import Foundation
 
 
 func checkSelectedDateIsBeforeThanToday(_ date: Date) -> Bool {
-
     if  Calendar(identifier: .gregorian).isDate(Date(), inSameDayAs: date) {
         return true
     }

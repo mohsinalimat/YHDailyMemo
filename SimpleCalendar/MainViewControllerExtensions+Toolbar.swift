@@ -38,14 +38,12 @@ extension MainViewController {
         }
     }
     
-    
     //MARK: Goto Today
     @IBAction func goToToday(_ sender: Any) {
         calendarCollectionView.scrollToDate(today as Date)
         calendarCollectionView.selectDates([NSDate() as Date])
         
     }
-    
     
     //MARK: Delete Memo
     @IBAction func deleteMemo(_ sender: Any) {

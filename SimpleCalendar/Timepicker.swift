@@ -1,25 +1,21 @@
 //
-//  GMDatePicker.swift
-//  GMPicker
+//  Timepicker.swift
+//  SimpleCalendar
 //
-//  Created by Gabor Csontos on 8/3/16.
-//  Copyright © 2016 GabeMajorszki. All rights reserved.
+//  Created by Hyun sung Yi on 2017. 9. 2..
+//  Copyright © 2017년 Yohan Hyunsung Yi. All rights reserved.
 //
 
 import UIKit
 
-protocol GMDatePickerDelegate: class {
-    
-    func gmDatePicker(_ gmDatePicker: GMDatePicker, didSelect date: Date)
-    func gmDatePickerDidCancelSelection(_ gmDatePicker: GMDatePicker)
-    
+protocol timePickerDelegate: class {
+    func timePicker(_ timePicker: timePickerView, didSelect date: Date)
 }
 
-class GMDatePicker: UIView {
+class timePickerView: UIView {
     
-    // MARK: - Config
+    // MARK: Config
     struct Config {
-        
         fileprivate let contentHeight: CGFloat = 250
         fileprivate let bouncingOffset: CGFloat = 20
         
@@ -39,14 +35,13 @@ class GMDatePicker: UIView {
         var cancelButtonColor: UIColor = UIColor.blue
         
         var overlayBackgroundColor: UIColor = UIColor.black.withAlphaComponent(0.6)
-        
     }
     
     var config = Config()
     
-    weak var delegate: GMDatePickerDelegate?
+    weak var delegate: timePickerDelegate?
     
-    // MARK: - Variables
+    // MARK: Variables
     var datePicker = UIDatePicker()
     var confirmButton = UIButton()
     var cancelButton = UIButton()
@@ -58,31 +53,23 @@ class GMDatePicker: UIView {
     var overlayButton: UIButton!
     var aplicationDelegate: AppDelegate! = UIApplication.shared.delegate as! AppDelegate
     
-    
     // MARK: - ButtonTouched
     func confirmButtonDidTapped(_ sender: AnyObject) {
         config.startDate = datePicker.date
         dismiss()
-        delegate?.gmDatePicker(self, didSelect: datePicker.date)
+        delegate?.timePicker(self, didSelect: datePicker.date)
     }
     func cancelButtonDidTapped(_ sender: AnyObject) {
         dismiss()
-        delegate?.gmDatePickerDidCancelSelection(self)
     }
-    
-    
-    
     
     // MARK: - Private
     fileprivate func setup(_ parentVC: UIViewController) {
         
-        
         // Loading configuration
-        
         if let startDate = config.startDate {
             datePicker.date = startDate
         }
-        
         
         // Loading configuration
         confirmButton.setTitle(config.confirmButtonTitle, for: UIControlState())
@@ -95,7 +82,6 @@ class GMDatePicker: UIView {
         backgroundView.backgroundColor = config.contentBackgroundColor
         
         // Overlay view constraints setup
-        
         overlayButton = UIButton(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         overlayButton.backgroundColor = config.overlayBackgroundColor
         overlayButton.alpha = 0
@@ -114,11 +100,7 @@ class GMDatePicker: UIView {
             ]
         )
         
-        
-        
-        
         // Setup picker constraints
-        
         frame = CGRect(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: config.contentHeight + config.headerHeight)
         
         translatesAutoresizingMaskIntoConstraints = false
@@ -202,26 +184,20 @@ class GMDatePicker: UIView {
                 
         }, completion: { (finished) in
             completion?()
-        }
-        )
-        
+        })
     }
+    
     func dismiss(_ completion: (() -> ())? = nil) {
-        
         move(goUp: false)
         
         UIView.animate(
             withDuration: config.animationDuration, animations: {
-                
                 self.layoutIfNeeded()
                 self.overlayButton.alpha = 0
-                
-        }, completion: { (finished) in
-            completion?()
-            self.removeFromSuperview()
-            self.overlayButton.removeFromSuperview()
-        }
-        )
-        
+            }, completion: { (finished) in
+                completion?()
+                self.removeFromSuperview()
+                self.overlayButton.removeFromSuperview()
+            })
     }
 }

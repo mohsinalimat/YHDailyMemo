@@ -14,6 +14,7 @@ protocol SwitchChangedDelegate {
     func changeStateTo(isOn: Bool, index: [Int:Int])
 }
 
+//Set Up View
 class setUpTableViewController: UITableViewController, SwitchChangedDelegate, MFMailComposeViewControllerDelegate {
 
     

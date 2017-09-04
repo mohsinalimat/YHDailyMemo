@@ -13,12 +13,8 @@ import RealmSwift
 import ModernSearchBar
 
 
-// MARK: Regarding KEYBOARD
+// MARK: Regarding Search Bar
 extension MainViewController: ModernSearchBarDelegate {
-    
-    //----------------------------------------
-    // OPTIONNAL DELEGATE METHODS
-    //----------------------------------------
     
     ///Called if you use String suggestion list
     func onClickItemSuggestionsView(item: String) {
@@ -37,7 +33,6 @@ extension MainViewController: ModernSearchBarDelegate {
         searchBar.isHidden = true
         self.calendarCollectionView.scrollToDate(dateNSdate!)
         self.calendarCollectionView.selectDates([dateNSdate!])
-
     }
     
     ///Called when user touched shadowView
@@ -47,8 +42,6 @@ extension MainViewController: ModernSearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //print("Text did change, what i'm suppose to do ?")
-        //self.searchBar.endEditing(true)
     }
     
     func configureSearchBar(){
@@ -65,25 +58,10 @@ extension MainViewController: ModernSearchBarDelegate {
         self.customDesign()
     }
     
-    
-    //----------------------------------------
-    // CUSTOM DESIGN (WITH ALL OPTIONS)
-    //----------------------------------------
-    
     func customDesign(){
-        
-        // --------------------------
-        // Enjoy this beautiful customizations (It's a joke...)
-        // --------------------------
-        
-        
-        //Modify shadows alpha
         self.searchBar.shadowView_alpha = 0.8
-        
         self.searchBar.searchLabel_font = UIFont(name: "Avenir-Light", size: 13)
         self.searchBar.searchLabel_textColor = UIColor.darkGray
-        
-        ///Modify properties of the suggestionsView
         self.searchBar.suggestionsView_backgroundColor = UIColor.lightGray
         self.searchBar.suggestionsView_contentViewColor = UIColor(red: 244/255.0, green: 244/255.0, blue: 244/255.0, alpha: 0.3)
         self.searchBar.suggestionsView_separatorStyle = .singleLine
@@ -98,7 +76,7 @@ extension MainViewController: ModernSearchBarDelegate {
         self.searchBar.layer.borderColor = UIColor.white.cgColor
     }
     
-
+    //Search Bar Pop up
     @IBAction func search(_ sender: Any) {
         if searchBar.isHidden {
             searchBar.isHidden = false
@@ -107,6 +85,4 @@ extension MainViewController: ModernSearchBarDelegate {
             searchBar.isHidden = true
         }
     }
-    
-    
 }

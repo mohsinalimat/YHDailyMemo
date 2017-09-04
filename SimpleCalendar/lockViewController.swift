@@ -55,14 +55,14 @@ private extension PasswordLoginViewController {
     }
     
     func validationSuccess() {
-        print("*️⃣ success!")
+        print("success!")
         let loginVC = storyboard?.instantiateViewController(withIdentifier: "MainViewController")
         loginVC?.modalTransitionStyle = .crossDissolve
         self.present(loginVC!, animated: true, completion: nil)
     }
     
     func validationFail() {
-        print("*️⃣ failure!")
+        print("failure!")
         passwordContainerView.wrongPassword()
     }
 }

@@ -31,14 +31,21 @@ class KeyboardAccessoryToolbar: UIToolbar {
         
         let insertBarButton = UIBarButtonItem(image: UIImage(named: "Line.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertBar))
         let insertDotButton = UIBarButtonItem(image: UIImage(named: "Dot.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertDot))
+        
+        let insertTabButton = UIBarButtonItem(image: UIImage(named: "Dot.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertTab))
+        
+        let insertQuoteButton = UIBarButtonItem(image: UIImage(named: "Dot.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertQuote))
+        
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(KeyboardAccessoryToolbar.done))
         
         insertBarButton.tintColor = UIColor.hexStr("69B1A4")
         insertDotButton.tintColor = UIColor.hexStr("69B1A4")
         doneBarButton.tintColor = UIColor.hexStr("69B1A4")
+        insertTabButton.tintColor = UIColor.hexStr("69B1A4")
+        insertQuoteButton.tintColor = UIColor.hexStr("69B1A4")
         
-        items = [insertBarButton,flexibleSpace, insertDotButton, flexibleSpace, doneBarButton]
+        items = [insertBarButton, flexibleSpace, insertDotButton, flexibleSpace, insertTabButton, flexibleSpace, insertQuoteButton, flexibleSpace, doneBarButton]
     }
     
     func done() {
@@ -69,7 +76,28 @@ class KeyboardAccessoryToolbar: UIToolbar {
     
     func insertDot() {
         if let textView = currentView as? UITextView {
-            textView.insertText("  ∙  ")
+            textView.insertText("  •  ")
+        }
+    }
+    
+    func insertTab() {
+        if let textView = currentView as? UITextView {
+            textView.insertText("      ")
+        }
+    }
+    
+    func insertQuote() {
+        if let textView = currentView as? UITextView {
+            var quote = ""
+            getRandomQuote(){success, result , error in
+                if error == nil {
+                    quote = result
+                }
+            }
+            
+            textView.insertText("\n")
+            textView.insertText(quote)
+            textView.insertText("\n")
         }
     }
     
@@ -85,14 +113,6 @@ class KeyboardAccessoryToolbar: UIToolbar {
             }
         }
     }
-    
-    /*
-     // Only override drawRect: if you perform custom drawing.
-     // An empty implementation adversely affects performance during animation.
-     override func drawRect(rect: CGRect) {
-     // Drawing code
-     }
-     */
     
 }
 

@@ -12,8 +12,8 @@ import JTAppleCalendar
 
 
 //MARK: Calendar Cell & Data Source
-
 extension MainViewController: JTAppleCalendarViewDelegate {
+    
     //MARK: Calendar Start & End
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         let formatter = DateFormatter()
@@ -27,8 +27,7 @@ extension MainViewController: JTAppleCalendarViewDelegate {
         
         let parameters = ConfigurationParameters(startDate: startDate,
                                                  endDate: endDate,
-                                                 generateOutDates: .tillEndOfRow
-                                                 )
+                                                 generateOutDates: .tillEndOfRow)
         return parameters
     }
 }
@@ -102,7 +101,7 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         
             //Get Holiday
             if let displayHoliday = getHoliday(date: self.selectedDateData) {
-                displayHolidayandLunadate = "\(displayHoliday) | \(displayLunaday)"
+                displayHolidayandLunadate = "\(displayHoliday)"
             } else {
                 displayHolidayandLunadate = "\(displayLunaday)"
             }
@@ -149,4 +148,77 @@ extension MainViewController: JTAppleCalendarViewDataSource {
         //MARK: Set Monthly Memo
         self.monthlyMemoButton.setTitle(setMonthlyButtonTitle(date: date),for: .normal)
     }
+    
+    func handleCellTextColor(view: JTAppleCell?, cellState: CellState){
+        guard let validCell = view as? CalendarCustomCell else { return }
+        
+        //Selected Month
+        if cellState.dateBelongsTo == .thisMonth{
+            validCell.dateLabel.textColor = UIColor.darkGray
+        } else {
+            validCell.dateLabel.textColor = UIColor.lightGray
+        }
+        
+        //Sunday
+        if cellState.day == .sunday{
+            validCell.dateLabel.textColor = UIColor(red: 255/255.0, green: 32/255.0, blue: 0/255.0, alpha: 0.6)
+        }
+        
+        //Holiday
+        if let _ = getHoliday(date: cellState.date as NSDate) {
+            validCell.dateLabel.textColor = UIColor(red: 255/255.0, green: 32/255.0, blue: 0/255.0, alpha: 0.6)
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yy"
+        formatter.timeZone = Calendar.current.timeZone
+        formatter.locale = Calendar.current.locale
+        
+        //Has Alarm
+        for cell in aplicationDelegate.alarmList {
+            if cell.identifier == formatter.string(from: cellState.date) {
+                validCell.dateLabel.textColor = UIColor.hexStr("2873D2")
+                break
+            }
+        }
+    }
+    
+    func handleCellSelected(view: JTAppleCell?, cellState: CellState){
+        guard let validCell = view as? CalendarCustomCell else { return }
+        
+        func todayCheck(){
+            // Today Check
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy MM dd"
+            formatter.locale = Calendar.current.locale
+            formatter.timeZone = Calendar.current.timeZone
+            
+            if formatter.string(from: cellState.date) == todayString {
+                validCell.selectedCell.isHidden = false
+                validCell.selectedCell.backgroundColor = UIColor(red: 79/255.0, green: 179/255.0, blue: 156/255.0, alpha: 0.3)
+            }
+        }
+        
+        //Selected Day
+        if validCell.isSelected {
+            validCell.selectedCell.isHidden = false
+            validCell.selectedCell.backgroundColor = UIColor(red: 79/255.0, green: 179/255.0, blue: 156/255.0, alpha: 0.7)
+        } else {
+            validCell.selectedCell.isHidden = true
+            todayCheck()
+        }
+    }
+    
+    //Header Title : Month/Year
+    func setupViewOfCalendar(from visibleDates: DateSegmentInfo){
+        let date = visibleDates.monthDates.first!.date
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "MMMM YYYY"
+        formatter.locale = Calendar.current.locale
+        formatter.timeZone = Calendar.current.timeZone
+        
+        self.monthYear.text = formatter.string(from: date)
+    }
+
 }

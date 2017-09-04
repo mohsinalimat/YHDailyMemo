@@ -16,7 +16,6 @@ func lunaDate( Soldate: NSDate)-> String? {
     formatter.dateFormat = "MM/dd/yyyy"
     let selectedDate = formatter.string(from: Soldate as Date)
     
-    //MARK: If set up as Korean Holiday
     if let result = lunaday.dates[selectedDate] {
         let index = result.index(result.startIndex, offsetBy: 5)
         return result.substring(to: index)
