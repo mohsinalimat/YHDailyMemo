@@ -31,10 +31,8 @@ class KeyboardAccessoryToolbar: UIToolbar {
         
         let insertBarButton = UIBarButtonItem(image: UIImage(named: "Line.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertBar))
         let insertDotButton = UIBarButtonItem(image: UIImage(named: "Dot.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertDot))
-        
-        let insertTabButton = UIBarButtonItem(image: UIImage(named: "Dot.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertTab))
-        
-        let insertQuoteButton = UIBarButtonItem(image: UIImage(named: "Dot.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertQuote))
+        let insertTabButton = UIBarButtonItem(image: UIImage(named: "tab.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertTab))
+        let insertQuoteButton = UIBarButtonItem(image: UIImage(named: "quote.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertQuote))
         
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(KeyboardAccessoryToolbar.done))
@@ -88,16 +86,20 @@ class KeyboardAccessoryToolbar: UIToolbar {
     
     func insertQuote() {
         if let textView = currentView as? UITextView {
-            var quote = ""
-            getRandomQuote(){success, result , error in
-                if error == nil {
-                    quote = result
+            let pashingQuoteQueue = DispatchQueue(label: "pashingQuoteQueue", attributes: [])
+            pashingQuoteQueue.async{ () -> Void in
+                getRandomQuote(){result , error in
+                    if error == nil {
+                        let temp = (result!.replacingOccurrences(of: "<p>", with: ""))
+                        let quote = (temp.replacingOccurrences(of: "</p>", with: ""))
+                        DispatchQueue.main.async {
+                            textView.insertText("\n")
+                            textView.insertText(quote)
+                            textView.insertText("\n")
+                        }
+                    }
                 }
             }
-            
-            textView.insertText("\n")
-            textView.insertText(quote)
-            textView.insertText("\n")
         }
     }
     

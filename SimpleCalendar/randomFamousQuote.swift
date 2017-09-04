@@ -9,52 +9,49 @@
 import Foundation
 import UIKit
 
-func getRandomQuote(completionHandler: @escaping (_ success: Bool,_ result: String,_ errorMessage: String?) -> Void ){
+
+func getRandomQuote(completionHandler: @escaping (_ results: String?, _ error: NSError?) -> Void ) {
     
-    // create session and request
+    let request = NSMutableURLRequest(url: URL(string: "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1")!)
     let session = URLSession.shared
     
-    let request = URLRequest(url: URL(string:"http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1")!)
     
-    // create network request
-    let task = session.dataTask(with: request) { (data, response, error) in
-        
-        // if an error occurs, print it and re-enable the UI
-        func displayError(_ error: String) {
-            print(error)
-            completionHandler(false, "", error)
+    let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
+        if error == nil {
+            guard let data = data else {
+                return
+            }
+            
+            //Raw JASON to JSON
+            let rawData = NSString(data: data, encoding: String.Encoding.utf8.rawValue)!
+            let rawData2 = rawData.replacingOccurrences(of: "[", with: "")
+            let rawData3 = rawData2.replacingOccurrences(of: "]", with: "")
+            let rawData4 = rawData3.replacingOccurrences(of: "&#8217;", with: "'")
+            
+            //JSON to Dictionary
+            let newData = converToDictionary(rawData4 as String)
+            
+            let quote = "\(String(describing: newData!["content"]!)) -\(String(describing: newData!["title"]!))"
+            
+            //return data
+            completionHandler(quote, nil)
+            
+        }else {
+            //Error
+            completionHandler("", error as NSError?)
         }
-        
-        /* GUARD: Was there an error? */
-        guard (error == nil) else {
-            displayError("There was an error with your request: \(String(describing: error))")
-            return
-        }
-        
-        /* GUARD: Did we get a successful 2XX response? */
-        guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-            displayError("Your request returned a status code other than 2xx!")
-            return
-        }
-        
-        /* GUARD: Was there any data returned? */
-        guard let data = data else {
-            displayError("No data was returned by the request!")
-            return
-        }
-        
-        // parse the data
-        let parsedResult: [String:AnyObject]!
-        do {
-            parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
-        } catch {
-            displayError("Could not parse the data as JSON: '\(data)'")
-            return
-        }
-        
-        completionHandler(true, "\(String(describing: parsedResult["content"])) -\(String(describing: parsedResult["title"]))", nil)
-    }
-    
-    // start the task!
+    })
     task.resume()
+}
+
+
+func converToDictionary(_ text: String) -> [String:Any]?{
+    if let data = text.data(using: .utf8){
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+        } catch {
+            print("ConvertToDictionary Error: " + error.localizedDescription)
+        }
+    }
+    return nil
 }

@@ -35,7 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.lunarCalendar = false
             settingRealmUpdate (lock: self.lock, password: self.password, holiday: self.holiday, luna: self.lunarCalendar)
             
-            self.firstTime = true
+            self.firstTime = false
             
         } else {
             //Restore Set Up
