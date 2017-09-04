@@ -34,7 +34,7 @@ extension MainViewController {
             }
         }
         
-        alert.addAction(UIAlertAction(title: "DELETE", style: .destructive, handler: { [] (_) in
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [] (_) in
             if self.monthlyMemoButton.titleLabel?.text != "set monthly memo" {
                 deleteQueryMonthlyMemo(date: self.displayMonth)
             }

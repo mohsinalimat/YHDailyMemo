@@ -25,7 +25,7 @@ class GMDatePicker: UIView {
         
         var startDate: Date?
         
-        var confirmButtonTitle = "Confirm"
+        var confirmButtonTitle = "Set"
         var cancelButtonTitle = "Cancel"
         var buttonFontSize:CGFloat = 14
         

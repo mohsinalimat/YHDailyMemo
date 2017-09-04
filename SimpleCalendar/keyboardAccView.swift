@@ -29,10 +29,15 @@ class KeyboardAccessoryToolbar: UIToolbar {
     // MARK: - Custom bar items
     func addBarItems() {
         
-        let insertBarButton = UIBarButtonItem(image: UIImage(named: "weatehr_cloud.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertBar))
-        let insertDotButton = UIBarButtonItem(image: UIImage(named: "weatehr_cloud.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertDot))
+        let insertBarButton = UIBarButtonItem(image: UIImage(named: "Line.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertBar))
+        let insertDotButton = UIBarButtonItem(image: UIImage(named: "Dot.png"), style: UIBarButtonItemStyle(rawValue: 0)!, target: self, action: #selector(KeyboardAccessoryToolbar.insertDot))
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         let doneBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(KeyboardAccessoryToolbar.done))
+        
+        insertBarButton.tintColor = UIColor.hexStr("69B1A4")
+        insertDotButton.tintColor = UIColor.hexStr("69B1A4")
+        doneBarButton.tintColor = UIColor.hexStr("69B1A4")
+        
         items = [insertBarButton,flexibleSpace, insertDotButton, flexibleSpace, doneBarButton]
     }
     

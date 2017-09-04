@@ -45,7 +45,7 @@
                                         </scopeButtonTitles>
                                     </searchBar>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gu7-Ry-9Dx" userLabel="Master Stack View">
-                                        <rect key="frame" x="0.0" y="54" width="375" height="527"/>
+                                        <rect key="frame" x="0.0" y="54" width="375" height="523"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MFQ-ZD-jr7" userLabel="Top Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
@@ -62,7 +62,7 @@
                                                                             <constraint firstAttribute="width" constant="30" id="FT5-Au-xq4"/>
                                                                             <constraint firstAttribute="height" constant="30" id="bOr-oR-iSV"/>
                                                                         </constraints>
-                                                                        <state key="normal" title="setting" image="icon_setup"/>
+                                                                        <state key="normal" title="setting" image="Setup-Small-40"/>
                                                                         <connections>
                                                                             <segue destination="Wvd-4X-cB2" kind="show" id="kYk-QJ-AXy"/>
                                                                         </connections>
@@ -79,7 +79,7 @@
                                                                             <constraint firstAttribute="height" constant="30" id="KH9-a9-TRU"/>
                                                                             <constraint firstAttribute="width" constant="30" id="WNe-GP-ckB"/>
                                                                         </constraints>
-                                                                        <state key="normal" title="Button" image="icon_search"/>
+                                                                        <state key="normal" title="Button" image="Search-Small-40"/>
                                                                         <connections>
                                                                             <action selector="search:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dau-Iy-Dd2"/>
                                                                         </connections>
@@ -90,7 +90,7 @@
                                                                 <rect key="frame" x="0.0" y="31" width="355" height="30"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BnS-Cf-Asm">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+                                                                        <rect key="frame" x="0.0" y="1" width="355" height="29"/>
                                                                         <fontDescription key="fontDescription" name="AvenirLTStd-Light" family="Avenir LT Std" pointSize="17"/>
                                                                         <state key="normal" title="Monthly Memo">
                                                                             <color key="titleColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,7 +105,6 @@
                                                                     <constraint firstAttribute="trailing" secondItem="BnS-Cf-Asm" secondAttribute="trailing" id="IwC-OQ-dos"/>
                                                                     <constraint firstAttribute="bottom" secondItem="BnS-Cf-Asm" secondAttribute="bottom" id="gCh-co-IwL"/>
                                                                     <constraint firstAttribute="height" constant="30" id="jch-0F-vUv"/>
-                                                                    <constraint firstItem="BnS-Cf-Asm" firstAttribute="top" secondItem="o6L-22-YTn" secondAttribute="top" id="w6E-ZQ-Dp5"/>
                                                                 </constraints>
                                                             </stackView>
                                                         </subviews>
@@ -300,16 +299,16 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dga-yl-JFl" userLabel="Body Stack View">
-                                                <rect key="frame" x="0.0" y="306" width="375" height="221"/>
+                                                <rect key="frame" x="0.0" y="306" width="375" height="217"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PHj-7E-caq" userLabel="Memo Stack View">
-                                                        <rect key="frame" x="10" y="0.0" width="355" height="221"/>
+                                                        <rect key="frame" x="10" y="0.0" width="355" height="217"/>
                                                         <subviews>
                                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1gj-Dx-ly9">
-                                                                <rect key="frame" x="0.0" y="0.0" width="355" height="88"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="355" height="0.0"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STm-8Y-ytz">
-                                                                        <rect key="frame" x="162.5" y="0.0" width="30" height="88"/>
+                                                                        <rect key="frame" x="162.5" y="0.0" width="30" height="0.0"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="30" id="75a-S5-pK0"/>
                                                                         </constraints>
@@ -322,7 +321,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" distribution="fillProportionally" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="oy0-aC-Pup">
-                                                                <rect key="frame" x="0.0" y="88" width="355" height="26"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="355" height="26"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heH-94-bWx">
                                                                         <rect key="frame" x="0.0" y="0.0" width="10" height="26"/>
@@ -351,7 +350,7 @@
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWj-32-0hK">
-                                                                        <rect key="frame" x="110" y="0.0" width="135" height="26"/>
+                                                                        <rect key="frame" x="110" y="0.0" width="135.5" height="26"/>
                                                                         <color key="backgroundColor" red="0.90588235294117647" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="26" id="Tnv-vG-TR0"/>
@@ -361,7 +360,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Independence Day" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dig-Lv-Ek0">
-                                                                        <rect key="frame" x="245" y="0.0" width="100" height="26"/>
+                                                                        <rect key="frame" x="245.5" y="0.0" width="100" height="26"/>
                                                                         <color key="backgroundColor" red="0.90588235294117647" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="100" id="2kE-tF-lso"/>
@@ -372,7 +371,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLr-fK-JHk">
-                                                                        <rect key="frame" x="345" y="0.0" width="10" height="26"/>
+                                                                        <rect key="frame" x="345.5" y="0.0" width="9.5" height="26"/>
                                                                         <color key="backgroundColor" red="0.89641600847244263" green="0.90891605615615845" blue="0.90923857688903809" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="10" id="cKx-pB-EFZ"/>
@@ -395,7 +394,7 @@
                                                                 </constraints>
                                                             </stackView>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HhZ-8k-7EW">
-                                                                <rect key="frame" x="0.0" y="114" width="355" height="107"/>
+                                                                <rect key="frame" x="0.0" y="26" width="355" height="191"/>
                                                                 <color key="backgroundColor" red="0.9070448968" green="0.91602553929999997" blue="0.91602553929999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="AvenirLTStd-Light" family="Avenir LT Std" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
@@ -421,23 +420,26 @@
                                         </subviews>
                                     </stackView>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RFL-Yy-66h">
-                                        <rect key="frame" x="0.0" y="595" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="591" width="375" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="48" id="Gvg-8C-cUb"/>
+                                        </constraints>
                                         <items>
-                                            <barButtonItem image="icon_left" id="7du-jS-E6g">
+                                            <barButtonItem image="Left-Small-40" style="plain" id="7du-jS-E6g">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="previousMemo:" destination="BYZ-38-t0r" id="yDG-WW-bPo"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="9Ln-Zs-R1b"/>
-                                            <barButtonItem image="icon_today" id="CFV-cc-qwc">
+                                            <barButtonItem image="Today-Small-40" id="CFV-cc-qwc">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="goToToday:" destination="BYZ-38-t0r" id="aQO-XZ-OMO"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="8J0-35-6vf"/>
-                                            <barButtonItem image="icon_alarm" id="sLY-bi-2cu">
+                                            <barButtonItem image="Alarm-Small-40" id="sLY-bi-2cu">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="setUpAlarm:" destination="BYZ-38-t0r" id="izU-mL-9Wv"/>
@@ -445,20 +447,21 @@
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="NzF-uV-I1U"/>
-                                            <barButtonItem image="icon_trashcan" id="KYs-aZ-Jjl">
+                                            <barButtonItem image="Delete-Small-40" id="KYs-aZ-Jjl">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="deleteMemo:" destination="BYZ-38-t0r" id="Pd7-xE-ywJ"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem style="plain" systemItem="flexibleSpace" id="Zu1-zY-OZ6"/>
-                                            <barButtonItem image="icon_right" id="lzB-SB-NCU">
+                                            <barButtonItem image="Right-Small-40" id="lzB-SB-NCU">
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <connections>
                                                     <action selector="nextMemo:" destination="BYZ-38-t0r" id="ihP-FT-q5G"/>
                                                 </connections>
                                             </barButtonItem>
                                         </items>
+                                        <color key="tintColor" red="0.458271324634552" green="0.77648228406906128" blue="0.71689671277999878" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="barTintColor" red="0.30980392159999998" green="0.70196078429999997" blue="0.61176470589999998" alpha="1" colorSpace="calibratedRGB"/>
                                     </toolbar>
                                 </subviews>
@@ -523,7 +526,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dCT-C9-CaU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Alarm" id="4dU-cF-6Xs"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZFg-vm-vYt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZFg-vm-vYt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -594,7 +597,7 @@
             <objects>
                 <navigationController id="Wvd-4X-cB2" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Eth-8F-kpF"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f77-ch-GUK">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f77-ch-GUK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -868,13 +871,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon_alarm" width="30" height="30"/>
-        <image name="icon_left" width="26" height="26"/>
-        <image name="icon_right" width="26" height="26"/>
-        <image name="icon_search" width="60" height="60"/>
-        <image name="icon_setup" width="60" height="60"/>
-        <image name="icon_today" width="30" height="30"/>
-        <image name="icon_trashcan" width="30" height="30"/>
+        <image name="Alarm-Small-40" width="40" height="40"/>
+        <image name="Delete-Small-40" width="40" height="40"/>
+        <image name="Left-Small-40" width="40" height="40"/>
+        <image name="Right-Small-40" width="40" height="40"/>
+        <image name="Search-Small-40" width="40" height="40"/>
+        <image name="Setup-Small-40" width="40" height="40"/>
+        <image name="Today-Small-40" width="40" height="40"/>
         <image name="icon_up" width="26" height="8"/>
     </resources>
 </document>

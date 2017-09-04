@@ -46,7 +46,7 @@ class AlarmViewController: UITableViewController {
 
         cell.textLabel?.text = self.alarms[indexPath.row].title
         cell.detailTextLabel?.text = self.alarms[indexPath.row].text
-        cell.imageView?.image = UIImage(named: "weatehr_cloud.png")
+        cell.imageView?.image = UIImage(named: "Calendar.png")
         
         return cell
     }
@@ -57,8 +57,8 @@ class AlarmViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (action, index) in
-            let alertController = UIAlertController(title: "ARE YOU SURE?", message: "Your history will be gone...", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "DELETE", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+            let alertController = UIAlertController(title: "Delete Alarm", message: "Are You Sure?", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
                 
                 self.controlNotification.cancelNotification(identifier: self.alarms[indexPath.row].identifier)
                 self.alarms.remove(at: indexPath.row)

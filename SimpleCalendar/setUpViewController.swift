@@ -127,7 +127,7 @@ class setUpTableViewController: UITableViewController, SwitchChangedDelegate, MF
             if isOn {
                 if aplicationDelegate.password! == "" {
                 // Password is not set up
-                    let alertController = UIAlertController(title: "SET UP PASSWORD", message: "", preferredStyle: UIAlertControllerStyle.alert)
+                    let alertController = UIAlertController(title: "Set Up Password First", message: "", preferredStyle: UIAlertControllerStyle.alert)
                     alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
                         
                         let passwordVC = self.storyboard?.instantiateViewController(withIdentifier: "passwordViewController")
@@ -190,8 +190,8 @@ class setUpTableViewController: UITableViewController, SwitchChangedDelegate, MF
             //Set Password
             
             if self.aplicationDelegate.password != "" {
-                let alertController = UIAlertController(title: "CHANGE PASSWORD?", message: "", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "CHANGE", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
+                let alertController = UIAlertController(title: "Password", message: "Do you want to change?", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Change", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
                     
                     let passwordVC = self.storyboard?.instantiateViewController(withIdentifier: "passwordViewController")
                     passwordVC?.modalTransitionStyle = .crossDissolve
@@ -223,7 +223,7 @@ class setUpTableViewController: UITableViewController, SwitchChangedDelegate, MF
         } else if indexPath == [2,1] {
             //Delete All
             
-            let alertController = UIAlertController(title: "DELETE ALL MEMO", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
+            let alertController = UIAlertController(title: "Delete All Memo", message: "Are you sure?", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action: UIAlertAction!) in
                 
                 dailyMemoNotificationCenter().cancelNotificationAll()
