@@ -16,10 +16,10 @@
  - Realm
  - SmileLock
 
-![](/YHdailymemo.001.png)
-![](/YHdailymemo.002.png)
-![](/YHdailymemo.003.png)
-![](/YHdailymemo.004.png)
-![](/YHdailymemo.005.png)
+![](/YHdailymemo.001.jpg)
+![](/YHdailymemo.002.jpg)
+![](/YHdailymemo.003.jpg)
+![](/YHdailymemo.004.jpg)
+![](/YHdailymemo.005.jpg)
 
 
