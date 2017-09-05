@@ -242,7 +242,9 @@ class setUpTableViewController: UITableViewController, SwitchChangedDelegate, MF
             
         } else if indexPath == [3,1] {
             //Info
-            
+            let alertController = UIAlertController(title: "Info", message: "Verson 1.0 - 9/4/2017", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
         }
     }
     
