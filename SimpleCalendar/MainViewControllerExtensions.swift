@@ -94,7 +94,7 @@ extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
     
     //MARK: Search Bar Text length limit
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if (self.alertText.text?.characters.count)! >= 21 && range.length == 0 {
+        if (self.alertText.text?.characters.count)! >= 35 && range.length == 0 {
             return false
         }
         return true

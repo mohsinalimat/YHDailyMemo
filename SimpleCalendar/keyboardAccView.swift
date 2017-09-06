@@ -84,8 +84,21 @@ class KeyboardAccessoryToolbar: UIToolbar {
         }
     }
     
+
     func insertQuote() {
+        
         if let textView = currentView as? UITextView {
+            
+            var indicator = UIActivityIndicatorView()
+            
+            indicator = UIActivityIndicatorView(frame: CGRect())
+            indicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+            indicator.center = textView.center
+            textView.addSubview(indicator)
+            
+            indicator.startAnimating()
+            indicator.backgroundColor = UIColor.white
+            
             let pashingQuoteQueue = DispatchQueue(label: "pashingQuoteQueue", attributes: [])
             pashingQuoteQueue.async{ () -> Void in
                 getRandomQuote(){result , error in
@@ -93,6 +106,10 @@ class KeyboardAccessoryToolbar: UIToolbar {
                         let temp = (result!.replacingOccurrences(of: "<p>", with: ""))
                         let quote = (temp.replacingOccurrences(of: "</p>", with: ""))
                         DispatchQueue.main.async {
+                            
+                            indicator.stopAnimating()
+                            indicator.hidesWhenStopped = true
+                            
                             textView.insertText("\n")
                             textView.insertText(quote)
                             textView.insertText("\n")

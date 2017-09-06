@@ -77,7 +77,7 @@ func previewQuery(date: NSDate) -> String {
     if result.count == 0 {
         return ""
     } else {
-        return result[0].text.truncate(length: 5)
+        return result[0].text.truncate(length: 7)
     }
 }
 
