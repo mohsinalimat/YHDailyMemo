@@ -96,6 +96,7 @@ class KeyboardAccessoryToolbar: UIToolbar {
             indicator.center = textView.center
             textView.addSubview(indicator)
             
+            //MARK: Start Activity Indicator
             indicator.startAnimating()
             indicator.backgroundColor = UIColor.white
             
@@ -107,12 +108,26 @@ class KeyboardAccessoryToolbar: UIToolbar {
                         let quote = (temp.replacingOccurrences(of: "</p>", with: ""))
                         DispatchQueue.main.async {
                             
+                            //MARK: Stop Activity Indicator
                             indicator.stopAnimating()
                             indicator.hidesWhenStopped = true
                             
                             textView.insertText("\n")
                             textView.insertText(quote)
                             textView.insertText("\n")
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            
+                            //MARK: Network Fail
+                            textView.resignFirstResponder()
+                            indicator.stopAnimating()
+                            indicator.hidesWhenStopped = true
+                            
+                            let alertController = UIAlertController(title: "Network Fail", message: "Please try again later", preferredStyle: UIAlertControllerStyle.alert)
+                            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                            UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+                            
                         }
                     }
                 }
