@@ -12,7 +12,7 @@ import UIKit
 
 func getRandomQuote(completionHandler: @escaping (_ results: String?, _ error: NSError?) -> Void ) {
     
-    let request = NSMutableURLRequest(url: URL(string: "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1")!)
+    let request = NSMutableURLRequest(url: URL(string: "https://talaikis.com/api/quotes/random/")!)
     let session = URLSession.shared
     
     
@@ -31,7 +31,7 @@ func getRandomQuote(completionHandler: @escaping (_ results: String?, _ error: N
             //JSON to Dictionary
             let newData = converToDictionary(rawData4 as String)
             
-            let quote = "\(String(describing: newData!["content"]!)) -\(String(describing: newData!["title"]!))"
+            let quote = "\(String(describing: newData!["quote"]!)) -\(String(describing: newData!["author"]!))"
             
             //return data
             completionHandler(quote, nil)
