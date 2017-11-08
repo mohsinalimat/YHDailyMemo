@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var text: UITextView!
     @IBOutlet weak var monthYear: UILabel!
 
+    @IBOutlet weak var calendarStacView: UIStackView!
     @IBOutlet weak var topStackView: UIStackView!
     @IBOutlet weak var bodyStackView: UIStackView!
     @IBOutlet weak var masterStackView: UIStackView!

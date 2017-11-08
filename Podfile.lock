@@ -12,6 +12,12 @@ PODS:
   - Realm/Headers (2.9.1)
   - RealmSwift (2.9.1):
     - Realm (= 2.9.1)
+  - RxCocoa (3.6.1):
+    - RxSwift (~> 3.6)
+  - RxKeyboard (0.6.2):
+    - RxCocoa (>= 3.4)
+    - RxSwift (>= 3.4)
+  - RxSwift (3.6.1)
   - SmileLock (2.0.2)
 
 DEPENDENCIES:
@@ -21,6 +27,7 @@ DEPENDENCIES:
   - PinCodeTextField (from `https://github.com/tkach/PinCodeTextField`)
   - Realm (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
   - RealmSwift (from `https://github.com/realm/realm-cocoa.git`, branch `master`)
+  - RxKeyboard
   - SmileLock
 
 EXTERNAL SOURCES:
@@ -55,8 +62,11 @@ SPEC CHECKSUMS:
   PinCodeTextField: 1248da9733734692d598941a5a0866af1ffc5e0a
   Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   RealmSwift: 9b93f053d46d4fc4145e691c14eb06b5410ffdc9
+  RxCocoa: 84a08739ab186248c7f31ce4ee92d6f8a947d690
+  RxKeyboard: 09e6bd45070888cd9701e941b2324a49cc974a1b
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SmileLock: 7ae1e174b4697c0a33882dab838fc0bea94432f4
 
-PODFILE CHECKSUM: 6bbe3b140c9563a5241975c6843023b240fe6367
+PODFILE CHECKSUM: 31bca2bd2cf78f17b11f379c36bdd4c6e3f5343f
 
 COCOAPODS: 1.2.0

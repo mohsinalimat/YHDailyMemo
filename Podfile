@@ -11,6 +11,7 @@ target 'SimpleCalendar' do
   pod 'ActionSheetPicker-3.0', '~> 2.2.0'
   pod 'ModernSearchBar'
   pod 'SmileLock'
+  pod 'RxKeyboard'
   pod 'PinCodeTextField', :git => "https://github.com/tkach/PinCodeTextField"
 
 pod 'Realm', git: 'https://github.com/realm/realm-cocoa.git', branch: 'master', :submodules => true

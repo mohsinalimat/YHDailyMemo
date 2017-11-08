@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 import JTAppleCalendar
 import RealmSwift
+import RxKeyboard
+
 
 
 
@@ -30,8 +32,6 @@ extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
             topStackView.isHidden = true
             toolBar.isHidden = true
             
-            self.view.frame.origin.y -= keyboardHeight(notification)
-
             iconUp.isHidden = false
             deleteAlarmButton.isEnabled = false
             
@@ -60,7 +60,6 @@ extension MainViewController: UITextFieldDelegate, UITextViewDelegate {
         if keyboardOnScreen && text.isFirstResponder {
             topStackView.isHidden = false
             toolBar.isHidden = false
-            self.view.frame.origin.y += keyboardHeight(notification)
             iconUp.isHidden = true
             deleteAlarmButton.isEnabled = true
             calendarCollectionView.scrollToDate(self.selectedDateData as Date)
